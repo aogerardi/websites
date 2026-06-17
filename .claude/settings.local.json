@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(echo \"=== Sites \\(cwd\\) ===\" && ls -la \"c:/Users/alexa/.claude/Sites\" 2>&1 | head -50 && echo \"\" && echo \"=== .claude folder ===\" && ls -la \"c:/Users/alexa/.claude\" 2>&1 | head -50)",
+      "Read(//c/Users/alexa/.claude/**)"
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sample 4 — Minimal & Elegant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#fafafa;--fg:#111;--muted:#6b6b6b;--accent:#111;--band:#111;--border:#e5e5e5;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"Inter",system-ui,sans-serif;color:var(--fg);background:var(--bg);line-height:1.65;}
+  h1,h2,h3,.brand{font-family:"Fraunces",Georgia,serif;font-weight:600;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 1.5rem;}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1.4rem 1.5rem;border-bottom:1px solid var(--border);}
+  .brand{font-size:1.35rem;letter-spacing:-.01em;}
+  .links{display:flex;gap:1.75rem;list-style:none;font-size:.92rem;}
+  .links a{color:var(--fg);text-decoration:none;}
+  .btn{display:inline-block;background:var(--accent);color:#fff;padding:.7rem 1.5rem;border-radius:4px;font-weight:500;text-decoration:none;font-size:.92rem;font-family:"Inter",sans-serif;}
+  .hero{text-align:center;padding:6rem 0 4rem;}
+  .eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:600;color:var(--muted);}
+  h1{font-size:clamp(2.6rem,7vw,4.2rem);line-height:1.08;letter-spacing:-.02em;margin:1rem 0;}
+  .sub{max-width:520px;margin:0 auto 2.2rem;color:var(--muted);font-size:1.1rem;}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;padding:2rem 0 5rem;border-top:1px solid var(--border);}
+  .card h3{font-size:1.25rem;margin-bottom:.5rem;}
+  .card p{color:var(--muted);font-size:.95rem;}
+  .band{background:var(--band);color:#fafafa;text-align:center;padding:4rem 1.5rem;}
+  .band h2{font-size:2.1rem;margin-bottom:1.2rem;}
+  @media(max-width:760px){.cards{grid-template-columns:1fr;gap:2rem;}.links{display:none;}}
+</style>
+</head>
+<body>
+  <nav>
+    <span class="brand">Atlas</span>
+    <ul class="links"><li><a href="#">Services</a></li><li><a href="#">Work</a></li><li><a href="#">About</a></li></ul>
+    <a class="btn" href="#">Get a Quote</a>
+  </nav>
+  <div class="wrap">
+    <section class="hero">
+      <p class="eyebrow">Web Design for Small Business</p>
+      <h1>Modern websites, honest prices.</h1>
+      <p class="sub">Clean, fast websites for small businesses with an outdated site — or none at all.</p>
+      <a class="btn" href="#">Get a Free Quote</a>
+    </section>
+    <section class="cards">
+      <div class="card"><h3>Custom Websites</h3><p>Mobile-friendly sites built around your business.</p></div>
+      <div class="card"><h3>Redesigns</h3><p>Modernize an old, slow, hard-to-update site.</p></div>
+      <div class="card"><h3>Templates</h3><p>Ready-made designs for trades. Launch fast.</p></div>
+    </section>
+  </div>
+  <section class="band">
+    <h2>Agency-quality work, without the agency price.</h2>
+    <a class="btn" href="#">Start a Project</a>
+  </section>
+</body>
+</html>
