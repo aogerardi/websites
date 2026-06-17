@@ -1,4 +1,4 @@
-// [Agency Name] — base interactivity
+// Piedmondo — base interactivity
 
 /* ---------- Mobile nav toggle ---------- */
 const toggle = document.querySelector('.nav-toggle');
@@ -34,6 +34,7 @@ if (form) {
     const data = new FormData(form);
     const name = (data.get('name') || '').toString().trim();
     const email = (data.get('email') || '').toString().trim();
+    const phone = (data.get('phone') || '').toString().trim();
     const business = (data.get('business') || '').toString().trim();
     const message = (data.get('message') || '').toString().trim();
 
@@ -49,6 +50,7 @@ if (form) {
     const body =
       `Name: ${name}\n` +
       `Email: ${email}\n` +
+      `Phone: ${phone || '—'}\n` +
       `Business / Website: ${business || '—'}\n\n` +
       `What they need:\n${message}\n`;
 

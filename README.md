@@ -1,4 +1,4 @@
-# [Agency Name] — Homesite
+# Piedmondo — Homesite
 
 The agency's own marketing site + portfolio. Plain HTML/CSS/JS — no build step, no
 frameworks. Open `index.html` in a browser to view it.
@@ -12,21 +12,24 @@ Sites/
 ├─ main.js           Mobile nav toggle + contact-form handler
 ├─ README.md         This file
 ├─ assets/
-│  ├─ favicon.svg        Tab icon (placeholder mark — swap for your logo)
+│  ├─ piedmondo-mark.svg       Logo mark (mountains + ring) — used as favicon + nav/footer brand
+│  ├─ piedmondo-mark-white.svg White version of the mark, for dark backgrounds
+│  ├─ piedmondo-lockup.svg     Mark + "Piedmondo" wordmark
+│  ├─ piedmondo-mark-512/1024.png  Raster marks (social, print)
+│  ├─ favicon-16.png / favicon-32.png / apple-touch-icon-180.png  Browser/iOS icons
+│  ├─ favicon.svg        Old placeholder mark (unused — kept for reference)
 │  ├─ placeholder.svg    "Screenshot coming soon" fallback for project images
-│  ├─ mineralcalc.png    ← add screenshot (16:9, ~1200×675)
-│  ├─ giland.png         ← add screenshot
-│  ├─ portfolio.png      ← add screenshot
-│  ├─ lawncare.png       ← add screenshot
-│  └─ pools.png          ← add screenshot
+│  ├─ mineralcalc.png    Portfolio screenshot
+│  └─ giland.png         Portfolio screenshot
 └─ samples/          5 throwaway theme mockups used to pick the look (kept for reference)
 ```
 
 ## How to edit the common things
 
 ### Change the agency name
-The name is the placeholder text **`[Agency Name]`**. Find-and-replace every
-`[Agency Name]` in `index.html` (appears in the title, nav brand, OG tags, and footer).
+The agency is named **Piedmondo** ("foot of the world"). The name appears in
+`index.html` (title, nav brand, OG tags, footer), the templates' footers, and the
+`templates/` index. To rename, find-and-replace `Piedmondo` across the repo.
 
 ### Change the colors / fonts
 Everything is driven by CSS variables at the top of `styles.css` under `:root`.
@@ -52,7 +55,7 @@ All content is plain text in `index.html`, grouped by clearly labeled
 
 Right now the form (in `main.js`) opens the visitor's email app pre-filled and sends
 to the address in `data-contact-email` on the `<form>` in `index.html`
-(currently `alexogerardi@gmail.com` — swap for a business email when you have one).
+(currently `gerardienergy@gmail.com`).
 
 **To collect submissions straight to an inbox** (no email app needed), sign up for a
 free form backend and point the form at it:
@@ -63,8 +66,8 @@ free form backend and point the form at it:
 ## Before going live (to-do)
 
 - [ ] Pick the agency name + replace `[Agency Name]`
-- [ ] Replace `favicon.svg` with a real logo/monogram
-- [ ] Add the 4 project screenshots in `assets/`
+- [x] Replace placeholder favicon with the real Piedmondo logo (`piedmondo-mark.svg`)
+- [ ] Add the 2 project screenshots in `assets/` (`mineralcalc.png`, `giland.png`)
 - [ ] Decide on a business email for the contact form
 - [ ] Add a real `assets/og-image.png` (1200×630) for social sharing
 - [ ] Buy a domain + choose hosting (e.g. Netlify, Cloudflare Pages, GitHub Pages — all free for a static site)

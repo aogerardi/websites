@@ -1,5 +1,5 @@
 /* =========================================================
-   [Agency Name] — base styles
+   Piedmondo — base styles
    Theme: Minimal & Elegant (Sample 4)
    Fraunces serif headings + Inter body, black & white.
    ========================================================= */
@@ -81,12 +81,16 @@ a:hover { text-decoration: underline; }
   justify-content: space-between;
 }
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   font-family: var(--font-head);
   font-weight: 600;
   font-size: 1.4rem;
   color: var(--fg);
   letter-spacing: -0.01em;
 }
+.brand-mark { width: 1.55em; height: 1.55em; display: block; }
 .nav-links {
   list-style: none;
   display: flex;
@@ -433,7 +437,7 @@ a.project-thumb:hover img { transform: scale(1.03); }
   padding-bottom: 2rem;
   border-bottom: 1px solid var(--border);
 }
-.footer-brand .brand { display: block; margin-bottom: 0.5rem; }
+.footer-brand .brand { display: inline-flex; margin-bottom: 0.5rem; }
 .footer-brand p { color: var(--muted); font-size: 0.9rem; max-width: 26ch; }
 .footer-nav { display: flex; flex-direction: column; gap: 0.6rem; }
 .footer-nav a { color: var(--fg); font-size: 0.92rem; }

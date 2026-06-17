@@ -10,12 +10,11 @@ Status legend: ✅ done · 🟡 in progress · ⬜ not started
 ## Phase 1 — Brand & Identity  🟡
 The one real blocker. Everything public-facing waits on a name.
 
-- ⬜ **Pick the agency name.** ("Groundwork" is out — domain taken.) Check `.com`
-  availability *before* committing (Namecheap / Cloudflare).
-- ⬜ Replace the `[Agency Name]` placeholder everywhere (homesite + all templates).
+- ✅ **Pick the agency name → Piedmondo** ("foot of the world"). Domain available & cheap.
+- ✅ Replace the `[Agency Name]` placeholder everywhere (homesite + all templates).
 - ⬜ Lock a **color palette** + confirm fonts (currently Fraunces + Inter, minimal B/W).
-- ⬜ Make a simple **logo / wordmark**; replace `assets/favicon.svg`.
-- ⬜ Decide a **business email** (e.g. hello@yourname.com) and repoint the contact form.
+- ✅ **Logo / wordmark** — Piedmondo mark (mountains + ring) + lockup; wired in as favicon and nav/footer brand on homesite + templates gallery. Old `favicon.svg` retired.
+- ✅ Decide a **business email** → `gerardienergy@gmail.com`; contact form repointed.
 
 ## Phase 2 — Finish the Homesite  🟡
 - ✅ Full structure: hero, stats, services, templates band, pricing, work, about, FAQ, contact

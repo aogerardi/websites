@@ -7,14 +7,17 @@
 
   <!-- Social / Open Graph (swap URL + image once the domain is live) -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="[Agency Name] — Affordable Websites for Small Businesses" />
+  <meta property="og:title" content="Piedmondo — Affordable Websites for Small Businesses" />
   <meta property="og:description" content="Modern, mobile-friendly websites for small businesses. Flat-rate pricing, no agency markup." />
   <meta property="og:image" content="assets/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <title>[Agency Name] — Affordable Websites for Small Businesses</title>
+  <title>Piedmondo — Affordable Websites for Small Businesses</title>
 
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="assets/piedmondo-mark.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon-180.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -24,7 +27,10 @@
   <!-- ============ HEADER / NAV ============ -->
   <header class="site-header">
     <nav class="nav" aria-label="Primary">
-      <a href="#top" class="brand">[Agency Name]</a>
+      <a href="#top" class="brand">
+        <img src="assets/piedmondo-mark.svg" alt="" aria-hidden="true" class="brand-mark" />
+        Piedmondo
+      </a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -242,39 +248,6 @@
             </p>
             <a href="https://aogerardi.github.io/Giland/" target="_blank" rel="noopener" class="project-link">Visit site &rarr;</a>
           </article>
-
-          <article class="card project">
-            <a href="https://aogerardi.github.io/" target="_blank" rel="noopener" class="project-thumb">
-              <img src="assets/portfolio.png" alt="Screenshot of Alex Gerardi's portfolio"
-                   onerror="this.onerror=null;this.src='assets/placeholder.svg';" />
-            </a>
-            <h3>Personal Portfolio</h3>
-            <p>
-              A custom portfolio built from scratch in HTML, CSS, and JavaScript with
-              hand-coded SVG animations — no frameworks, no templates.
-            </p>
-            <a href="https://aogerardi.github.io/" target="_blank" rel="noopener" class="project-link">Visit site &rarr;</a>
-          </article>
-
-          <article class="card project">
-            <span class="project-thumb">
-              <img src="assets/lawncare.png" alt="Lawncare business app"
-                   onerror="this.onerror=null;this.src='assets/placeholder.svg';" />
-            </span>
-            <h3>Lawncare Business App</h3>
-            <p>A custom app that helps lawncare businesses manage and run their operations.</p>
-            <a href="#contact" class="project-link">Learn more &rarr;</a>
-          </article>
-
-          <article class="card project">
-            <span class="project-thumb">
-              <img src="assets/pools.png" alt="Custom pools website"
-                   onerror="this.onerror=null;this.src='assets/placeholder.svg';" />
-            </span>
-            <h3>Custom Pools <span class="badge">In Progress</span></h3>
-            <p>A site for a small business that designs and builds custom pools.</p>
-            <a href="#contact" class="project-link">Coming soon &rarr;</a>
-          </article>
         </div>
       </div>
     </section>
@@ -334,7 +307,7 @@
           <p>Tell us about your business and we'll get back to you within a day.</p>
         </header>
         <!-- data-contact-email is read by main.js to build the message. Swap to a business address anytime. -->
-        <form class="contact-form" id="quote-form" data-contact-email="alexogerardi@gmail.com" novalidate>
+        <form class="contact-form" id="quote-form" data-contact-email="gerardienergy@gmail.com" novalidate>
           <div class="form-row">
             <label>
               Name
@@ -345,10 +318,17 @@
               <input type="email" name="email" required />
             </label>
           </div>
-          <label>
-            Business / Website (if any)
-            <input type="text" name="business" />
-          </label>
+          <div class="form-row">
+            <label>
+              Phone
+              <input type="tel" name="phone" autocomplete="tel"
+                     inputmode="tel" placeholder="(555) 123-4567" />
+            </label>
+            <label>
+              Business / Website (if any)
+              <input type="text" name="business" />
+            </label>
+          </div>
           <label>
             What do you need?
             <textarea name="message" rows="4" required></textarea>
@@ -364,7 +344,10 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <span class="brand">[Agency Name]</span>
+        <span class="brand">
+          <img src="assets/piedmondo-mark.svg" alt="" aria-hidden="true" class="brand-mark" />
+          Piedmondo
+        </span>
         <p>Affordable, modern websites for small businesses.</p>
       </div>
       <nav class="footer-nav" aria-label="Footer">
@@ -375,12 +358,12 @@
         <a href="#faq">FAQ</a>
       </nav>
       <div class="footer-contact">
-        <a href="mailto:alexogerardi@gmail.com">alexogerardi@gmail.com</a>
+        <a href="mailto:gerardienergy@gmail.com">gerardienergy@gmail.com</a>
         <a href="#contact" class="btn btn-primary footer-cta">Get a Quote</a>
       </div>
     </div>
     <div class="container footer-bottom">
-      <p>&copy; 2026 [Agency Name]. All rights reserved.</p>
+      <p>&copy; 2026 Piedmondo. All rights reserved.</p>
     </div>
   </footer>
 
