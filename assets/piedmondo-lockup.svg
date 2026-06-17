@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 140" width="600" height="140">
+  <defs></defs>
+  <g transform="translate(20,20)">
+    <circle cx="50" cy="50" r="41" fill="none" stroke="#15140f" stroke-width="6"></circle>
+    <path d="M22 71 L40 45 L52 59 L65 39 L80 71 Z" fill="#15140f"></path>
+  </g>
+  <text x="148" y="95" font-family="Fraunces, serif" font-weight="600" font-size="72" letter-spacing="-1" fill="#15140f">Piedmondo</text>
+</svg>
