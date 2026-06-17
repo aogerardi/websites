@@ -15,6 +15,7 @@ Sites/
 │  ├─ favicon.svg        Tab icon (placeholder mark — swap for your logo)
 │  ├─ placeholder.svg    "Screenshot coming soon" fallback for project images
 │  ├─ mineralcalc.png    ← add screenshot (16:9, ~1200×675)
+│  ├─ giland.png         ← add screenshot
 │  ├─ portfolio.png      ← add screenshot
 │  ├─ lawncare.png       ← add screenshot
 │  └─ pools.png          ← add screenshot
