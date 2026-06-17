@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Trattoria Lucia — authentic family Italian cooking since 1987. Handmade pasta, wood-fired classics, and warm hospitality." />
+  <title>Trattoria Lucia — Cucina Italiana</title>
+
+  <!-- TEMPLATE: Restaurant (Italian / Family). Self-contained demo for the [Agency Name] portfolio.
+       Photos load from Unsplash (swap the URLs for the client's real photos).
+       Each <img> falls back to a warm gradient if a photo fails to load. -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --cream:#faf5ea;
+      --cream-deep:#f3ebd9;
+      --paper:#fffdf8;
+      --red:#8c2f2a;
+      --red-deep:#6f231f;
+      --green:#4b5d3a;
+      --gold:#c19a4b;
+      --ink:#2a241f;
+      --muted:#766b5b;
+      --border:#e6dcc6;
+      --shadow:0 10px 40px rgba(60,40,20,.10);
+      --font-head:"Playfair Display",Georgia,serif;
+      --font-body:"Lora",Georgia,serif;
+      --font-script:"Dancing Script",cursive;
+      --max:1140px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font-body);color:var(--ink);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;}
+    h1,h2,h3,h4{font-family:var(--font-head);font-weight:600;line-height:1.15;}
+    a{color:inherit;text-decoration:none;}
+    img{display:block;max-width:100%;}
+    .container{max-width:var(--max);margin:0 auto;padding:0 1.5rem;}
+    section[id]{scroll-margin-top:90px;}
+
+    .script{font-family:var(--font-script);color:var(--red);font-weight:700;}
+    .eyebrow{font-family:var(--font-script);font-size:1.6rem;color:var(--red);}
+    .overline{text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;font-weight:600;color:var(--gold);font-family:var(--font-body);}
+
+    /* Buttons */
+    .btn{display:inline-block;font-family:var(--font-body);font-weight:500;font-size:.95rem;letter-spacing:.02em;
+         padding:.85rem 1.8rem;border-radius:2px;cursor:pointer;border:1.5px solid transparent;transition:.18s ease;}
+    .btn-primary{background:var(--red);color:#fff;}
+    .btn-primary:hover{background:var(--red-deep);}
+    .btn-outline{border-color:currentColor;color:var(--ink);}
+    .btn-outline:hover{background:var(--ink);color:var(--cream);border-color:var(--ink);}
+    .btn-light{border:1.5px solid rgba(255,255,255,.7);color:#fff;}
+    .btn-light:hover{background:#fff;color:var(--ink);}
+
+    /* Image fallback */
+    .ph{background:var(--cream-deep);position:relative;overflow:hidden;}
+    .ph.img-fallback{background:linear-gradient(135deg,#caa86f,#8c2f2a);}
+    .ph img{width:100%;height:100%;object-fit:cover;}
+
+    /* Top bar */
+    .topbar{background:var(--red-deep);color:#f6e9cf;font-size:.8rem;letter-spacing:.04em;}
+    .topbar .container{display:flex;justify-content:space-between;align-items:center;padding:.5rem 1.5rem;gap:1rem;flex-wrap:wrap;}
+    .topbar a{color:#fff;}
+
+    /* Header */
+    .site-header{position:sticky;top:0;z-index:60;background:rgba(250,245,234,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;max-width:var(--max);margin:0 auto;}
+    .logo{font-family:var(--font-head);font-size:1.5rem;font-weight:700;color:var(--red);letter-spacing:.01em;display:flex;flex-direction:column;line-height:1;}
+    .logo small{font-family:var(--font-script);font-size:.85rem;color:var(--gold);letter-spacing:0;margin-top:2px;}
+    .nav-links{list-style:none;display:flex;align-items:center;gap:1.9rem;}
+    .nav-links a{font-size:.9rem;letter-spacing:.04em;text-transform:uppercase;font-family:var(--font-body);font-weight:500;}
+    .nav-links a:hover{color:var(--red);}
+    .nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px;}
+    .nav-toggle span{width:26px;height:2px;background:var(--ink);border-radius:2px;}
+
+    /* Hero */
+    .hero{position:relative;min-height:88vh;display:flex;align-items:center;color:#fff;text-align:center;}
+    .hero .ph{position:absolute;inset:0;z-index:0;}
+    .hero .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,20,12,.55),rgba(30,20,12,.65));}
+    .hero-inner{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:5rem 1.5rem;}
+    .hero .eyebrow{color:#f3d9a6;}
+    .hero h1{font-size:clamp(2.8rem,7vw,5rem);margin:.5rem 0 1.2rem;text-shadow:0 2px 24px rgba(0,0,0,.3);}
+    .hero p{font-size:1.2rem;max-width:560px;margin:0 auto 2.2rem;color:#f6efe2;}
+    .hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+
+    /* Section scaffolding */
+    .section{padding:6rem 0;}
+    .section-cream{background:var(--cream);}
+    .section-paper{background:var(--paper);}
+    .section-deep{background:var(--red-deep);color:#f6e9cf;}
+    .section-dark{background:var(--ink);color:var(--cream);}
+    .sec-head{text-align:center;max-width:640px;margin:0 auto 3.5rem;}
+    .sec-head h2{font-size:clamp(2rem,4.5vw,3rem);margin:.4rem 0 .6rem;}
+    .sec-head p{color:var(--muted);font-size:1.08rem;}
+    .section-deep .sec-head p,.section-dark .sec-head p{color:#e9d9bd;}
+    .rule{width:60px;height:2px;background:var(--gold);margin:1rem auto 0;}
+
+    /* Story */
+    .story{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+    .story .ph{aspect-ratio:4/5;border-radius:3px;box-shadow:var(--shadow);}
+    .story-text .overline{display:block;margin-bottom:.6rem;}
+    .story-text h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:1.2rem;}
+    .story-text p{color:var(--muted);margin-bottom:1.1rem;}
+    .signature{font-family:var(--font-script);font-size:1.8rem;color:var(--red);margin-top:.5rem;}
+
+    /* Signature dishes */
+    .dish-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+    .dish{background:var(--paper);border:1px solid var(--border);border-radius:3px;overflow:hidden;box-shadow:var(--shadow);transition:transform .25s ease;}
+    .dish:hover{transform:translateY(-6px);}
+    .dish .ph{aspect-ratio:3/2;}
+    .dish-body{padding:1.5rem;}
+    .dish-body h3{font-size:1.3rem;margin-bottom:.4rem;}
+    .dish-body p{color:var(--muted);font-size:.95rem;}
+    .dish-price{display:inline-block;margin-top:.9rem;font-family:var(--font-head);color:var(--red);font-size:1.15rem;}
+
+    /* Menu */
+    .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem 4rem;max-width:980px;margin:0 auto;}
+    .menu-cat h3{font-size:1.6rem;color:var(--gold);display:flex;align-items:center;gap:.8rem;margin-bottom:1.4rem;}
+    .menu-cat h3::after{content:"";flex:1;height:1px;background:rgba(193,154,75,.35);}
+    .menu-item{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.7rem 0;border-bottom:1px dotted rgba(255,255,255,.18);}
+    .menu-item:last-child{border-bottom:0;}
+    .mi-name{font-family:var(--font-head);font-size:1.12rem;}
+    .mi-desc{display:block;font-size:.86rem;color:#cbb892;font-weight:400;font-family:var(--font-body);margin-top:2px;}
+    .mi-price{font-family:var(--font-head);color:#f3d9a6;white-space:nowrap;font-size:1.05rem;}
+    .menu-note{text-align:center;margin-top:3rem;color:#e9d9bd;font-style:italic;}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:.75rem;}
+    .gallery .ph{border-radius:2px;}
+    .gallery .ph:nth-child(1){grid-column:span 2;grid-row:span 2;}
+    .gallery .ph:nth-child(6){grid-column:span 2;}
+    .gallery .ph img{transition:transform .4s ease;}
+    .gallery .ph:hover img{transform:scale(1.06);}
+
+    /* Testimonials */
+    .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+    .quote{text-align:center;padding:2rem 1.5rem;}
+    .stars{color:var(--gold);letter-spacing:.15em;margin-bottom:1rem;}
+    .quote blockquote{font-family:var(--font-head);font-style:italic;font-size:1.15rem;margin-bottom:1rem;}
+    .quote cite{color:var(--muted);font-style:normal;font-size:.9rem;letter-spacing:.04em;text-transform:uppercase;}
+
+    /* Visit */
+    .visit{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:stretch;}
+    .visit-info h3{font-size:1.4rem;margin-bottom:.4rem;color:var(--gold);}
+    .hours-row{display:flex;justify-content:space-between;padding:.45rem 0;border-bottom:1px dotted rgba(255,255,255,.18);max-width:340px;}
+    .visit-block{margin-bottom:2rem;}
+    .visit-block p{color:#e9d9bd;}
+    .map{min-height:340px;border:0;width:100%;height:100%;border-radius:3px;filter:saturate(.9);}
+
+    /* Reserve band */
+    .reserve{text-align:center;}
+    .reserve .eyebrow{font-size:1.8rem;}
+    .reserve h2{font-size:clamp(2.2rem,5vw,3.4rem);margin:.3rem 0 1.4rem;}
+    .reserve p{max-width:520px;margin:0 auto 2rem;color:#f0e6d4;}
+
+    /* Footer */
+    .footer{background:#211c18;color:#cbb892;padding:4rem 0 2rem;}
+    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem;}
+    .footer .logo{color:#f3d9a6;margin-bottom:.8rem;}
+    .footer h4{font-family:var(--font-body);text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;color:var(--gold);margin-bottom:1rem;}
+    .footer a:hover{color:#fff;}
+    .footer-col p{margin-bottom:.4rem;font-size:.95rem;}
+    .footer-bottom{border-top:1px solid #3a322a;padding-top:1.5rem;text-align:center;font-size:.82rem;color:#9c8f78;}
+    .footer-bottom a{color:#cbb892;text-decoration:underline;}
+
+    /* Responsive */
+    @media(max-width:900px){
+      .story,.visit{grid-template-columns:1fr;gap:2.5rem;}
+      .dish-grid,.quotes{grid-template-columns:1fr;}
+      .menu-grid{grid-template-columns:1fr;gap:2.5rem;}
+      .footer-grid{grid-template-columns:1fr;}
+      .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px;}
+      .gallery .ph:nth-child(1){grid-column:span 2;}
+    }
+    @media(max-width:680px){
+      .nav-toggle{display:flex;}
+      .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;
+                 background:var(--cream);border-bottom:1px solid var(--border);padding:.5rem 1.5rem 1rem;display:none;}
+      .nav-links.open{display:flex;}
+      .nav-links li{width:100%;padding:.6rem 0;}
+      .topbar .container{justify-content:center;}
+      .gallery{grid-template-columns:1fr;}
+      .gallery .ph:nth-child(n){grid-column:span 1;grid-row:span 1;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="container">
+      <span>📍 412 Via Roma, Springfield &nbsp;•&nbsp; Tue–Sun</span>
+      <span>Reservations: <a href="tel:+15551234567">(555) 123-4567</a></span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="#top" class="logo">Trattoria Lucia<small>cucina italiana</small></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="menu">
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#menu-section">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a href="#reserve" class="btn btn-outline" style="padding:.5rem 1.1rem">Reserve</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="ph">
+        <img src="https://images.unsplash.com/photo-1498579150354-977475b7ea0b?auto=format&fit=crop&w=1920&q=80" alt="Rustic Italian table spread" />
+      </div>
+      <div class="hero-inner">
+        <p class="eyebrow">Benvenuti</p>
+        <h1>Authentic Italian,<br>Made with Love</h1>
+        <p>Three generations of family recipes, handmade pasta, and the warmth of a real Italian kitchen — in the heart of Springfield since 1987.</p>
+        <div class="hero-actions">
+          <a href="#menu-section" class="btn btn-light">View the Menu</a>
+          <a href="#reserve" class="btn btn-primary">Reserve a Table</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story -->
+    <section id="story" class="section section-paper">
+      <div class="container story">
+        <div class="ph">
+          <img src="https://images.unsplash.com/photo-1556761223-4c4282c73f77?auto=format&fit=crop&w=900&q=80" alt="Fresh pasta being made by hand" />
+        </div>
+        <div class="story-text">
+          <span class="overline">Our Story</span>
+          <h2>A Family Table, Open to You</h2>
+          <p>It started in 1987 when Nonna Lucia arrived from Bologna with a suitcase of recipes and a dream. What began as a tiny corner kitchen has grown into Springfield's most beloved trattoria — but the heart of it has never changed.</p>
+          <p>Every pasta is rolled by hand each morning. Every sauce simmers low and slow, just as it has for three generations. When you sit at our table, you're family.</p>
+          <p class="signature">— The Marchetti Family</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Signature dishes -->
+    <section class="section section-cream">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow">Le Specialità</span>
+          <h2>Signature Dishes</h2>
+          <p>The plates our regulars come back for, again and again.</p>
+          <div class="rule"></div>
+        </div>
+        <div class="dish-grid">
+          <article class="dish">
+            <div class="ph"><img src="https://images.unsplash.com/photo-1574894709920-11b28e7367e3?auto=format&fit=crop&w=700&q=80" alt="Lasagna della Nonna" /></div>
+            <div class="dish-body">
+              <h3>Lasagna della Nonna</h3>
+              <p>Layers of handmade pasta, slow-cooked ragù, béchamel, and Parmigiano — baked to golden perfection.</p>
+              <span class="dish-price">$19</span>
+            </div>
+          </article>
+          <article class="dish">
+            <div class="ph"><img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=700&q=80" alt="Spaghetti alle Vongole" /></div>
+            <div class="dish-body">
+              <h3>Spaghetti alle Vongole</h3>
+              <p>Fresh clams, garlic, white wine, and chili over al dente spaghetti. Coastal Italy on a plate.</p>
+              <span class="dish-price">$22</span>
+            </div>
+          </article>
+          <article class="dish">
+            <div class="ph"><img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=700&q=80" alt="Tiramisù" /></div>
+            <div class="dish-body">
+              <h3>Tiramisù della Casa</h3>
+              <p>Espresso-soaked ladyfingers, mascarpone cream, and a dusting of cocoa. Made fresh daily.</p>
+              <span class="dish-price">$9</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu -->
+    <section id="menu-section" class="section section-deep">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow" style="color:#f3d9a6">Il Menù</span>
+          <h2 style="color:#fff">Our Menu</h2>
+          <p>Handmade daily. A taste of what's waiting for you.</p>
+          <div class="rule"></div>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-cat">
+            <h3>Antipasti</h3>
+            <div class="menu-item"><span class="mi-name">Bruschetta al Pomodoro<span class="mi-desc">Grilled bread, vine tomato, basil, garlic</span></span><span class="mi-price">$9</span></div>
+            <div class="menu-item"><span class="mi-name">Burrata e Prosciutto<span class="mi-desc">Creamy burrata, San Daniele prosciutto, arugula</span></span><span class="mi-price">$15</span></div>
+            <div class="menu-item"><span class="mi-name">Calamari Fritti<span class="mi-desc">Lightly fried, lemon, marinara</span></span><span class="mi-price">$14</span></div>
+            <div class="menu-item"><span class="mi-name">Antipasto della Casa<span class="mi-desc">Cured meats, cheeses, olives, marinated vegetables</span></span><span class="mi-price">$18</span></div>
+          </div>
+          <div class="menu-cat">
+            <h3>Pasta</h3>
+            <div class="menu-item"><span class="mi-name">Tagliatelle al Ragù<span class="mi-desc">Slow-cooked beef &amp; pork Bolognese</span></span><span class="mi-price">$21</span></div>
+            <div class="menu-item"><span class="mi-name">Spaghetti alle Vongole<span class="mi-desc">Fresh clams, garlic, white wine, chili</span></span><span class="mi-price">$22</span></div>
+            <div class="menu-item"><span class="mi-name">Gnocchi al Pesto<span class="mi-desc">Potato gnocchi, basil pesto, pine nuts</span></span><span class="mi-price">$18</span></div>
+            <div class="menu-item"><span class="mi-name">Rigatoni all'Amatriciana<span class="mi-desc">Guanciale, tomato, pecorino romano</span></span><span class="mi-price">$20</span></div>
+          </div>
+          <div class="menu-cat">
+            <h3>Secondi</h3>
+            <div class="menu-item"><span class="mi-name">Osso Buco alla Milanese<span class="mi-desc">Braised veal shank, saffron risotto</span></span><span class="mi-price">$32</span></div>
+            <div class="menu-item"><span class="mi-name">Pollo Parmigiana<span class="mi-desc">Breaded chicken, tomato, mozzarella</span></span><span class="mi-price">$24</span></div>
+            <div class="menu-item"><span class="mi-name">Branzino al Forno<span class="mi-desc">Whole roasted sea bass, lemon, herbs</span></span><span class="mi-price">$28</span></div>
+            <div class="menu-item"><span class="mi-name">Saltimbocca alla Romana<span class="mi-desc">Veal, prosciutto, sage, white wine</span></span><span class="mi-price">$26</span></div>
+          </div>
+          <div class="menu-cat">
+            <h3>Dolci</h3>
+            <div class="menu-item"><span class="mi-name">Tiramisù della Casa<span class="mi-desc">Espresso, mascarpone, cocoa</span></span><span class="mi-price">$9</span></div>
+            <div class="menu-item"><span class="mi-name">Panna Cotta<span class="mi-desc">Vanilla cream, berry coulis</span></span><span class="mi-price">$8</span></div>
+            <div class="menu-item"><span class="mi-name">Cannoli Siciliani<span class="mi-desc">Ricotta, candied orange, pistachio</span></span><span class="mi-price">$8</span></div>
+            <div class="menu-item"><span class="mi-name">Affogato<span class="mi-desc">Vanilla gelato "drowned" in espresso</span></span><span class="mi-price">$7</span></div>
+          </div>
+        </div>
+        <p class="menu-note">Ask your server about tonight's specials and our rotating selection of Italian wines.</p>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="section section-cream">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow">La Galleria</span>
+          <h2>A Taste of the Evening</h2>
+          <div class="rule"></div>
+        </div>
+        <div class="gallery">
+          <div class="ph"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80" alt="Warm restaurant interior" /></div>
+          <div class="ph"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Wood-fired pizza" /></div>
+          <div class="ph"><img src="https://images.unsplash.com/photo-1481931098730-318b6f776db0?auto=format&fit=crop&w=600&q=80" alt="Plated pasta dish" /></div>
+          <div class="ph"><img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80" alt="Glasses of red wine" /></div>
+          <div class="ph"><img src="https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?auto=format&fit=crop&w=600&q=80" alt="Antipasti board" /></div>
+          <div class="ph"><img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?auto=format&fit=crop&w=900&q=80" alt="Fresh ingredients" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section section-paper">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow">Le Recensioni</span>
+          <h2>What Our Guests Say</h2>
+          <div class="rule"></div>
+        </div>
+        <div class="quotes">
+          <div class="quote">
+            <div class="stars">★★★★★</div>
+            <blockquote>"The closest thing to my grandmother's kitchen I've found in America. The lasagna brought me to tears."</blockquote>
+            <cite>— Maria T.</cite>
+          </div>
+          <div class="quote">
+            <div class="stars">★★★★★</div>
+            <blockquote>"Handmade pasta you can taste the difference in. We celebrate every anniversary here."</blockquote>
+            <cite>— James &amp; Elena R.</cite>
+          </div>
+          <div class="quote">
+            <div class="stars">★★★★★</div>
+            <blockquote>"Warm, unpretentious, and absolutely delicious. The Marchettis treat you like family."</blockquote>
+            <cite>— David L.</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visit -->
+    <section id="visit" class="section section-dark">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow" style="color:#f3d9a6">Vieni a Trovarci</span>
+          <h2 style="color:#fff">Visit Us</h2>
+          <div class="rule"></div>
+        </div>
+        <div class="visit">
+          <div class="visit-info">
+            <div class="visit-block">
+              <h3>Hours</h3>
+              <div class="hours-row"><span>Tuesday – Thursday</span><span>5:00 – 10:00 PM</span></div>
+              <div class="hours-row"><span>Friday – Saturday</span><span>5:00 – 11:00 PM</span></div>
+              <div class="hours-row"><span>Sunday</span><span>4:00 – 9:00 PM</span></div>
+              <div class="hours-row"><span>Monday</span><span>Closed</span></div>
+            </div>
+            <div class="visit-block">
+              <h3>Find Us</h3>
+              <p>412 Via Roma<br>Springfield, IL 62704</p>
+            </div>
+            <div class="visit-block">
+              <h3>Reservations</h3>
+              <p><a href="tel:+15551234567">(555) 123-4567</a><br><a href="mailto:ciao@trattorialucia.com">ciao@trattorialucia.com</a></p>
+            </div>
+          </div>
+          <iframe class="map" title="Map to Trattoria Lucia"
+            src="https://www.google.com/maps?q=Springfield,IL&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reserve -->
+    <section id="reserve" class="section section-deep reserve">
+      <div class="container">
+        <span class="eyebrow" style="color:#f3d9a6">Prenota un Tavolo</span>
+        <h2 style="color:#fff">Join Us for Dinner</h2>
+        <p>Whether it's a quiet weeknight or a celebration, there's always a place for you at our table.</p>
+        <div class="hero-actions" style="justify-content:center">
+          <a href="tel:+15551234567" class="btn btn-light">Call (555) 123-4567</a>
+          <a href="mailto:ciao@trattorialucia.com" class="btn btn-primary">Reserve by Email</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo">Trattoria Lucia</div>
+          <p>Authentic family Italian cooking in Springfield since 1987. Handmade pasta, slow-simmered sauces, and a warm welcome.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Visit</h4>
+          <p>412 Via Roma</p>
+          <p>Springfield, IL 62704</p>
+          <p><a href="tel:+15551234567">(555) 123-4567</a></p>
+          <p><a href="mailto:ciao@trattorialucia.com">ciao@trattorialucia.com</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Hours</h4>
+          <p>Tue–Thu: 5–10 PM</p>
+          <p>Fri–Sat: 5–11 PM</p>
+          <p>Sun: 4–9 PM</p>
+          <p>Mon: Closed</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Trattoria Lucia. &nbsp;A customizable template by <a href="../index.html">[Agency Name]</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    const t=document.querySelector('.nav-toggle'),m=document.getElementById('menu');
+    if(t&&m){
+      t.addEventListener('click',()=>{const o=m.classList.toggle('open');t.setAttribute('aria-expanded',String(o));});
+      m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.classList.remove('open');t.setAttribute('aria-expanded','false');}));
+    }
+    // Graceful image fallback: warm gradient if a photo fails
+    document.querySelectorAll('.ph img').forEach(img=>{
+      img.addEventListener('error',()=>{img.style.display='none';img.parentElement.classList.add('img-fallback');});
+    });
+  </script>
+</body>
+</html>
