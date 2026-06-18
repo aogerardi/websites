@@ -71,6 +71,15 @@
     .tpl-body p{color:var(--muted);font-size:.97rem;margin-bottom:1.3rem;flex:1;}
     .tpl-actions{display:flex;gap:.8rem;align-items:center;}
 
+    /* Featured (multi-page) card — spans both columns, horizontal layout */
+    .tpl-featured{grid-column:1 / -1;flex-direction:row;}
+    .tpl-featured .tpl-thumb{aspect-ratio:auto;flex:1 1 56%;min-height:380px;}
+    .tpl-featured .tpl-body{flex:1 1 44%;justify-content:center;padding:2.8rem 3rem;}
+    .tpl-featured .featured-label{display:inline-block;text-transform:uppercase;letter-spacing:.14em;
+         font-size:.7rem;font-weight:700;color:var(--accent);margin-bottom:.8rem;}
+    .tpl-featured .tpl-body h2{font-size:2.1rem;margin-bottom:.6rem;}
+    .tpl-featured .tpl-body p{font-size:1.05rem;margin-bottom:1.6rem;}
+
     /* Coming soon card */
     .soon{border:1px dashed #cfcfcf;border-radius:var(--radius);background:transparent;box-shadow:none;
           display:flex;align-items:center;justify-content:center;text-align:center;padding:3rem 2rem;min-height:280px;}
@@ -86,7 +95,12 @@
 
     .footer{border-top:1px solid var(--border);padding:2rem 1.5rem;text-align:center;color:var(--muted);font-size:.88rem;}
 
-    @media(max-width:760px){.grid{grid-template-columns:1fr;}}
+    @media(max-width:760px){
+      .grid{grid-template-columns:1fr;}
+      .tpl-featured{flex-direction:column;}
+      .tpl-featured .tpl-thumb{min-height:0;aspect-ratio:16/10;flex:none;}
+      .tpl-featured .tpl-body{padding:1.6rem 1.7rem 1.8rem;}
+    }
   </style>
 </head>
 <body>
@@ -117,6 +131,25 @@
 
   <div class="container">
     <div class="grid">
+      <!-- Lawn & Landscape (multi-page Standard demo) — featured -->
+      <article class="tpl tpl-featured">
+        <a href="standard/index.html" target="_blank" rel="noopener" class="tpl-thumb">
+          <span class="tag">Multi-Page · Standard Tier</span>
+          <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1100&q=75"
+               alt="Lawn care and landscaping template preview"
+               onerror="this.onerror=null;this.parentElement.classList.add('img-fallback');this.remove();" />
+        </a>
+        <div class="tpl-body">
+          <span class="featured-label">★ Featured Example</span>
+          <h2>Lawn &amp; Landscape</h2>
+          <p>A full five-page website for a lawn-care business — Home, About, Services with pricing, a photo gallery, and a Contact page with a form and Google Map. This is our <strong>Standard</strong>-tier example: multiple pages, custom design, and everything a growing business needs.</p>
+          <div class="tpl-actions">
+            <a href="standard/index.html" target="_blank" rel="noopener" class="btn btn-primary">Explore the Demo</a>
+            <span style="color:var(--muted);font-size:.85rem">Home Services</span>
+          </div>
+        </div>
+      </article>
+
       <!-- Restaurant -->
       <article class="tpl">
         <a href="restaurant.html" target="_blank" rel="noopener" class="tpl-thumb">
@@ -193,7 +226,7 @@
       <article class="soon">
         <div>
           <h3>More on the way</h3>
-          <p>Lawncare, salon &amp; spa, auto, retail and more.<br>Need one for your industry? We'll build it.</p>
+          <p>Salon &amp; spa, auto, retail and more.<br>Need one for your industry? We'll build it.</p>
         </div>
       </article>
     </div>
