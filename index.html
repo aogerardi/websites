@@ -324,8 +324,8 @@
           <h2>Get a Free Quote</h2>
           <p>Tell us about your business and we'll get back to you within a day.</p>
         </header>
-        <!-- data-contact-email is read by main.js to build the message. Swap to a business address anytime. -->
-        <form class="contact-form" id="quote-form" data-contact-email="gerardienergy@gmail.com" novalidate>
+        <!-- Submissions POST to Formspree (see main.js). data-contact-email is shown as a fallback if sending fails. -->
+        <form class="contact-form" id="quote-form" action="https://formspree.io/f/mnjyykjd" method="POST" data-contact-email="gerardienergy@gmail.com" novalidate>
           <div class="form-row">
             <label>
               Name
