@@ -1,5 +1,29 @@
 // Piedmondo — base interactivity
 
+/* ---------- Theme toggle (light / dark) ----------
+   Inverts the whole page via a CSS filter on <html>. Defaults to light;
+   the visitor's choice persists in localStorage (also applied in <head>). */
+const themeToggle = document.getElementById('theme-toggle');
+if (themeToggle) {
+  const root = document.documentElement;
+  const syncToggle = () => {
+    const dark = root.getAttribute('data-theme') === 'dark';
+    themeToggle.setAttribute('aria-pressed', String(dark));
+    themeToggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+  };
+  syncToggle();
+  themeToggle.addEventListener('click', () => {
+    const dark = root.getAttribute('data-theme') === 'dark';
+    if (dark) {
+      root.removeAttribute('data-theme');
+    } else {
+      root.setAttribute('data-theme', 'dark');
+    }
+    try { localStorage.setItem('theme', dark ? 'light' : 'dark'); } catch (e) {}
+    syncToggle();
+  });
+}
+
 /* ---------- Mobile nav toggle ---------- */
 const toggle = document.querySelector('.nav-toggle');
 const menu = document.getElementById('nav-menu');
