@@ -44,22 +44,20 @@ if (toggle && menu) {
 }
 
 /* ---------- Contact form ----------
-   No backend yet, so we open the visitor's email client (mailto) with the
-   message pre-filled. To collect submissions straight to an inbox instead,
-   swap this for a Formspree/Web3Forms endpoint (see README).
+   Submissions POST to the form's Formspree endpoint via fetch, so the visitor
+   stays on the page and gets an inline success/error message. Requests land
+   straight in the inbox connected to the Formspree form.
 */
 const form = document.getElementById('quote-form');
 const status = form ? form.querySelector('.form-status') : null;
 
 if (form) {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const data = new FormData(form);
     const name = (data.get('name') || '').toString().trim();
     const email = (data.get('email') || '').toString().trim();
-    const phone = (data.get('phone') || '').toString().trim();
-    const business = (data.get('business') || '').toString().trim();
     const message = (data.get('message') || '').toString().trim();
 
     // Minimal validation
@@ -69,20 +67,40 @@ if (form) {
       return;
     }
 
-    const to = form.dataset.contactEmail || '';
-    const subject = `Website quote request — ${name}`;
-    const body =
-      `Name: ${name}\n` +
-      `Email: ${email}\n` +
-      `Phone: ${phone || '—'}\n` +
-      `Business / Website: ${business || '—'}\n\n` +
-      `What they need:\n${message}\n`;
+    const fallback = form.dataset.contactEmail || '';
+    const submitBtn = form.querySelector('[type="submit"]');
+    const originalLabel = submitBtn ? submitBtn.textContent : '';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+    }
+    setStatus('Sending…', '');
 
-    const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      });
 
-    setStatus("Opening your email app… if nothing happens, email us directly at " + to + ".", 'success');
-    form.reset();
+      if (res.ok) {
+        setStatus("Thanks! Your request was sent — we'll get back to you within a day.", 'success');
+        form.reset();
+      } else {
+        const json = await res.json().catch(() => ({}));
+        const msg = json && Array.isArray(json.errors)
+          ? json.errors.map((x) => x.message).join(', ')
+          : 'Something went wrong. Please email us directly at ' + fallback + '.';
+        setStatus(msg, 'error');
+      }
+    } catch (err) {
+      setStatus('Network error — please try again, or email us directly at ' + fallback + '.', 'error');
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
+      }
+    }
   });
 }
 
