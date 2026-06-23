@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Petal Nail Studio — luxury nail art and care. Precision manicures, bespoke nail art, and a calm space to exhale." />
+  <title>Petal Nail Studio — Nail Art &amp; Care</title>
+
+  <!-- TEMPLATE: Nail Salon. Self-contained demo for the Piedmondo portfolio.
+       Photos via Unsplash (swap for real client photos). Fully customizable. -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:       #fdfcfb;
+      --blush:    #f4ece6;
+      --blush-2:  #ecddd4;
+      --rose:     #b87c6a;
+      --rose-d:   #9a6456;
+      --deep:     #1c1714;
+      --muted:    #8a7a72;
+      --border:   #e8ddd6;
+      --font-h:   "Cormorant Garamond", Georgia, serif;
+      --font-b:   "DM Sans", system-ui, sans-serif;
+      --max:      1140px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-b); background: var(--bg); color: var(--deep); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4 { font-family: var(--font-h); font-weight: 400; line-height: 1.1; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+    section[id] { scroll-margin-top: 82px; }
+
+    .eyebrow { font-family: var(--font-b); text-transform: uppercase; letter-spacing: .22em; font-size: .68rem; font-weight: 500; color: var(--muted); display: block; }
+    .ph { position: relative; overflow: hidden; background: var(--blush); }
+    .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ph.fallback { background: linear-gradient(135deg, var(--blush-2) 0%, var(--rose) 100%); }
+
+    /* Buttons */
+    .btn { display: inline-block; font-family: var(--font-b); font-weight: 500; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; padding: .9rem 2.1rem; cursor: pointer; border: 1.5px solid transparent; transition: background .16s, color .16s, border-color .16s; }
+    .btn-dark  { background: var(--deep); color: var(--bg); }
+    .btn-dark:hover  { background: #333; }
+    .btn-outline { border-color: var(--deep); color: var(--deep); }
+    .btn-outline:hover { background: var(--deep); color: var(--bg); }
+    .btn-light { border-color: rgba(253,252,251,.55); color: var(--bg); }
+    .btn-light:hover { background: var(--bg); color: var(--deep); }
+    .btn-rose { background: var(--rose); color: #fff; }
+    .btn-rose:hover { background: var(--rose-d); }
+
+    /* ── NAV ── */
+    .site-header { position: sticky; top: 0; z-index: 60; background: rgba(253,252,251,.93); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 1.15rem 2rem; max-width: var(--max); margin: 0 auto; gap: 1.5rem; }
+    .logo { font-family: var(--font-h); font-size: 1.65rem; font-weight: 400; line-height: 1; letter-spacing: .02em; }
+    .logo small { display: block; font-family: var(--font-b); font-size: .65rem; letter-spacing: .24em; text-transform: uppercase; color: var(--muted); font-weight: 400; margin-top: 3px; }
+    .nav-links { list-style: none; display: flex; align-items: center; gap: 2rem; margin-left: auto; }
+    .nav-links a { font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 500; color: var(--muted); transition: color .14s; }
+    .nav-links a:hover, .nav-links .active { color: var(--deep); }
+    .nav-book { color: var(--deep) !important; border-bottom: 1.5px solid var(--rose); padding-bottom: 1px; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: 0; cursor: pointer; padding: 6px; }
+    .nav-toggle span { width: 24px; height: 1.5px; background: var(--deep); display: block; border-radius: 2px; }
+
+    /* ── HERO (split) ── */
+    .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 93vh; }
+    .hero-text { display: flex; flex-direction: column; justify-content: center; padding: 5rem 4rem 5rem 2rem; max-width: 560px; margin-left: auto; }
+    .hero-text .eyebrow { margin-bottom: 2rem; }
+    .hero-text h1 { font-size: clamp(3rem, 5.2vw, 5rem); font-weight: 300; line-height: .96; letter-spacing: -.01em; margin-bottom: 1.8rem; }
+    .hero-text h1 em { font-style: italic; color: var(--rose); }
+    .hero-text p { font-size: .97rem; color: var(--muted); max-width: 380px; margin-bottom: 2.5rem; line-height: 1.85; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-img { position: relative; }
+    .hero-img .ph { height: 100%; }
+    .hero-float { position: absolute; bottom: 2.5rem; left: -2.5rem; background: var(--bg); border: 1px solid var(--border); padding: 1.1rem 1.5rem; box-shadow: 0 8px 36px rgba(0,0,0,.09); min-width: 150px; }
+    .hero-float strong { display: block; font-family: var(--font-h); font-size: 1.65rem; font-weight: 400; line-height: 1; color: var(--rose); }
+    .hero-float span { font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+    /* ── MARQUEE ── */
+    .marquee { background: var(--deep); color: var(--bg); padding: 1.1rem 0; overflow: hidden; }
+    .marquee-track { display: flex; gap: 3rem; white-space: nowrap; animation: scroll 22s linear infinite; font-family: var(--font-h); font-size: 1.05rem; font-style: italic; }
+    .marquee-track .dot { opacity: .35; }
+    @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── SECTION BASE ── */
+    .section { padding: 6.5rem 0; }
+    .section-blush { background: var(--blush); }
+    .section-deep { background: var(--deep); color: var(--bg); }
+    .sec-head { margin-bottom: 3.5rem; }
+    .sec-head .eyebrow { margin-bottom: .8rem; }
+    .sec-head h2 { font-size: clamp(2.1rem, 3.8vw, 3.2rem); font-weight: 300; }
+    .sec-head.center { text-align: center; }
+
+    /* ── SERVICES ── */
+    .services-wrap { display: grid; grid-template-columns: 1fr 380px; gap: 6rem; align-items: start; }
+    .service-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 3.5rem; }
+    .service-cat { margin-bottom: 2.5rem; }
+    .service-cat h3 { font-family: var(--font-h); font-size: 1.35rem; font-style: italic; font-weight: 400; border-bottom: 1px solid var(--border); padding-bottom: .65rem; margin-bottom: 1.1rem; }
+    .srow { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: .55rem 0; border-bottom: 1px solid var(--border); }
+    .srow:last-child { border-bottom: none; }
+    .sname { font-size: .93rem; }
+    .sdesc { font-size: .76rem; color: var(--muted); display: block; margin-top: 1px; }
+    .sprice { font-family: var(--font-h); font-size: 1.05rem; color: var(--rose); white-space: nowrap; flex-shrink: 0; }
+    .service-cta { margin-top: 2rem; }
+    .services-img-col { position: sticky; top: 5.5rem; }
+    .services-img-col .ph { aspect-ratio: 3/4; }
+
+    /* ── GALLERY ── */
+    .gallery { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: auto auto; gap: 1rem; }
+    .gitem .ph { height: 100%; min-height: 220px; }
+    .gitem .ph img { transition: transform .45s ease; }
+    .gitem:hover .ph img { transform: scale(1.05); }
+    .gitem:first-child { grid-row: span 2; }
+    .gitem:first-child .ph { aspect-ratio: auto; min-height: 480px; }
+    .gitem-wide { grid-column: span 2; }
+
+    /* ── ABOUT ── */
+    .about-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: center; }
+    .about-img .ph { aspect-ratio: 4/5; }
+    .about-text .eyebrow { margin-bottom: .8rem; }
+    .about-text h2 { font-size: clamp(1.9rem, 3.2vw, 2.8rem); font-weight: 300; margin-bottom: 1.5rem; }
+    .about-text p { font-size: .95rem; color: var(--muted); margin-bottom: 1.1rem; line-height: 1.85; }
+    .about-quote { font-family: var(--font-h); font-size: 1.45rem; font-style: italic; color: var(--deep); line-height: 1.4; border-left: 2px solid var(--rose); padding-left: 1.3rem; margin: 2rem 0; }
+    .about-text .btn { margin-top: .5rem; }
+
+    /* ── REVIEWS ── */
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .rcard { background: #fff; border: 1px solid var(--border); padding: 2rem 2rem 1.8rem; display: flex; flex-direction: column; }
+    .stars { color: var(--rose); letter-spacing: .06em; font-size: .82rem; margin-bottom: 1rem; }
+    .rcard blockquote { font-family: var(--font-h); font-size: 1.12rem; font-style: italic; line-height: 1.55; color: var(--deep); flex: 1; margin-bottom: 1.3rem; }
+    .rauthor { font-size: .75rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
+
+    /* ── BOOKING CTA ── */
+    .cta-band { text-align: center; padding: 8rem 2rem; }
+    .cta-band .eyebrow { color: var(--rose); margin-bottom: .8rem; }
+    .cta-band h2 { font-size: clamp(2.6rem, 5.5vw, 4.5rem); font-weight: 300; font-style: italic; line-height: 1; margin-bottom: 1.3rem; }
+    .cta-band p { color: rgba(253,252,251,.55); max-width: 440px; margin: 0 auto 2.8rem; font-size: .95rem; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ── HOURS + MAP ── */
+    .info-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .info-wrap h3 { font-family: var(--font-h); font-size: 1.6rem; font-style: italic; font-weight: 400; margin-bottom: 1.5rem; }
+    .hours-list { list-style: none; }
+    .hours-list li { display: flex; justify-content: space-between; padding: .75rem 0; border-bottom: 1px solid var(--border); font-size: .93rem; }
+    .hours-list li:last-child { border-bottom: none; }
+    .hours-list .day { color: var(--deep); }
+    .hours-list .time { color: var(--muted); }
+    .map-wrap { aspect-ratio: 4/3; overflow: hidden; border: 1px solid var(--border); }
+    .map-wrap iframe { width: 100%; height: 100%; border: 0; }
+    .address { margin-top: 1.3rem; font-size: .9rem; color: var(--muted); line-height: 1.8; }
+    .address strong { color: var(--deep); display: block; font-weight: 500; }
+
+    /* ── CONTACT ── */
+    .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+    .contact-info h2 { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; margin: .5rem 0 1.2rem; }
+    .contact-info p { color: var(--muted); font-size: .95rem; line-height: 1.85; margin-bottom: 1.5rem; }
+    .contact-detail { display: flex; flex-direction: column; gap: .6rem; margin-bottom: 2rem; }
+    .contact-detail a { font-size: .9rem; color: var(--deep); border-bottom: 1px solid var(--border); padding-bottom: .3rem; display: inline-block; transition: border-color .14s; }
+    .contact-detail a:hover { border-color: var(--rose); color: var(--rose); }
+    .contact-form { display: flex; flex-direction: column; gap: 1.1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    label { display: flex; flex-direction: column; gap: .4rem; font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); font-weight: 500; }
+    input, select, textarea { font-family: var(--font-b); font-size: .95rem; padding: .75rem 1rem; border: 1px solid var(--border); background: #fff; color: var(--deep); outline: none; transition: border-color .14s; width: 100%; }
+    input:focus, select:focus, textarea:focus { border-color: var(--rose); }
+    textarea { resize: vertical; min-height: 120px; }
+    .form-submit { align-self: flex-start; }
+
+    /* ── FOOTER ── */
+    .site-footer { border-top: 1px solid var(--border); padding: 2.5rem 0; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .footer-logo { font-family: var(--font-h); font-size: 1.35rem; }
+    .footer-nav { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .footer-nav a { font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); transition: color .14s; }
+    .footer-nav a:hover { color: var(--deep); }
+    .footer-copy { font-size: .75rem; color: var(--muted); margin-top: 1.5rem; text-align: center; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-text { padding: 4rem 1.5rem 2.5rem; max-width: 100%; margin: 0; }
+      .hero-img { height: 70vw; min-height: 300px; }
+      .hero-float { left: 1rem; bottom: 1.5rem; }
+      .services-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+      .service-col { grid-template-columns: 1fr; }
+      .services-img-col { display: none; }
+      .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gitem:first-child { grid-row: auto; grid-column: span 2; }
+      .gitem:first-child .ph { min-height: 240px; }
+      .about-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .info-wrap { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-nav { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<header class="site-header">
+  <div class="nav">
+    <div class="logo">
+      Petal
+      <small>Nail Studio</small>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="nav-book">Book Now</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <div class="hero-text">
+    <span class="eyebrow">Nail Art &amp; Care &nbsp;·&nbsp; Downtown Studio</span>
+    <h1>Where nails<br><em>become</em><br>art.</h1>
+    <p>Precision manicures, bespoke nail art, and a calm space to exhale. Every appointment is tailored to you.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-dark">Book an Appointment</a>
+      <a href="#services" class="btn btn-outline">See Services</a>
+    </div>
+  </div>
+  <div class="hero-img">
+    <div class="ph">
+      <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=80"
+           alt="Nail art close-up"
+           onerror="this.onerror=null;this.parentElement.classList.add('fallback');this.remove();" />
+    </div>
+    <div class="hero-float">
+      <strong>4.9 ★</strong>
+      <span>200+ happy clients</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ MARQUEE ══════════ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    Gel Manicure <span class="dot">&nbsp;·&nbsp;</span>
+    Classic Pedicure <span class="dot">&nbsp;·&nbsp;</span>
+    Nail Art <span class="dot">&nbsp;·&nbsp;</span>
+    French Tips <span class="dot">&nbsp;·&nbsp;</span>
+    Gel-X Extensions <span class="dot">&nbsp;·&nbsp;</span>
+    Press-Ons <span class="dot">&nbsp;·&nbsp;</span>
+    Chrome Powder <span class="dot">&nbsp;·&nbsp;</span>
+    Spa Pedicure <span class="dot">&nbsp;·&nbsp;</span>
+    3D Elements <span class="dot">&nbsp;·&nbsp;</span>
+    Nail Repair <span class="dot">&nbsp;·&nbsp;</span>
+    Gel Manicure <span class="dot">&nbsp;·&nbsp;</span>
+    Classic Pedicure <span class="dot">&nbsp;·&nbsp;</span>
+    Nail Art <span class="dot">&nbsp;·&nbsp;</span>
+    French Tips <span class="dot">&nbsp;·&nbsp;</span>
+    Gel-X Extensions <span class="dot">&nbsp;·&nbsp;</span>
+    Press-Ons <span class="dot">&nbsp;·&nbsp;</span>
+    Chrome Powder <span class="dot">&nbsp;·&nbsp;</span>
+    Spa Pedicure <span class="dot">&nbsp;·&nbsp;</span>
+    3D Elements <span class="dot">&nbsp;·&nbsp;</span>
+    Nail Repair <span class="dot">&nbsp;·&nbsp;</span>
+  </div>
+</div>
+
+<!-- ══════════ SERVICES ══════════ -->
+<section id="services" class="section">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">What We Offer</span>
+      <h2>Services &amp; Pricing</h2>
+    </div>
+    <div class="services-wrap">
+
+      <!-- Left: menu -->
+      <div>
+        <div class="service-col">
+          <div class="service-cat">
+            <h3>Manicures</h3>
+            <div class="srow">
+              <div><span class="sname">Classic Manicure</span><span class="sdesc">Shape, cuticle care &amp; polish</span></div>
+              <span class="sprice">$28</span>
+            </div>
+            <div class="srow">
+              <div><span class="sname">Gel Manicure</span><span class="sdesc">Long-lasting gel color, up to 3 weeks</span></div>
+              <span class="sprice">$45</span>
+            </div>
+            <div class="srow">
+              <div><span class="sname">Gel-X Extensions</span><span class="sdesc">Full coverage soft gel tips</span></div>
+              <span class="sprice">$65</span>
+            </div>
+            <div class="srow">
+              <div><span class="sname">Hard Gel Full Set</span><span class="sdesc">Durable sculpted extensions</span></div>
+              <span class="sprice">$85</span>
+            </div>
+          </div>
+
+          <div class="service-cat">
+            <h3>Pedicures</h3>
+            <div class="srow">
+              <div><span class="sname">Classic Pedicure</span><span class="sdesc">Soak, exfoliate, shape &amp; polish</span></div>
+              <span class="sprice">$38</span>
+            </div>
+            <div class="srow">
+              <div><span class="sname">Spa Pedicure</span><span class="sdesc">Extended massage &amp; mask treatment</span></div>
+              <span class="sprice">$55</span>
+            </div>
+            <div class="srow">
+              <div><span class="sname">Gel Pedicure</span><span class="sdesc">Gel color finish for lasting wear</span></div>
+              <span class="sprice">$58</span>
+            </div>
+          </div>
+
+          <div class="service-cat">
+            <h3>Nail Art</h3>
+            <div class="srow">
+              <div><span class="sname">Simple Design</span><span class="sdesc">Florals, lines, minimalist accents</span></div>
+              <span class="sprice">From $5</span>
+            </div>
+            <div class="srow">
+              <div><span class="sname">Custom Art Set</span><span class="sdesc">Detailed bespoke design, full set</span></div>
+              <span class="sprice">From $25</span>
+            </div>
+            <div class="srow">
+              <div><span class="sname">Chrome &amp; Foil</span><span class="sdesc">Mirror, holographic, or foil finish</span></div>
+              <span class="sprice">$15</span>
+            </div>
+            <div class="srow">
+              <div><span class="sname">3D Elements</span><span class="sdesc">Gems, charms &amp; sculptural details</span></div>
+              <span class="sprice">From $10</span>
+            </div>
+          </div>
+
+          <div class="service-cat">
+            <h3>Add-Ons</h3>
+            <div class="srow">
+              <span class="sname">Paraffin Wax</span>
+              <span class="sprice">$12</span>
+            </div>
+            <div class="srow">
+              <span class="sname">Nail Repair</span>
+              <span class="sprice">$5 ea.</span>
+            </div>
+            <div class="srow">
+              <span class="sname">Soak-Off Removal</span>
+              <span class="sprice">$10</span>
+            </div>
+            <div class="srow">
+              <span class="sname">French Tip Upgrade</span>
+              <span class="sprice">$8</span>
+            </div>
+          </div>
+        </div>
+        <div class="service-cta">
+          <a href="#contact" class="btn btn-dark">Book a Service</a>
+        </div>
+      </div>
+
+      <!-- Right: sticky photo -->
+      <div class="services-img-col">
+        <div class="ph">
+          <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=700&q=80"
+               alt="Nail art detail"
+               onerror="this.onerror=null;this.parentElement.classList.add('fallback');this.remove();" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ GALLERY ══════════ -->
+<section id="gallery" class="section section-blush">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">Our Work</span>
+      <h2>The Gallery</h2>
+    </div>
+    <div class="gallery">
+      <!-- Big left — spans 2 rows -->
+      <div class="gitem">
+        <div class="ph">
+          <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=80"
+               alt="Nail art close-up"
+               onerror="this.onerror=null;this.parentElement.classList.add('fallback');this.remove();" />
+        </div>
+      </div>
+      <!-- Top right 1 -->
+      <div class="gitem">
+        <div class="ph" style="aspect-ratio:3/4;">
+          <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=600&q=80"
+               alt="Gel nail art"
+               onerror="this.onerror=null;this.parentElement.classList.add('fallback');this.remove();" />
+        </div>
+      </div>
+      <!-- Top right 2 -->
+      <div class="gitem">
+        <div class="ph" style="aspect-ratio:3/4;">
+          <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=600&q=80"
+               alt="Manicure"
+               onerror="this.onerror=null;this.parentElement.classList.add('fallback');this.remove();" />
+        </div>
+      </div>
+      <!-- Bottom right — spans 2 cols -->
+      <div class="gitem gitem-wide">
+        <div class="ph" style="aspect-ratio:16/9;">
+          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=80"
+               alt="Nail studio"
+               onerror="this.onerror=null;this.parentElement.classList.add('fallback');this.remove();" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ABOUT ══════════ -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="about-img">
+        <div class="ph">
+          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80"
+               alt="Nail studio interior"
+               onerror="this.onerror=null;this.parentElement.classList.add('fallback');this.remove();" />
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="eyebrow">Our Story</span>
+        <h2>A studio built around<br><em>you</em>.</h2>
+        <blockquote class="about-quote">"Nails are the smallest canvas — and that's exactly why every detail matters."</blockquote>
+        <p>Petal Nail Studio opened with one goal: give every client an experience that feels personal, calm, and a little indulgent. We take our time, listen to what you want, and never rush.</p>
+        <p>Whether it's your first gel set or you come in every three weeks, you'll always leave feeling taken care of.</p>
+        <a href="#contact" class="btn btn-outline">Meet Us in Studio</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ REVIEWS ══════════ -->
+<section id="reviews" class="section section-blush">
+  <div class="container">
+    <div class="sec-head center">
+      <span class="eyebrow">Client Love</span>
+      <h2>What people are saying</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="rcard">
+        <div class="stars">★★★★★</div>
+        <blockquote>"I've been to a lot of nail salons and nothing comes close. The nail art she did for me was genuinely unbelievable — like actual fine art on my fingers."</blockquote>
+        <span class="rauthor">— Jasmine R.</span>
+      </div>
+      <div class="rcard">
+        <div class="stars">★★★★★</div>
+        <blockquote>"The atmosphere is so calm and the attention to detail is incredible. My gel manicure lasted over four weeks without a single chip. I'm never going anywhere else."</blockquote>
+        <span class="rauthor">— Maria T.</span>
+      </div>
+      <div class="rcard">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Booked a spa pedicure for my birthday and it was the most relaxing hour of my week. The staff are warm, professional, and genuinely talented. Highly recommend."</blockquote>
+        <span class="rauthor">— Danielle K.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ BOOKING CTA ══════════ -->
+<section class="section section-deep cta-band">
+  <span class="eyebrow">Ready?</span>
+  <h2>Let's do your nails.</h2>
+  <p>Book online in under a minute, or call us to talk through what you want. First visit? We'll take good care of you.</p>
+  <div class="cta-actions">
+    <a href="#contact" class="btn btn-rose">Book Online</a>
+    <a href="tel:+13125550192" class="btn btn-light">Call Us</a>
+  </div>
+</section>
+
+<!-- ══════════ HOURS + MAP ══════════ -->
+<section id="hours" class="section">
+  <div class="container">
+    <div class="info-wrap">
+      <div>
+        <h3>Hours &amp; Location</h3>
+        <ul class="hours-list">
+          <li><span class="day">Monday</span><span class="time">Closed</span></li>
+          <li><span class="day">Tuesday – Friday</span><span class="time">9 am – 7 pm</span></li>
+          <li><span class="day">Saturday</span><span class="time">9 am – 6 pm</span></li>
+          <li><span class="day">Sunday</span><span class="time">10 am – 4 pm</span></li>
+        </ul>
+        <p class="address">
+          <strong>Petal Nail Studio</strong>
+          342 Oak Street, Suite 101<br>
+          Naperville, IL 60540<br><br>
+          <a href="tel:+13125550192" style="color:var(--rose);">(312) 555-0192</a>
+        </p>
+      </div>
+      <div>
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps?q=Naperville,IL&output=embed"
+            loading="lazy"
+            title="Studio location"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section id="contact" class="section section-blush">
+  <div class="container">
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <span class="eyebrow">Get in Touch</span>
+        <h2>Book an<br><em>appointment</em>.</h2>
+        <p>Fill out the form and we'll confirm your spot within a few hours. Have a specific design in mind? Drop a note and we'll make sure the right artist is ready for you.</p>
+        <div class="contact-detail">
+          <a href="tel:+13125550192">(312) 555-0192</a>
+          <a href="mailto:hello@petalnailstudio.com">hello@petalnailstudio.com</a>
+          <a href="#">342 Oak Street, Naperville, IL</a>
+        </div>
+      </div>
+      <form class="contact-form" action="#" method="POST">
+        <div class="form-row">
+          <label>First Name <input type="text" name="first" required /></label>
+          <label>Last Name <input type="text" name="last" /></label>
+        </div>
+        <label>Email <input type="email" name="email" required /></label>
+        <label>Phone <input type="tel" name="phone" placeholder="(555) 123-4567" /></label>
+        <label>Service Interested In
+          <select name="service">
+            <option value="">Select a service…</option>
+            <option>Classic Manicure — $28</option>
+            <option>Gel Manicure — $45</option>
+            <option>Gel-X Extensions — $65</option>
+            <option>Hard Gel Full Set — $85</option>
+            <option>Classic Pedicure — $38</option>
+            <option>Spa Pedicure — $55</option>
+            <option>Gel Pedicure — $58</option>
+            <option>Nail Art (Custom)</option>
+            <option>Not sure yet</option>
+          </select>
+        </label>
+        <label>Anything else?
+          <textarea name="notes" placeholder="Design ideas, date preferences, first visit…"></textarea>
+        </label>
+        <button type="submit" class="btn btn-dark form-submit">Send Request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Petal Nail Studio</div>
+      <nav class="footer-nav">
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Book</a>
+      </nav>
+    </div>
+    <p class="footer-copy">&copy; 2026 Petal Nail Studio. Template demo by <a href="../index.html" style="color:var(--rose);">Piedmondo</a>. Sample content &amp; stock photos.</p>
+  </div>
+</footer>
+
+</body>
+</html>
