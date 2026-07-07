@@ -89,15 +89,57 @@
   <main id="top">
     <!-- ============ HERO ============ -->
     <section class="hero">
-      <div class="container">
-        <p class="eyebrow">Web Design for Small Business</p>
-        <h1>Modern websites, honest prices.</h1>
-        <p class="hero-sub">
-          We build clean websites for businesses with a quick turnaround. Flat-rate pricing, no agency markup.
-        </p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Get a Free Homepage Demo</a>
-          <a href="templates/index.html" class="btn btn-ghost">See Our Templates</a>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Web Design for Small Business</p>
+          <h1>Modern websites, honest prices.</h1>
+          <p class="hero-sub">
+            We build clean websites for businesses with a quick turnaround. Flat-rate pricing, no agency markup.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Get a Free Homepage Demo</a>
+            <a href="templates/index.html" class="btn btn-ghost">See Our Templates</a>
+          </div>
+        </div>
+
+        <!-- Self-building website animation — pure CSS/SVG, loops forever -->
+        <div class="hero-visual" aria-hidden="true">
+          <svg class="builder" viewBox="0 0 440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g class="b-all">
+              <!-- browser frame -->
+              <rect class="b-frame" x="8" y="8" width="424" height="304" rx="10"/>
+              <line class="b-topline" x1="8" y1="44" x2="432" y2="44"/>
+              <circle class="b-chrome" cx="28" cy="26" r="4"/>
+              <circle class="b-chrome b-d2" cx="44" cy="26" r="4"/>
+              <circle class="b-chrome b-d3" cx="60" cy="26" r="4"/>
+              <rect class="b-chrome b-url" x="84" y="19" width="190" height="14" rx="7"/>
+              <!-- nav -->
+              <circle class="b-logo" cx="38" cy="68" r="7"/>
+              <rect class="b-nav" x="292" y="64" width="32" height="8" rx="4"/>
+              <rect class="b-nav b-n2" x="334" y="64" width="32" height="8" rx="4"/>
+              <rect class="b-nav b-n3" x="376" y="64" width="32" height="8" rx="4"/>
+              <!-- headline + copy + button -->
+              <rect class="b-line b-l1" x="28" y="104" width="228" height="16" rx="8"/>
+              <rect class="b-line b-l2" x="28" y="130" width="168" height="16" rx="8"/>
+              <rect class="b-line b-l3" x="28" y="160" width="118" height="8" rx="4"/>
+              <rect class="b-btn" x="28" y="184" width="88" height="26" rx="6"/>
+              <!-- image block with the Piedmondo mountains -->
+              <g class="b-img">
+                <rect x="288" y="100" width="124" height="110" rx="8"/>
+                <path class="b-mtn" d="M300 194 L332 152 L348 172 L368 144 L400 194 Z"/>
+                <circle class="b-sun" cx="314" cy="122" r="7"/>
+              </g>
+              <!-- cards -->
+              <rect class="b-card" x="28" y="236" width="120" height="52" rx="8"/>
+              <rect class="b-card b-c2" x="160" y="236" width="120" height="52" rx="8"/>
+              <rect class="b-card b-c3" x="292" y="236" width="120" height="52" rx="8"/>
+              <!-- done badge -->
+              <g class="b-done">
+                <circle cx="424" cy="18" r="15"/>
+                <path class="b-check" d="M417 18.5l5 5 9.5-11"/>
+              </g>
+            </g>
+          </svg>
         </div>
       </div>
     </section>
@@ -121,6 +163,14 @@
           <span class="stat-num">$0</span>
           <span class="stat-label">Hidden fees, ever</span>
         </div>
+      </div>
+    </div>
+
+    <!-- ============ INDUSTRIES MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Restaurants</span><i>·</i><span>Barbershops</span><i>·</i><span>Lawn Care</span><i>·</i><span>Attorneys</span><i>·</i><span>Nail Studios</span><i>·</i><span>Bars &amp; Lounges</span><i>·</i><span>Auto Detailers</span><i>·</i><span>Epoxy &amp; Concrete</span><i>·</i><span>Contractors</span><i>·</i><span>Boutiques</span><i>·</i>
+        <span>Restaurants</span><i>·</i><span>Barbershops</span><i>·</i><span>Lawn Care</span><i>·</i><span>Attorneys</span><i>·</i><span>Nail Studios</span><i>·</i><span>Bars &amp; Lounges</span><i>·</i><span>Auto Detailers</span><i>·</i><span>Epoxy &amp; Concrete</span><i>·</i><span>Contractors</span><i>·</i><span>Boutiques</span><i>·</i>
       </div>
     </div>
 
@@ -163,14 +213,15 @@
           <a href="templates/index.html" class="btn btn-primary">Browse all templates &rarr;</a>
         </div>
         <div class="templates-list">
-          <a href="templates/standard/index.html" target="_blank" rel="noopener">Lawn &amp; Landscape <span class="go">View &rarr;</span></a>
-          <a href="templates/restaurant.html" target="_blank" rel="noopener">Restaurant <span class="go">View &rarr;</span></a>
-          <a href="templates/home-services.html" target="_blank" rel="noopener">HVAC &amp; Plumbing <span class="go">View &rarr;</span></a>
-          <a href="templates/barbershop.html" target="_blank" rel="noopener">Barbershop <span class="go">View &rarr;</span></a>
-          <a href="templates/attorney.html" target="_blank" rel="noopener">Attorney <span class="go">View &rarr;</span></a>
-          <a href="https://aogerardi.github.io/Maximillian/" target="_blank" rel="noopener">Bar &amp; Lounge <span class="go">View &rarr;</span></a>
+          <a href="templates/standard/index.html" target="_blank" rel="noopener" data-preview="templates/previews/lawn-landscape.png">Lawn &amp; Landscape <span class="go">View &rarr;</span></a>
+          <a href="templates/restaurant.html" target="_blank" rel="noopener" data-preview="templates/previews/restaurant.png">Restaurant <span class="go">View &rarr;</span></a>
+          <a href="templates/home-services.html" target="_blank" rel="noopener" data-preview="templates/previews/home-services.png">HVAC &amp; Plumbing <span class="go">View &rarr;</span></a>
+          <a href="templates/barbershop.html" target="_blank" rel="noopener" data-preview="templates/previews/barbershop.png">Barbershop <span class="go">View &rarr;</span></a>
+          <a href="templates/attorney.html" target="_blank" rel="noopener" data-preview="templates/previews/attorney.png">Attorney <span class="go">View &rarr;</span></a>
+          <a href="https://aogerardi.github.io/Maximillian/" target="_blank" rel="noopener" data-preview="templates/previews/maximillian.png">Bar &amp; Lounge <span class="go">View &rarr;</span></a>
           <a href="templates/index.html">More coming soon <span class="go">Soon</span></a>
         </div>
+        <div class="tpl-hover-preview" aria-hidden="true"><img alt="" /></div>
       </div>
     </section>
 
@@ -268,7 +319,7 @@
             </article>
             <article class="card price-card">
               <h4>Buyout Option</h4>
-              <p class="price"><span>~$100</span></p>
+              <p class="price"><span>~$150</span></p>
               <p>Own the domain outright. No monthly fees &mdash; you&rsquo;re in full control. Edits and support available on request at a flat rate.</p>
             </article>
           </div>
@@ -283,6 +334,25 @@
           <h2>Our Work</h2>
           <p>A few things we've built.</p>
         </header>
+
+        <!-- Before / after comparison slider -->
+        <div class="ba" id="ba-slider">
+          <div class="ba-frame">
+            <img class="ba-after" src="assets/xtreme-epoxy.png" alt="After — a website built by Piedmondo" draggable="false" />
+            <div class="ba-before-clip">
+              <img class="ba-before" src="assets/before-fb.png" alt="Before — a Facebook page as the only web presence" draggable="false" />
+            </div>
+            <div class="ba-line">
+              <span class="ba-handle">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>
+              </span>
+            </div>
+            <span class="ba-tag ba-tag-before">Before</span>
+            <span class="ba-tag ba-tag-after">After</span>
+          </div>
+          <p class="ba-cap">Drag to compare — from a Facebook page to a site that sells.</p>
+        </div>
+
         <div class="grid grid-2">
           <article class="card project">
             <a href="https://mineralcalc.com" target="_blank" rel="noopener" class="project-thumb">
@@ -351,7 +421,7 @@
         </details>
         <details class="faq-item">
           <summary>Are there ongoing costs?</summary>
-          <p>After launch you choose: our <strong>Maintenance Plan at $10/mo</strong> covers hosting, edits within reason, and ongoing support — or a one-time <strong>~$100 Buyout</strong> so you own everything outright with no monthly fees. Either way, no surprises.</p>
+          <p>After launch you choose: our <strong>Maintenance Plan at $10/mo</strong> covers hosting, edits within reason, and ongoing support — or a one-time <strong>~$150 Buyout</strong> so you own everything outright with no monthly fees. Either way, no surprises.</p>
         </details>
         <details class="faq-item">
           <summary>Can you update my site later?</summary>
@@ -420,6 +490,17 @@
         </form>
       </div>
     </section>
+    <!-- ============ PROOF BAND — the site is the credential ============ -->
+    <div class="proof-band">
+      <div class="container proof-inner">
+        <span class="proof-item">This site: <strong>zero frameworks</strong></span>
+        <span class="proof-dot"></span>
+        <span class="proof-item"><strong>zero page builders</strong></span>
+        <span class="proof-dot"></span>
+        <span class="proof-item">loaded in <strong id="proof-speed">under a second</strong></span>
+        <span class="proof-note">— the same craft goes into yours.</span>
+      </div>
+    </div>
   </main>
 
   <!-- ============ FOOTER ============ -->

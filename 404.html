@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Page not found — Piedmondo</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/piedmondo-mark.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <style>
+    .nf { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem 1.5rem; }
+    .nf-code { font-family: var(--font-head); font-size: clamp(5rem, 18vw, 9rem); font-weight: 600; line-height: 1; letter-spacing: -0.03em; }
+    .nf h1 { font-size: clamp(1.4rem, 4vw, 2rem); margin: 0.75rem 0 0.5rem; }
+    .nf p { color: var(--muted); max-width: 46ch; margin-bottom: 2rem; }
+    .nf-frame { width: min(300px, 70vw); margin-bottom: 2.25rem; }
+    .nf-frame svg { width: 100%; height: auto; display: block; }
+    .nf-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  </style>
+</head>
+<body>
+  <main class="nf">
+    <div class="nf-frame" aria-hidden="true">
+      <svg viewBox="0 0 440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="8" y="8" width="424" height="304" rx="10" stroke="#111" stroke-width="1.5" stroke-dasharray="10 8" fill="none"/>
+        <line x1="8" y1="44" x2="432" y2="44" stroke="#e5e5e5" stroke-width="1.5"/>
+        <circle cx="28" cy="26" r="4" fill="#e5e5e5"/>
+        <circle cx="44" cy="26" r="4" fill="#e5e5e5"/>
+        <circle cx="60" cy="26" r="4" fill="#e5e5e5"/>
+        <rect x="84" y="19" width="190" height="14" rx="7" fill="#e5e5e5"/>
+        <text x="220" y="196" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="72" fill="#111">404</text>
+      </svg>
+    </div>
+    <h1>This page doesn't exist.</h1>
+    <p>But if your <em>business</em> doesn't have a page at all — that's the kind of problem we actually fix.</p>
+    <div class="nf-actions">
+      <a href="/" class="btn btn-ghost">Back to the homepage</a>
+      <a href="/#contact" class="btn btn-primary">Get a Free Homepage Demo</a>
+    </div>
+  </main>
+</body>
+</html>

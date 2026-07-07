@@ -154,8 +154,24 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
 
 /* ---------- Hero ---------- */
 .hero {
-  padding: 7rem 0 4.5rem;
+  padding: 6rem 0 4.5rem;
   text-align: center;
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 3.5rem;
+  align-items: center;
+  text-align: left;
+}
+.hero-copy .hero-sub { margin-left: 0; margin-right: 0; }
+.hero-copy .hero-actions { justify-content: flex-start; }
+@media (max-width: 860px) {
+  .hero { padding-top: 4.5rem; }
+  .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+  .hero-copy .hero-sub { margin-left: auto; margin-right: auto; }
+  .hero-copy .hero-actions { justify-content: center; }
+  .hero-visual { max-width: 420px; margin: 0 auto; }
 }
 .eyebrow {
   text-transform: uppercase;
@@ -570,11 +586,361 @@ a.project-thumb:hover img { transform: scale(1.03); }
 .section-muted .card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(0, 0, 0, 0.09); }
 .price-card:hover { transform: translateY(-5px); box-shadow: 0 16px 38px rgba(0, 0, 0, 0.12); }
 
+/* ---------- Hero builder animation ----------
+   A wireframe website that assembles itself in a loop — the product,
+   demonstrated. Pure CSS/SVG; every element shares one 11s timeline. */
+.hero-visual {
+  opacity: 0;
+  animation: riseIn 0.85s cubic-bezier(0.2, 0.7, 0.2, 1) 0.5s forwards;
+}
+.builder {
+  width: 100%;
+  height: auto;
+  display: block;
+  animation: bFloat 7s ease-in-out infinite;
+}
+@keyframes bFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+
+.builder * { transform-box: fill-box; }
+
+/* frame draws itself, then holds; everything exits together at the end */
+.b-all { animation: bCycle 11s linear infinite; }
+@keyframes bCycle {
+  0%, 94% { opacity: 1; }
+  99%, 100% { opacity: 0; }
+}
+
+.b-frame {
+  stroke: var(--fg);
+  stroke-width: 1.5;
+  fill: var(--bg);
+  stroke-dasharray: 1500;
+  animation: bDraw 11s linear infinite;
+}
+@keyframes bDraw {
+  0%   { stroke-dashoffset: 1500; }
+  9%   { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 0; }
+}
+.b-topline { stroke: var(--border); stroke-width: 1.5; opacity: 0; animation: bIn 11s linear infinite; animation-delay: 0s; }
+
+/* generic fade-in window helper — each class sets its own slice via delay */
+@keyframes bIn {
+  0%, 8%   { opacity: 0; }
+  11%      { opacity: 1; }
+  100%     { opacity: 1; }
+}
+.b-chrome { fill: var(--border); opacity: 0; animation: bChrome 11s linear infinite; }
+@keyframes bChrome {
+  0%, 9%  { opacity: 0; }
+  12%     { opacity: 1; }
+  100%    { opacity: 1; }
+}
+
+.b-logo { fill: var(--fg); opacity: 0; animation: bNav 11s linear infinite; }
+.b-nav  { fill: var(--border); opacity: 0; animation: bNav 11s linear infinite; }
+.b-n2   { animation-name: bNav2; }
+.b-n3   { animation-name: bNav3; }
+@keyframes bNav {
+  0%, 14% { opacity: 0; transform: translateY(4px); }
+  18%     { opacity: 1; transform: none; }
+  100%    { opacity: 1; transform: none; }
+}
+@keyframes bNav2 {
+  0%, 16% { opacity: 0; transform: translateY(4px); }
+  20%     { opacity: 1; transform: none; }
+  100%    { opacity: 1; transform: none; }
+}
+@keyframes bNav3 {
+  0%, 18% { opacity: 0; transform: translateY(4px); }
+  22%     { opacity: 1; transform: none; }
+  100%    { opacity: 1; transform: none; }
+}
+
+/* headline bars grow from the left like text being written */
+.b-line {
+  fill: var(--fg);
+  opacity: 0;
+  transform-origin: left center;
+  animation: bGrow 11s cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+}
+.b-l2 { animation-name: bGrow2; }
+.b-l3 { fill: var(--muted); animation-name: bGrow3; }
+@keyframes bGrow {
+  0%, 20%  { opacity: 0; transform: scaleX(0); }
+  21%      { opacity: 1; }
+  27%      { opacity: 1; transform: scaleX(1); }
+  100%     { opacity: 1; transform: scaleX(1); }
+}
+@keyframes bGrow2 {
+  0%, 25%  { opacity: 0; transform: scaleX(0); }
+  26%      { opacity: 1; }
+  32%      { opacity: 1; transform: scaleX(1); }
+  100%     { opacity: 1; transform: scaleX(1); }
+}
+@keyframes bGrow3 {
+  0%, 30%  { opacity: 0; transform: scaleX(0); }
+  31%      { opacity: 1; }
+  37%      { opacity: 1; transform: scaleX(1); }
+  100%     { opacity: 1; transform: scaleX(1); }
+}
+
+.b-btn {
+  fill: var(--fg);
+  opacity: 0;
+  transform-origin: center;
+  animation: bPop 11s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+}
+@keyframes bPop {
+  0%, 35% { opacity: 0; transform: scale(0.6); }
+  40%     { opacity: 1; transform: scale(1); }
+  100%    { opacity: 1; transform: scale(1); }
+}
+
+.b-img rect { stroke: var(--fg); stroke-width: 1.5; fill: var(--bg-muted); }
+.b-img .b-mtn { fill: var(--fg); }
+.b-img .b-sun { fill: var(--muted); }
+.b-img {
+  opacity: 0;
+  transform-origin: center;
+  animation: bImg 11s cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+}
+@keyframes bImg {
+  0%, 40% { opacity: 0; transform: scale(0.92); }
+  46%     { opacity: 1; transform: scale(1); }
+  100%    { opacity: 1; transform: scale(1); }
+}
+
+.b-card {
+  stroke: var(--fg);
+  stroke-width: 1.5;
+  fill: var(--bg);
+  opacity: 0;
+  animation: bCard 11s cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+}
+.b-c2 { animation-name: bCard2; }
+.b-c3 { animation-name: bCard3; }
+@keyframes bCard {
+  0%, 50% { opacity: 0; transform: translateY(10px); }
+  56%     { opacity: 1; transform: none; }
+  100%    { opacity: 1; transform: none; }
+}
+@keyframes bCard2 {
+  0%, 53% { opacity: 0; transform: translateY(10px); }
+  59%     { opacity: 1; transform: none; }
+  100%    { opacity: 1; transform: none; }
+}
+@keyframes bCard3 {
+  0%, 56% { opacity: 0; transform: translateY(10px); }
+  62%     { opacity: 1; transform: none; }
+  100%    { opacity: 1; transform: none; }
+}
+
+.b-done circle { fill: var(--fg); }
+.b-done .b-check { stroke: var(--bg); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+.b-done {
+  opacity: 0;
+  transform-origin: center;
+  animation: bDone 11s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+}
+@keyframes bDone {
+  0%, 66% { opacity: 0; transform: scale(0); }
+  71%     { opacity: 1; transform: scale(1); }
+  100%    { opacity: 1; transform: scale(1); }
+}
+
+/* ---------- Industries marquee ---------- */
+.marquee {
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  padding: 0.85rem 0;
+}
+.marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  white-space: nowrap;
+  animation: marqueeScroll 38s linear infinite;
+}
+.marquee-track > * { margin-right: 2.4rem; }
+.marquee-track span {
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--muted);
+}
+.marquee-track i { font-style: normal; color: #c9c9c4; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marqueeScroll { to { transform: translateX(-50%); } }
+
+/* ---------- Proof band ---------- */
+.proof-band {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 0;
+  background: var(--bg);
+}
+.proof-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+  text-align: center;
+}
+.proof-item strong { color: var(--fg); font-weight: 600; }
+.proof-dot { width: 4px; height: 4px; border-radius: 50%; background: #c9c9c4; }
+.proof-note { font-style: italic; }
+
+/* ---------- Templates hover preview ---------- */
+.tpl-hover-preview {
+  position: fixed;
+  z-index: 80;
+  width: 340px;
+  height: 190px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  pointer-events: none;
+}
+.tpl-hover-preview.on { opacity: 1; transform: scale(1); }
+.tpl-hover-preview img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+@media (hover: none), (max-width: 860px) { .tpl-hover-preview { display: none; } }
+
+/* ---------- Before / after slider ---------- */
+.ba { max-width: 860px; margin: 0 auto 3.5rem; }
+.ba-frame {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 1900 / 760;
+  background: var(--bg-muted);
+  cursor: ew-resize;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  box-shadow: var(--shadow);
+}
+.ba-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ba-before-clip {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 50% 0 0);
+  will-change: clip-path;
+}
+.ba-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--fg);
+  transform: translateX(-1px);
+}
+.ba-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--fg);
+  color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+.ba-tag {
+  position: absolute;
+  top: 12px;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(17, 17, 17, 0.85);
+  color: #fff;
+}
+.ba-tag-before { left: 12px; }
+.ba-tag-after { right: 12px; }
+.ba-cap { text-align: center; color: var(--muted); font-size: 0.9rem; margin-top: 0.9rem; }
+
+/* ---------- Scroll-drawn details ----------
+   Hidden states are scoped to .reveal (added by JS), so users without
+   JS — or with reduced motion, where .in is applied immediately — always
+   see the finished state. */
+/* Section headings underline themselves as they reveal */
+.section-head h2::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 2px;
+  background: currentColor;
+  margin: 0.85rem auto 0;
+  transition: width 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) 0.3s;
+}
+.section-head.reveal:not(.in) h2::after { width: 0; }
+
+/* Pricing checkmarks tick in one by one */
+.price-card .price-list li::before {
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.price-card.reveal:not(.in) .price-list li::before { opacity: 0; transform: scale(0.3); }
+.price-card.in .price-list li:nth-child(1)::before { transition-delay: 0.25s; }
+.price-card.in .price-list li:nth-child(2)::before { transition-delay: 0.37s; }
+.price-card.in .price-list li:nth-child(3)::before { transition-delay: 0.49s; }
+.price-card.in .price-list li:nth-child(4)::before { transition-delay: 0.61s; }
+.price-card.in .price-list li:nth-child(5)::before { transition-delay: 0.73s; }
+
+/* Process steps connected by a line that draws across */
+.steps { position: relative; }
+.steps.reveal { opacity: 1; transform: none; } /* the ol itself doesn't fade — only its line draws */
+.step-num { position: relative; z-index: 1; }
+@media (min-width: 801px) {
+  .steps::before {
+    content: "";
+    position: absolute;
+    top: 1.2rem;
+    left: 16.67%;
+    right: 16.67%;
+    height: 1px;
+    background: var(--fg);
+    opacity: 0.25;
+    transform-origin: left center;
+    transition: transform 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s;
+  }
+  .steps.reveal:not(.in)::before { transform: scaleX(0); }
+}
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
   .hero .eyebrow, .hero h1, .hero-sub, .hero-actions, .hero-note { opacity: 1 !important; }
+  /* builder shows as a finished static wireframe */
+  .hero-visual, .b-all, .b-topline, .b-chrome, .b-logo, .b-nav, .b-line,
+  .b-btn, .b-img, .b-card, .b-done { opacity: 1 !important; transform: none !important; }
+  .b-frame { stroke-dashoffset: 0 !important; }
 }
 
 /* ---------- Responsive ---------- */
