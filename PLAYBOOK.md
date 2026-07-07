@@ -28,6 +28,14 @@ Hunt for businesses that are **alive but invisible**:
 
 Good hunting grounds: Yelp/Google Maps searches in mid-size towns (50k–300k pop — big-metro businesses get agency spam constantly), local "best of" lists where some entries have no site link, FB local business directories, new-business announcements in local news.
 
+**Field-tested signals (from the 2026-07-07 research run — ~25 searches, 7 qualified):**
+- The strongest no-site tell is an auto-generated Facebook URL: `facebook.com/p/Business-Name-1000...`. Vanity URLs (`facebook.com/businessname`) are weaker but still worth checking.
+- Businesses with **100+ Google/Yelp reviews almost always have a site already**. The sweet spot is 5–60 reviews: established enough to pay, small enough to be invisible.
+- **Skip HVAC/plumbing** (every operator gets sold a site early — 4 of 4 checked had one) and **skip nail salons** (a template-mill vendor has saturated them; look for `<city name>nails<...>.com` title patterns like "Nail Salon 47804 | Best Nail Salon").
+- **Best industries so far:** barbershops, lawn care, owner-operated diners/breakfast spots, solo mobile detailers.
+- Scraper directories (`*.website`, `res-menu.net`, `netwaiter.com`, `wheree.com`, `menufyy`) are NOT owned sites — and they're a pitch angle: they show the business with wrong/conflicting hours the owner can't fix.
+- Search recipe that works: `<industry> <mid-size city+state> facebook page reviews -site:yelp.com` → then verify each candidate with `"<Business Name>" <city> website` and confirm no owned domain appears.
+
 Log every qualified prospect as a row in `pipeline/leads.csv` even if we don't build for them yet — research is reusable.
 
 ## 3. Demo build procedure
