@@ -117,7 +117,7 @@ function setStatus(msg, type) {
 
   // Elements that fade/slide in as they enter the viewport
   const revealEls = document.querySelectorAll(
-    '.section-head, .card, .price-card, .step, .faq-item, .pitch, .templates-inner, .stat'
+    '.section-head, .card, .price-card, .step, .steps, .faq-item, .pitch, .templates-inner, .stat, .ba'
   );
 
   if (reduce || !supported) {
@@ -144,6 +144,83 @@ function setStatus(msg, type) {
     );
     revealEls.forEach((el) => io.observe(el));
   }
+
+  /* ---------- Templates hover preview ----------
+     A screenshot card that trails the cursor over the Live Examples list.
+     Desktop pointers only (hidden by CSS on touch / narrow screens). */
+  const previewBox = document.querySelector('.tpl-hover-preview');
+  const previewLinks = document.querySelectorAll('.templates-list a[data-preview]');
+  if (previewBox && previewLinks.length && !reduce && window.matchMedia('(hover: hover)').matches) {
+    const img = previewBox.querySelector('img');
+    let targetX = 0, targetY = 0, curX = 0, curY = 0, raf = null, showing = false;
+
+    function tick() {
+      // ease toward the cursor for a soft trailing feel
+      curX += (targetX - curX) * 0.18;
+      curY += (targetY - curY) * 0.18;
+      previewBox.style.left = curX + 'px';
+      previewBox.style.top = curY + 'px';
+      raf = showing || Math.abs(targetX - curX) > 0.5 ? requestAnimationFrame(tick) : null;
+    }
+
+    function aim(e) {
+      targetX = Math.min(e.clientX + 26, window.innerWidth - 360);
+      targetY = Math.min(e.clientY - 95, window.innerHeight - 210);
+    }
+
+    previewLinks.forEach((link) => {
+      link.addEventListener('mouseenter', (e) => {
+        img.src = link.dataset.preview;
+        showing = true;
+        aim(e);
+        previewBox.classList.add('on');
+        if (!raf) { curX = targetX; curY = targetY; raf = requestAnimationFrame(tick); }
+      });
+      link.addEventListener('mouseleave', () => {
+        showing = false;
+        previewBox.classList.remove('on');
+      });
+      link.addEventListener('mousemove', aim);
+    });
+  }
+
+  /* ---------- Before / after slider ---------- */
+  const ba = document.getElementById('ba-slider');
+  if (ba) {
+    const frame = ba.querySelector('.ba-frame');
+    const clip = ba.querySelector('.ba-before-clip');
+    const line = ba.querySelector('.ba-line');
+    let dragging = false;
+
+    function setPos(clientX) {
+      const rect = frame.getBoundingClientRect();
+      let pct = ((clientX - rect.left) / rect.width) * 100;
+      pct = Math.max(2, Math.min(98, pct));
+      clip.style.clipPath = 'inset(0 ' + (100 - pct).toFixed(2) + '% 0 0)';
+      line.style.left = pct.toFixed(2) + '%';
+    }
+
+    frame.addEventListener('pointerdown', (e) => {
+      dragging = true;
+      frame.setPointerCapture(e.pointerId);
+      setPos(e.clientX);
+    });
+    frame.addEventListener('pointermove', (e) => { if (dragging) setPos(e.clientX); });
+    frame.addEventListener('pointerup', () => { dragging = false; });
+    frame.addEventListener('pointercancel', () => { dragging = false; });
+  }
+
+  /* ---------- Proof band: real measured load time ---------- */
+  window.addEventListener('load', () => {
+    try {
+      const nav = performance.getEntriesByType('navigation')[0];
+      const ms = nav ? nav.loadEventStart : 0;
+      const el = document.getElementById('proof-speed');
+      if (el && ms > 0 && ms < 3000) {
+        el.textContent = ms >= 1000 ? (ms / 1000).toFixed(1) + ' seconds' : Math.round(ms) + ' milliseconds';
+      }
+    } catch (e) { /* keep the "under a second" fallback */ }
+  });
 
   // Count-up for stat numbers with data-count
   const counters = document.querySelectorAll('.stat-num[data-count]');

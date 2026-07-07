@@ -91,7 +91,7 @@ Rules: never send more than 3 touches; take a demo down promptly if asked; if th
 
 ## 5. Pricing & objections (Alex's close sheet)
 
-Anchors: **Base $250** (single page) · **Standard $350–600** (multi-page) · 50% deposit, 50% on delivery · then $10/mo maintenance (hosting + edits) or ~$100 buyout.
+Anchors: **Base $250** (single page) · **Standard $350–600** (multi-page) · 50% deposit, 50% on delivery · then $10/mo maintenance (hosting + edits) or ~$150 buyout.
 
 - *"I can't afford a website"* → "That's why the price is flat and public — $250, once. Most agencies charge $2,000+ for the same thing. And you've already seen yours — it's built."
 - *"I get all my business from Facebook"* → "Keep the Facebook page — the site makes it work harder. When someone Googles you and finds nothing, they call the competitor who has a site. This catches those."
