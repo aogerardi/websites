@@ -86,6 +86,27 @@
     .soon div{color:var(--muted);}
     .soon h3{font-size:1.3rem;color:var(--fg);margin-bottom:.5rem;}
 
+    /* Before / after slider — "See what we can do" */
+    .ba-section{padding:2rem 0 5rem;}
+    .ba-head{text-align:center;max-width:620px;margin:0 auto 2.5rem;}
+    .ba-head h2{font-size:clamp(1.9rem,4vw,2.7rem);margin-bottom:.6rem;}
+    .ba-head p{color:var(--muted);font-size:1.05rem;}
+    .ba{max-width:860px;margin:0 auto;}
+    .ba-frame{position:relative;border:1px solid var(--border);border-radius:10px;overflow:hidden;
+      aspect-ratio:1900/760;background:var(--bg-muted);cursor:ew-resize;user-select:none;-webkit-user-select:none;
+      touch-action:none;box-shadow:var(--shadow);}
+    .ba-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+    .ba-before-clip{position:absolute;inset:0;clip-path:inset(0 50% 0 0);will-change:clip-path;}
+    .ba-line{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--fg);transform:translateX(-1px);}
+    .ba-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;
+      border-radius:50%;background:var(--fg);color:var(--bg);display:flex;align-items:center;justify-content:center;
+      box-shadow:0 6px 18px rgba(0,0,0,.3);}
+    .ba-tag{position:absolute;top:12px;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+      padding:.28rem .65rem;border-radius:999px;background:rgba(17,17,17,.85);color:#fff;font-family:var(--font-body);}
+    .ba-tag-before{left:12px;}
+    .ba-tag-after{right:12px;}
+    .ba-cap{text-align:center;color:var(--muted);font-size:.9rem;margin-top:.9rem;}
+
     /* CTA */
     .cta{background:var(--fg);color:var(--bg);text-align:center;padding:4.5rem 1.5rem;}
     .cta h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:.8rem;}
@@ -268,6 +289,33 @@
     </div>
   </div>
 
+  <!-- ============ SEE WHAT WE CAN DO: before/after ============ -->
+  <section class="ba-section">
+    <div class="container">
+      <div class="ba-head">
+        <span class="eyebrow">Before &amp; After</span>
+        <h2>See what we can do.</h2>
+        <p>A real client &mdash; Xtreme Epoxy Coatings went from a Facebook page to a website that sells. Drag the handle.</p>
+      </div>
+      <div class="ba" id="ba-slider">
+        <div class="ba-frame">
+          <img class="ba-after" src="../assets/xtreme-epoxy.png" alt="After — the website Piedmondo built for Xtreme Epoxy Coatings" draggable="false" />
+          <div class="ba-before-clip">
+            <img class="ba-before" src="../assets/before-fb.png" alt="Before — a Facebook page as the only web presence" draggable="false" />
+          </div>
+          <div class="ba-line">
+            <span class="ba-handle">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>
+            </span>
+          </div>
+          <span class="ba-tag ba-tag-before">Before</span>
+          <span class="ba-tag ba-tag-after">After</span>
+        </div>
+        <p class="ba-cap">Drag to compare &mdash; from a Facebook page to a site that sells.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="cta">
     <h2>Like what you see?</h2>
     <p>We'll tailor any of these to your business — your photos, your colors, your content — starting at just $250.</p>
@@ -277,5 +325,34 @@
   <footer class="footer">
     <p>&copy; 2026 Piedmondo. Template demos use sample content &amp; stock photos.</p>
   </footer>
+
+  <script>
+    // Before/after slider drag
+    (function () {
+      var ba = document.getElementById('ba-slider');
+      if (!ba) return;
+      var frame = ba.querySelector('.ba-frame');
+      var clip = ba.querySelector('.ba-before-clip');
+      var line = ba.querySelector('.ba-line');
+      var dragging = false;
+
+      function setPos(clientX) {
+        var rect = frame.getBoundingClientRect();
+        var pct = ((clientX - rect.left) / rect.width) * 100;
+        pct = Math.max(2, Math.min(98, pct));
+        clip.style.clipPath = 'inset(0 ' + (100 - pct).toFixed(2) + '% 0 0)';
+        line.style.left = pct.toFixed(2) + '%';
+      }
+
+      frame.addEventListener('pointerdown', function (e) {
+        dragging = true;
+        frame.setPointerCapture(e.pointerId);
+        setPos(e.clientX);
+      });
+      frame.addEventListener('pointermove', function (e) { if (dragging) setPos(e.clientX); });
+      frame.addEventListener('pointerup', function () { dragging = false; });
+      frame.addEventListener('pointercancel', function () { dragging = false; });
+    })();
+  </script>
 </body>
 </html>
