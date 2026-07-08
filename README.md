@@ -55,7 +55,7 @@ All content is plain text in `index.html`, grouped by clearly labeled
 
 Right now the form (in `main.js`) opens the visitor's email app pre-filled and sends
 to the address in `data-contact-email` on the `<form>` in `index.html`
-(currently `gerardienergy@gmail.com`).
+(currently `piedmondosites@gmail.com`).
 
 **To collect submissions straight to an inbox** (no email app needed), sign up for a
 free form backend and point the form at it:
