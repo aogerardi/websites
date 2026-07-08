@@ -117,7 +117,7 @@ function setStatus(msg, type) {
 
   // Elements that fade/slide in as they enter the viewport
   const revealEls = document.querySelectorAll(
-    '.section-head, .card, .price-card, .step, .steps, .faq-item, .pitch, .templates-inner, .stat, .ba'
+    '.section-head, .card, .price-card, .step, .steps, .faq-item, .pitch, .templates-inner, .stat'
   );
 
   if (reduce || !supported) {
@@ -182,32 +182,6 @@ function setStatus(msg, type) {
       });
       link.addEventListener('mousemove', aim);
     });
-  }
-
-  /* ---------- Before / after slider ---------- */
-  const ba = document.getElementById('ba-slider');
-  if (ba) {
-    const frame = ba.querySelector('.ba-frame');
-    const clip = ba.querySelector('.ba-before-clip');
-    const line = ba.querySelector('.ba-line');
-    let dragging = false;
-
-    function setPos(clientX) {
-      const rect = frame.getBoundingClientRect();
-      let pct = ((clientX - rect.left) / rect.width) * 100;
-      pct = Math.max(2, Math.min(98, pct));
-      clip.style.clipPath = 'inset(0 ' + (100 - pct).toFixed(2) + '% 0 0)';
-      line.style.left = pct.toFixed(2) + '%';
-    }
-
-    frame.addEventListener('pointerdown', (e) => {
-      dragging = true;
-      frame.setPointerCapture(e.pointerId);
-      setPos(e.clientX);
-    });
-    frame.addEventListener('pointermove', (e) => { if (dragging) setPos(e.clientX); });
-    frame.addEventListener('pointerup', () => { dragging = false; });
-    frame.addEventListener('pointercancel', () => { dragging = false; });
   }
 
   /* ---------- Proof band: real measured load time ---------- */
