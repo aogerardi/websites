@@ -117,7 +117,7 @@ function setStatus(msg, type) {
 
   // Elements that fade/slide in as they enter the viewport
   const revealEls = document.querySelectorAll(
-    '.section-head, .card, .price-card, .step, .steps, .faq-item, .pitch, .templates-inner, .stat'
+    '.section-head, .card, .price-card, .step, .steps, .faq-item, .pitch, .templates-inner, .stat, .calc'
   );
 
   if (reduce || !supported) {
@@ -182,6 +182,91 @@ function setStatus(msg, type) {
       });
       link.addEventListener('mousemove', aim);
     });
+  }
+
+  /* ---------- Job cost calculator (Pricing section) ---------- */
+  const calc = document.getElementById('calc');
+  if (calc) {
+    const typeChips = calc.querySelectorAll('#calcType .calc-chip');
+    const pageChips = calc.querySelectorAll('#calcPages .calc-chip');
+    const addonChips = calc.querySelectorAll('#calcAddons .calc-chip');
+    const pagesStep = document.getElementById('calcPagesStep');
+    const addonsLabel = document.getElementById('calcAddonsLabel');
+    const priceEl = document.getElementById('calcPrice');
+    const noteEl = document.getElementById('calcNote');
+    const STANDARD_NOTE = '50% deposit to start · after launch: $10/mo maintenance or ~$150 buyout.';
+    const CUSTOM_NOTE = 'Bigger builds are quoted flat up front — tell us what you need and we’ll price it before we start.';
+    const CAP = 600; // beyond the published Standard band -> custom quote
+
+    function singleSelect(chips, onPick) {
+      chips.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          chips.forEach((c) => c.classList.remove('sel'));
+          chip.classList.add('sel');
+          onPick && onPick(chip);
+        });
+      });
+    }
+
+    function selectedType() { return calc.querySelector('#calcType .calc-chip.sel'); }
+    function isMulti() { return selectedType().dataset.base === '350'; }
+
+    function update() {
+      const custom = Array.from(addonChips).some((c) => c.classList.contains('sel') && c.dataset.custom);
+      let total = Number(selectedType().dataset.base);
+      if (isMulti()) {
+        const pg = calc.querySelector('#calcPages .calc-chip.sel');
+        total += Number(pg ? pg.dataset.add : 0);
+      }
+      addonChips.forEach((c) => {
+        if (c.classList.contains('sel') && !c.dataset.custom) total += Number(c.dataset.add);
+      });
+
+      if (custom || total > CAP) {
+        priceEl.textContent = 'Let’s talk';
+        noteEl.textContent = CUSTOM_NOTE;
+      } else {
+        priceEl.textContent = '$' + total;
+        noteEl.textContent = STANDARD_NOTE;
+      }
+    }
+
+    singleSelect(typeChips, (chip) => {
+      const multi = chip.dataset.base === '350';
+      pagesStep.hidden = !multi;
+      addonsLabel.textContent = (multi ? '3' : '2') + ' · Anything extra?';
+      if (!multi) {
+        // reset page count when leaving multi-page
+        pageChips.forEach((c, i) => c.classList.toggle('sel', i === 0));
+      }
+      update();
+    });
+    singleSelect(pageChips, update);
+    addonChips.forEach((chip) => {
+      chip.addEventListener('click', () => { chip.classList.toggle('sel'); update(); });
+    });
+
+    document.getElementById('calcCta').addEventListener('click', () => {
+      const parts = [selectedType().dataset.v];
+      if (isMulti()) {
+        const pg = calc.querySelector('#calcPages .calc-chip.sel');
+        if (pg) parts.push(pg.dataset.v.toLowerCase());
+      }
+      const extras = Array.from(addonChips)
+        .filter((c) => c.classList.contains('sel'))
+        .map((c) => c.dataset.v.toLowerCase());
+      if (extras.length) parts.push('with ' + extras.join(', '));
+      const summary = 'From your calculator: ' + parts.join(', ') + ' — ' +
+        (priceEl.textContent === 'Let’s talk' ? 'custom quote requested' : 'estimated ' + priceEl.textContent) + '.';
+
+      const msg = document.querySelector('#quote-form textarea[name="message"]');
+      if (msg && !msg.value.trim()) msg.value = summary;
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+      const nameInput = document.querySelector('#quote-form input[name="name"]');
+      if (nameInput) setTimeout(() => nameInput.focus({ preventScroll: true }), 600);
+    });
+
+    update();
   }
 
   /* ---------- Proof band: real measured load time ---------- */

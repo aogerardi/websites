@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Affordable, modern websites for small businesses. Flat-rate pricing, fast turnaround — projects starting from $250." />
+  <meta name="description" content="Affordable, modern websites for small businesses. Flat-rate pricing, fast turnaround — projects starting from $200." />
   <link rel="canonical" href="https://piedmondo.com/" />
 
   <!-- Social / Open Graph -->
@@ -35,11 +35,11 @@
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Piedmondo",
-    "description": "Affordable, modern websites for small businesses. Flat-rate pricing starting from $250, live in 1–2 weeks.",
+    "description": "Affordable, modern websites for small businesses. Flat-rate pricing starting from $200, live in 1–2 weeks.",
     "url": "https://piedmondo.com/",
     "image": "https://piedmondo.com/assets/og-image.png",
     "email": "gerardienergy@gmail.com",
-    "priceRange": "$250-$600",
+    "priceRange": "$200-$600",
     "areaServed": "US"
   }
   </script>
@@ -152,7 +152,7 @@
           <span class="stat-label">Custom-built for you</span>
         </div>
         <div class="stat">
-          <span class="stat-num"><span class="stat-from">From</span> $250</span>
+          <span class="stat-num"><span class="stat-from">From</span> $200</span>
           <span class="stat-label">Starter build price</span>
         </div>
         <div class="stat">
@@ -316,7 +316,7 @@
         <div class="grid grid-3 pricing">
           <article class="card price-card">
             <h3>Base</h3>
-            <p class="price"><span>$250</span></p>
+            <p class="price"><span>$200</span></p>
             <p class="price-sub">Single-page site</p>
             <ul class="price-list">
               <li>Single landing page</li>
@@ -359,6 +359,54 @@
         </div>
         <p class="pricing-note">Payment: 50% upfront &middot; 50% on delivery. All prices include setup and launch.</p>
 
+        <!-- ============ JOB COST CALCULATOR ============ -->
+        <div class="calc" id="calc">
+          <header class="calc-head">
+            <p class="eyebrow">Price it yourself</p>
+            <h3>Price your project in 30 seconds.</h3>
+            <p class="calc-sub">Pick what you need — the price updates as you go. Flat rate, agreed up front.</p>
+          </header>
+
+          <div class="calc-step">
+            <span class="calc-label">1 &middot; What kind of site?</span>
+            <div class="calc-chips" id="calcType">
+              <button type="button" class="calc-chip sel" data-v="One-page site" data-base="200">One-page site</button>
+              <button type="button" class="calc-chip" data-v="Multi-page site" data-base="350">Multi-page site</button>
+            </div>
+          </div>
+
+          <div class="calc-step" id="calcPagesStep" hidden>
+            <span class="calc-label">2 &middot; How many pages?</span>
+            <div class="calc-chips" id="calcPages">
+              <button type="button" class="calc-chip sel" data-v="Up to 3 pages" data-add="0">Up to 3</button>
+              <button type="button" class="calc-chip" data-v="4 pages" data-add="50">4</button>
+              <button type="button" class="calc-chip" data-v="5 pages" data-add="100">5</button>
+              <button type="button" class="calc-chip" data-v="6 pages" data-add="150">6</button>
+            </div>
+          </div>
+
+          <div class="calc-step">
+            <span class="calc-label" id="calcAddonsLabel">2 &middot; Anything extra?</span>
+            <div class="calc-chips" id="calcAddons">
+              <button type="button" class="calc-chip" data-v="Photo gallery" data-add="50">Photo gallery <small>+$50</small></button>
+              <button type="button" class="calc-chip" data-v="Booking / reservations" data-add="75">Booking <small>+$75</small></button>
+              <button type="button" class="calc-chip" data-v="Blog / news" data-add="75">Blog <small>+$75</small></button>
+              <button type="button" class="calc-chip" data-v="Custom forms / quote builder" data-add="75">Custom forms <small>+$75</small></button>
+              <button type="button" class="calc-chip" data-v="Logo &amp; basic branding" data-add="50">Logo &amp; branding <small>+$50</small></button>
+              <button type="button" class="calc-chip" data-v="Online store" data-custom="1">Online store <small>custom</small></button>
+            </div>
+          </div>
+
+          <div class="calc-result">
+            <div class="calc-result-text">
+              <span class="calc-result-label">Your flat price</span>
+              <span class="calc-price" id="calcPrice">$200</span>
+              <span class="calc-note" id="calcNote">50% deposit to start &middot; after launch: $10/mo maintenance or ~$150 buyout.</span>
+            </div>
+            <button type="button" class="btn btn-primary" id="calcCta">Lock it in &mdash; get a free demo</button>
+          </div>
+        </div>
+
         <!-- After Launch -->
         <div class="after-launch">
           <header class="section-head" style="margin-top:3rem;">
@@ -391,7 +439,7 @@
 
         <details class="faq-item">
           <summary>How much does a website cost?</summary>
-          <p>Most projects start <strong>from $250</strong>, agreed as a flat rate up front. More involved builds (online booking, stores) are quoted individually.</p>
+          <p>Most projects start <strong>from $200</strong>, agreed as a flat rate up front. More involved builds (online booking, stores) are quoted individually.</p>
         </details>
         <details class="faq-item">
           <summary>How long does it take?</summary>
@@ -426,7 +474,7 @@
         <h2>Agency-quality work, without the agency price.</h2>
         <p>
           Most designers charge $2,000+ for a basic small-business site. We keep it simple
-          and flat-rate - starting <strong>at $250</strong>. Not sure yet? We'll build you
+          and flat-rate - starting <strong>at $200</strong>. Not sure yet? We'll build you
           a free homepage demo first — see it before you spend a dollar.
         </p>
         <a href="#contact" class="btn btn-primary">Get My Free Demo</a>

@@ -24,7 +24,7 @@ Hunt for businesses that are **alive but invisible**:
 - **Alive:** recent Google/Yelp reviews (within ~3 months) or active FB/IG posting. Dead businesses don't buy websites.
 - **Invisible:** no website at all, a Facebook page as their only web presence, or a site that is broken / not mobile-friendly / a decade old. Check their Google Business Profile "website" field and Yelp listing.
 - **Reachable:** a findable owner contact — email on FB page, DM-able IG/FB, or a contact form. Phone-only is workable but worse (Alex would have to cold-call).
-- **Sweet spot size:** owner-operated, 1–20 employees. Big enough to afford $250–600 without blinking, small enough that the owner decides alone.
+- **Sweet spot size:** owner-operated, 1–20 employees. Big enough to afford $200–600 without blinking, small enough that the owner decides alone.
 
 Good hunting grounds: Yelp/Google Maps searches in mid-size towns (50k–300k pop — big-metro businesses get agency spam constantly), local "best of" lists where some entries have no site link, FB local business directories, new-business announcements in local news.
 
@@ -77,7 +77,7 @@ Personalize the [bracketed] parts — the one specific observation is what separ
 **Touch 1 (day 0):**
 > Hi [Name] — I came across [Business] while looking at [industry] shops in [Town]. Noticed you're running everything through [Facebook page / an older site], so I went ahead and built you a modern homepage to show what's possible: **[demo link]**
 >
-> It's a live working site — takes 30 seconds to look at on your phone. If you like it, it's yours: flat $[250–600] once, done in about a week, no monthly agency fees. If not, no worries — I'll take it down.
+> It's a live working site — takes 30 seconds to look at on your phone. If you like it, it's yours: flat $[200–600] once, done in about a week, no monthly agency fees. If not, no worries — I'll take it down.
 >
 > — Alex, piedmondo.com
 
@@ -91,9 +91,9 @@ Rules: never send more than 3 touches; take a demo down promptly if asked; if th
 
 ## 5. Pricing & objections (Alex's close sheet)
 
-Anchors: **Base $250** (single page) · **Standard $350–600** (multi-page) · 50% deposit, 50% on delivery · then $10/mo maintenance (hosting + edits) or ~$150 buyout.
+Anchors: **Base $200** (single page) · **Standard $350–600** (multi-page) · 50% deposit, 50% on delivery · then $10/mo maintenance (hosting + edits) or ~$150 buyout.
 
-- *"I can't afford a website"* → "That's why the price is flat and public — $250, once. Most agencies charge $2,000+ for the same thing. And you've already seen yours — it's built."
+- *"I can't afford a website"* → "That's why the price is flat and public — $200, once. Most agencies charge $2,000+ for the same thing. And you've already seen yours — it's built."
 - *"I get all my business from Facebook"* → "Keep the Facebook page — the site makes it work harder. When someone Googles you and finds nothing, they call the competitor who has a site. This catches those."
 - *"I need to think about it"* → "Totally fair. The demo stays up through [date]. One thing worth knowing: the price includes changes — colors, photos, pages — so 'not quite right' isn't a reason to pass."
 - *"Can you add [feature]?"* → "Almost certainly — most additions fit in Standard ($350–600). Tell me what you need and I'll quote it flat before we start."
