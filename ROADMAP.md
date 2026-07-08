@@ -14,7 +14,7 @@ The one real blocker. Everything public-facing waits on a name.
 - ✅ Replace the `[Agency Name]` placeholder everywhere (homesite + all templates).
 - ⬜ Lock a **color palette** + confirm fonts (currently Fraunces + Inter, minimal B/W).
 - ✅ **Logo / wordmark** — Piedmondo mark (mountains + ring) + lockup; wired in as favicon and nav/footer brand on homesite + templates gallery. Old `favicon.svg` retired.
-- ✅ Decide a **business email** → `gerardienergy@gmail.com`; contact form repointed.
+- ✅ Decide a **business email** → `piedmondosites@gmail.com`; contact form repointed.
 
 ## Phase 2 — Finish the Homesite  🟡
 - ✅ Full structure: hero, stats, services, templates band, pricing, work, about, FAQ, contact
