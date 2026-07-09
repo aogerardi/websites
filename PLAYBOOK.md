@@ -98,14 +98,16 @@ Cold email is regulated by the CAN-SPAM Act, which applies even to a single one-
 2. **A valid physical mailing address** — technically required by CAN-SPAM, but **deliberately omitted for now** (2026-07-09, Alex's call): at current low outreach volume (a handful of personalized emails/week, not bulk), the realistic enforcement risk is low, and getting a PO box costs money for a gap that may not matter yet. **Revisit this before scaling outreach volume up** — once sending more than a handful of emails a week, get a small USPS PO box (~$5–15/mo in most non-major-metro ZIPs) and add it back into the footer below.
 3. **A working opt-out** — a plain-text line: `Don't want emails like this from me? Reply "stop" and I'll never email you again.` A reply-based opt-out is legally sufficient — no unsubscribe service needed.
 
-Standard footer to append to every outreach email:
+Standard footer to append to every outreach email — each line has a legal job (contract-formation disclaimer + no-affiliation, good-faith takedown offer, CAN-SPAM opt-out), so send it intact:
 ```
 — Alex
 Piedmondo — piedmondosites@gmail.com
 
-This preview was built as a sample of our work — see how and why at piedmondo.com/terms.html.
-Don't want emails like this from me? Reply "stop" and I'll never email you again.
+The site preview above is a free, unsolicited sample built by Piedmondo to show our work — it implies no affiliation with your business, and viewing it creates no obligation of any kind. Nothing in this email is a binding offer; a project begins only when we both confirm it in writing. See our Terms & Conditions: piedmondo.com/terms.html
+Want the preview taken down? Reply and it's gone the same day.
+Don't want emails like this? Reply "stop" and I'll never email you again.
 ```
+Spanish version lives in `pipeline/casa-del-taco-email-es.txt` — reuse its footer verbatim for Spanish outreach. The "not a binding offer" language is anchored in Terms §12, so the email and the Terms say the same thing.
 
 **Opt-out handling:** if anyone replies "stop"/"unsubscribe"/asks not to be contacted, immediately set that lead's `status` to `dead` in `leads.csv` with `OPTED OUT — do not re-contact` in Notes, honor it within 10 business days (do it same-day in practice), and never email that address again for any reason.
 
