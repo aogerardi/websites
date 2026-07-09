@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <meta name="description" content="Casa Del Taco — authentic Mexican taquería in Glendale, AZ. Carne asada street tacos, burritos, enchiladas, weekend menudo &amp; pozole." />
+  <title>Casa Del Taco — Taquería in Glendale, AZ</title>
+
+  <!-- Live demo built for Casa Del Taco by Piedmondo. Photos are stock placeholders
+       to be swapped for the client's real photos. -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --cream:#faf5ea;
+      --cream-deep:#f3ebd9;
+      --paper:#fffdf8;
+      --red:#8c2f2a;
+      --red-deep:#6f231f;
+      --green:#4b5d3a;
+      --gold:#c19a4b;
+      --ink:#2a241f;
+      --muted:#766b5b;
+      --border:#e6dcc6;
+      --shadow:0 10px 40px rgba(60,40,20,.10);
+      --font-head:"Playfair Display",Georgia,serif;
+      --font-body:"Lora",Georgia,serif;
+      --font-script:"Dancing Script",cursive;
+      --max:1140px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font-body);color:var(--ink);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;}
+    h1,h2,h3,h4{font-family:var(--font-head);font-weight:600;line-height:1.15;}
+    a{color:inherit;text-decoration:none;}
+    img{display:block;max-width:100%;}
+    .container{max-width:var(--max);margin:0 auto;padding:0 1.5rem;}
+    section[id]{scroll-margin-top:90px;}
+
+    .script{font-family:var(--font-script);color:var(--red);font-weight:700;}
+    .eyebrow{font-family:var(--font-script);font-size:1.6rem;color:var(--red);}
+    .overline{text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;font-weight:600;color:var(--gold);font-family:var(--font-body);}
+
+    /* Buttons */
+    .btn{display:inline-block;font-family:var(--font-body);font-weight:500;font-size:.95rem;letter-spacing:.02em;
+         padding:.85rem 1.8rem;border-radius:2px;cursor:pointer;border:1.5px solid transparent;transition:.18s ease;}
+    .btn-primary{background:var(--red);color:#fff;}
+    .btn-primary:hover{background:var(--red-deep);}
+    .btn-outline{border-color:currentColor;color:var(--ink);}
+    .btn-outline:hover{background:var(--ink);color:var(--cream);border-color:var(--ink);}
+    .btn-light{border:1.5px solid rgba(255,255,255,.7);color:#fff;}
+    .btn-light:hover{background:#fff;color:var(--ink);}
+
+    /* Image fallback */
+    .ph{background:var(--cream-deep);position:relative;overflow:hidden;}
+    .ph.img-fallback{background:linear-gradient(135deg,#caa86f,#8c2f2a);}
+    .ph img{width:100%;height:100%;object-fit:cover;}
+
+    /* Top bar */
+    .topbar{background:var(--red-deep);color:#f6e9cf;font-size:.8rem;letter-spacing:.04em;}
+    .topbar .container{display:flex;justify-content:space-between;align-items:center;padding:.5rem 1.5rem;gap:1rem;flex-wrap:wrap;}
+    .topbar a{color:#fff;}
+
+    /* Header */
+    .site-header{position:sticky;top:0;z-index:60;background:rgba(250,245,234,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;max-width:var(--max);margin:0 auto;}
+    .logo{font-family:var(--font-head);font-size:1.5rem;font-weight:700;color:var(--red);letter-spacing:.01em;display:flex;flex-direction:column;line-height:1;}
+    .logo small{font-family:var(--font-script);font-size:.85rem;color:var(--gold);letter-spacing:0;margin-top:2px;}
+    .nav-links{list-style:none;display:flex;align-items:center;gap:1.9rem;}
+    .nav-links a{font-size:.9rem;letter-spacing:.04em;text-transform:uppercase;font-family:var(--font-body);font-weight:500;}
+    .nav-links a:hover{color:var(--red);}
+    .nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px;}
+    .nav-toggle span{width:26px;height:2px;background:var(--ink);border-radius:2px;}
+
+    /* Hero */
+    .hero{position:relative;min-height:88vh;display:flex;align-items:center;color:#fff;text-align:center;}
+    .hero .ph{position:absolute;inset:0;z-index:0;}
+    .hero .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,20,12,.55),rgba(30,20,12,.65));}
+    .hero-inner{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:5rem 1.5rem;}
+    .hero .eyebrow{color:#f3d9a6;}
+    .hero h1{font-size:clamp(2.8rem,7vw,5rem);margin:.5rem 0 1.2rem;text-shadow:0 2px 24px rgba(0,0,0,.3);}
+    .hero p{font-size:1.2rem;max-width:560px;margin:0 auto 2.2rem;color:#f6efe2;}
+    .hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+
+    /* Section scaffolding */
+    .section{padding:6rem 0;}
+    .section-cream{background:var(--cream);}
+    .section-paper{background:var(--paper);}
+    .section-deep{background:var(--red-deep);color:#f6e9cf;}
+    .section-dark{background:var(--ink);color:var(--cream);}
+    .sec-head{text-align:center;max-width:640px;margin:0 auto 3.5rem;}
+    .sec-head h2{font-size:clamp(2rem,4.5vw,3rem);margin:.4rem 0 .6rem;}
+    .sec-head p{color:var(--muted);font-size:1.08rem;}
+    .section-deep .sec-head p,.section-dark .sec-head p{color:#e9d9bd;}
+    .rule{width:60px;height:2px;background:var(--gold);margin:1rem auto 0;}
+
+    /* Story */
+    .story{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+    .story .ph{aspect-ratio:4/5;border-radius:3px;box-shadow:var(--shadow);}
+    .story-text .overline{display:block;margin-bottom:.6rem;}
+    .story-text h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:1.2rem;}
+    .story-text p{color:var(--muted);margin-bottom:1.1rem;}
+    .signature{font-family:var(--font-script);font-size:1.8rem;color:var(--red);margin-top:.5rem;}
+
+    /* Signature dishes */
+    .dish-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+    .dish{background:var(--paper);border:1px solid var(--border);border-radius:3px;overflow:hidden;box-shadow:var(--shadow);transition:transform .25s ease;}
+    .dish:hover{transform:translateY(-6px);}
+    .dish .ph{aspect-ratio:3/2;}
+    .dish-body{padding:1.5rem;}
+    .dish-body h3{font-size:1.3rem;margin-bottom:.4rem;}
+    .dish-body p{color:var(--muted);font-size:.95rem;}
+    .dish-price{display:inline-block;margin-top:.9rem;font-family:var(--font-head);color:var(--red);font-size:1.15rem;}
+
+    /* Menu */
+    .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem 4rem;max-width:980px;margin:0 auto;}
+    .menu-cat h3{font-size:1.6rem;color:var(--gold);display:flex;align-items:center;gap:.8rem;margin-bottom:1.4rem;}
+    .menu-cat h3::after{content:"";flex:1;height:1px;background:rgba(193,154,75,.35);}
+    .menu-item{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.7rem 0;border-bottom:1px dotted rgba(255,255,255,.18);}
+    .menu-item:last-child{border-bottom:0;}
+    .mi-name{font-family:var(--font-head);font-size:1.12rem;}
+    .mi-desc{display:block;font-size:.86rem;color:#cbb892;font-weight:400;font-family:var(--font-body);margin-top:2px;}
+    .mi-price{font-family:var(--font-head);color:#f3d9a6;white-space:nowrap;font-size:1.05rem;}
+    .menu-note{text-align:center;margin-top:3rem;color:#e9d9bd;font-style:italic;}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:.75rem;}
+    .gallery .ph{border-radius:2px;}
+    .gallery .ph:nth-child(1){grid-column:span 2;grid-row:span 2;}
+    .gallery .ph:nth-child(6){grid-column:span 2;}
+    .gallery .ph img{transition:transform .4s ease;}
+    .gallery .ph:hover img{transform:scale(1.06);}
+
+    /* Testimonials */
+    .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+    .quote{text-align:center;padding:2rem 1.5rem;}
+    .stars{color:var(--gold);letter-spacing:.15em;margin-bottom:1rem;}
+    .quote blockquote{font-family:var(--font-head);font-style:italic;font-size:1.15rem;margin-bottom:1rem;}
+    .quote cite{color:var(--muted);font-style:normal;font-size:.9rem;letter-spacing:.04em;text-transform:uppercase;}
+
+    /* Visit */
+    .visit{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:stretch;}
+    .visit-info h3{font-size:1.4rem;margin-bottom:.4rem;color:var(--gold);}
+    .hours-row{display:flex;justify-content:space-between;padding:.45rem 0;border-bottom:1px dotted rgba(255,255,255,.18);max-width:340px;}
+    .visit-block{margin-bottom:2rem;}
+    .visit-block p{color:#e9d9bd;}
+    .map{min-height:340px;border:0;width:100%;height:100%;border-radius:3px;filter:saturate(.9);}
+
+    /* Reserve band */
+    .reserve{text-align:center;}
+    .reserve .eyebrow{font-size:1.8rem;}
+    .reserve h2{font-size:clamp(2.2rem,5vw,3.4rem);margin:.3rem 0 1.4rem;}
+    .reserve p{max-width:520px;margin:0 auto 2rem;color:#f0e6d4;}
+
+    /* Footer */
+    .footer{background:#211c18;color:#cbb892;padding:4rem 0 2rem;}
+    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem;}
+    .footer .logo{color:#f3d9a6;margin-bottom:.8rem;}
+    .footer h4{font-family:var(--font-body);text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;color:var(--gold);margin-bottom:1rem;}
+    .footer a:hover{color:#fff;}
+    .footer-col p{margin-bottom:.4rem;font-size:.95rem;}
+    .footer-bottom{border-top:1px solid #3a322a;padding-top:1.5rem;text-align:center;font-size:.82rem;color:#9c8f78;}
+    .footer-bottom a{color:#cbb892;text-decoration:underline;}
+
+    /* Responsive */
+    @media(max-width:900px){
+      .story,.visit{grid-template-columns:1fr;gap:2.5rem;}
+      .dish-grid,.quotes{grid-template-columns:1fr;}
+      .menu-grid{grid-template-columns:1fr;gap:2.5rem;}
+      .footer-grid{grid-template-columns:1fr;}
+      .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px;}
+      .gallery .ph:nth-child(1){grid-column:span 2;}
+    }
+    @media(max-width:680px){
+      .nav-toggle{display:flex;}
+      .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;
+                 background:var(--cream);border-bottom:1px solid var(--border);padding:.5rem 1.5rem 1rem;display:none;}
+      .nav-links.open{display:flex;}
+      .nav-links li{width:100%;padding:.6rem 0;}
+      .topbar .container{justify-content:center;}
+      .gallery{grid-template-columns:1fr;}
+      .gallery .ph:nth-child(n){grid-column:span 1;grid-row:span 1;}
+    }
+  </style>
+</head>
+<body>
+  <div id="pd-banner" style="position:sticky;top:0;z-index:999;background:#111;color:#fafafa;padding:10px 16px;text-align:center;font:14px/1.4 Inter,system-ui,sans-serif;">
+    Live demo built for <strong>Casa Del Taco</strong> by <a href="https://piedmondo.com" style="color:#fff;text-decoration:underline;">Piedmondo</a> &mdash; like it? It's yours.
+    <a href="https://piedmondo.com/#contact" style="color:#fff;text-decoration:underline;margin-left:8px;">Claim this site &rarr;</a>
+    <button onclick="this.parentElement.remove()" style="background:none;border:0;color:#999;margin-left:10px;cursor:pointer;font-size:16px;">&times;</button>
+  </div>
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="container">
+      <span>&#128205; 4938 W Glendale Ave, Glendale &nbsp;&bull;&nbsp; Open 7 days (Wed closed)</span>
+      <span>Order &amp; catering: <a href="tel:+16028541331">(602) 854-1331</a></span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="#top" class="logo">Casa Del Taco<small>taquer&iacute;a &bull; antojitos</small></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="menu">
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#menu-section">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a href="#order" class="btn btn-outline" style="padding:.5rem 1.1rem">Order</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="ph">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1920&q=80" alt="Fresh Mexican street tacos" />
+      </div>
+      <div class="hero-inner">
+        <p class="eyebrow">Bienvenidos</p>
+        <h1>Real Street Tacos,<br>Hecho a Mano</h1>
+        <p>Carne asada off the grill, hand-pressed tortillas, and salsas made fresh every morning &mdash; Glendale's neighborhood taquer&iacute;a.</p>
+        <div class="hero-actions">
+          <a href="#menu-section" class="btn btn-light">View the Menu</a>
+          <a href="#order" class="btn btn-primary">Order Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story -->
+    <section id="story" class="section section-paper">
+      <div class="container story">
+        <div class="ph">
+          <img src="https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?auto=format&fit=crop&w=900&q=80" alt="Tacos being prepared" />
+        </div>
+        <div class="story-text">
+          <span class="overline">Our Story</span>
+          <h2>A Taste of Home on Glendale Ave</h2>
+          <p>Casa Del Taco started with a simple idea: serve the food we grew up on, made the way it's supposed to be &mdash; carne asada grilled to order, tortillas pressed by hand, and salsas nobody buys in a jar.</p>
+          <p>Years later, our regulars still line up for the same carne asada street tacos, weekend menudo, and the kind of welcome that turns first-timers into familia.</p>
+          <p class="signature">&mdash; The Casa Del Taco Family</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Signature dishes -->
+    <section class="section section-cream">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow">Las Especialidades</span>
+          <h2>What We're Known For</h2>
+          <p>The plates our regulars come back for, again and again.</p>
+          <div class="rule"></div>
+        </div>
+        <div class="dish-grid">
+          <article class="dish">
+            <div class="ph"><img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=700&q=80" alt="Carne asada street tacos" /></div>
+            <div class="dish-body">
+              <h3>Carne Asada Street Tacos</h3>
+              <p>Mesquite-grilled steak, chopped onion &amp; cilantro, double corn tortilla, and a squeeze of lime. The one everybody orders.</p>
+              <span class="dish-price">$3.25 each</span>
+            </div>
+          </article>
+          <article class="dish">
+            <div class="ph"><img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=700&q=80" alt="Loaded burrito" /></div>
+            <div class="dish-body">
+              <h3>Burrito de Carne Asada</h3>
+              <p>Grilled steak, rice, beans, pico, and cheese wrapped in a warm flour tortilla. Add guac and make it a meal.</p>
+              <span class="dish-price">$10.50</span>
+            </div>
+          </article>
+          <article class="dish">
+            <div class="ph"><img src="https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?auto=format&fit=crop&w=700&q=80" alt="Bowl of menudo" /></div>
+            <div class="dish-body">
+              <h3>Menudo &amp; Pozole</h3>
+              <p>The weekend tradition. Slow-simmered, rich, and served with warm tortillas, onion, lime, and oregano. Saturdays &amp; Sundays only.</p>
+              <span class="dish-price">$12</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu -->
+    <section id="menu-section" class="section section-deep">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow" style="color:#f3d9a6">El Men&uacute;</span>
+          <h2 style="color:#fff">Our Menu</h2>
+          <p>Made fresh daily. A taste of what's waiting for you.</p>
+          <div class="rule"></div>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-cat">
+            <h3>Tacos</h3>
+            <div class="menu-item"><span class="mi-name">Carne Asada<span class="mi-desc">Mesquite-grilled steak, onion, cilantro</span></span><span class="mi-price">$3.25</span></div>
+            <div class="menu-item"><span class="mi-name">Al Pastor<span class="mi-desc">Marinated pork, pineapple, onion, cilantro</span></span><span class="mi-price">$2.95</span></div>
+            <div class="menu-item"><span class="mi-name">Pollo Asado<span class="mi-desc">Grilled chicken, salsa verde</span></span><span class="mi-price">$2.95</span></div>
+            <div class="menu-item"><span class="mi-name">Carnitas<span class="mi-desc">Slow-cooked pork, crisped on the grill</span></span><span class="mi-price">$3.00</span></div>
+            <div class="menu-item"><span class="mi-name">Barbacoa<span class="mi-desc">Tender shredded beef, consom&eacute;</span></span><span class="mi-price">$3.25</span></div>
+          </div>
+          <div class="menu-cat">
+            <h3>Platos</h3>
+            <div class="menu-item"><span class="mi-name">Burrito de Carne Asada<span class="mi-desc">Steak, rice, beans, pico, cheese</span></span><span class="mi-price">$10.50</span></div>
+            <div class="menu-item"><span class="mi-name">Enchiladas (3)<span class="mi-desc">Red or green, cheese, rice &amp; beans</span></span><span class="mi-price">$11</span></div>
+            <div class="menu-item"><span class="mi-name">Chile Relleno<span class="mi-desc">Roasted poblano, cheese, ranchera sauce</span></span><span class="mi-price">$11.50</span></div>
+            <div class="menu-item"><span class="mi-name">Gorditas (2)<span class="mi-desc">Hand-made masa pockets, your choice of meat</span></span><span class="mi-price">$9.50</span></div>
+            <div class="menu-item"><span class="mi-name">Combo Plate<span class="mi-desc">Two tacos, rice, beans, chips &amp; salsa</span></span><span class="mi-price">$12.50</span></div>
+          </div>
+          <div class="menu-cat">
+            <h3>Fin de Semana</h3>
+            <div class="menu-item"><span class="mi-name">Menudo<span class="mi-desc">Sat &amp; Sun &mdash; tortillas, onion, lime, oregano</span></span><span class="mi-price">$12</span></div>
+            <div class="menu-item"><span class="mi-name">Pozole Rojo<span class="mi-desc">Sat &amp; Sun &mdash; hominy, pork, all the fixings</span></span><span class="mi-price">$12</span></div>
+            <div class="menu-item"><span class="mi-name">Family Taco Pack<span class="mi-desc">12 street tacos, rice, beans, salsas</span></span><span class="mi-price">$36</span></div>
+          </div>
+          <div class="menu-cat">
+            <h3>Extras &amp; Bebidas</h3>
+            <div class="menu-item"><span class="mi-name">Chips, Salsa &amp; Guac<span class="mi-desc">Made fresh all day</span></span><span class="mi-price">$6</span></div>
+            <div class="menu-item"><span class="mi-name">Elote<span class="mi-desc">Street corn, crema, cotija, chili-lime</span></span><span class="mi-price">$4.50</span></div>
+            <div class="menu-item"><span class="mi-name">Horchata / Agua Fresca<span class="mi-desc">Made in-house daily</span></span><span class="mi-price">$3.50</span></div>
+            <div class="menu-item"><span class="mi-name">Jarritos &amp; Mexican Coke<span class="mi-desc">Ice cold, real sugar</span></span><span class="mi-price">$2.50</span></div>
+          </div>
+        </div>
+        <p class="menu-note">Sample menu shown for the demo &mdash; we build it from your real menu &amp; prices. Ask about daily specials and catering.</p>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="section section-cream">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow">La Galer&iacute;a</span>
+          <h2>Straight Off the Grill</h2>
+          <div class="rule"></div>
+        </div>
+        <div class="gallery">
+          <div class="ph"><img src="https://images.unsplash.com/photo-1613514785940-daed07799d9b?auto=format&fit=crop&w=900&q=80" alt="Tacos platter" /></div>
+          <div class="ph"><img src="https://images.unsplash.com/photo-1611250188496-e966043a0629?auto=format&fit=crop&w=600&q=80" alt="Tacos close up" /></div>
+          <div class="ph"><img src="https://images.unsplash.com/photo-1504544750208-dc0358e63f7f?auto=format&fit=crop&w=600&q=80" alt="Mexican dish" /></div>
+          <div class="ph"><img src="https://images.unsplash.com/photo-1583224964978-2257b960c3d3?auto=format&fit=crop&w=600&q=80" alt="Salsas and chips" /></div>
+          <div class="ph"><img src="https://images.unsplash.com/photo-1594007654729-407eedc4be65?auto=format&fit=crop&w=600&q=80" alt="Burrito" /></div>
+          <div class="ph"><img src="https://images.unsplash.com/photo-1601924582970-9238bcb495d9?auto=format&fit=crop&w=900&q=80" alt="Mexican food spread" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section section-paper">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow">Las Rese&ntilde;as</span>
+          <h2>What the Neighborhood Says</h2>
+          <p style="font-size:.9rem;color:#9c8f78;">Sample reviews shown &mdash; your real Google &amp; Yelp reviews go right here.</p>
+          <div class="rule"></div>
+        </div>
+        <div class="quotes">
+          <div class="quote">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>"Best carne asada tacos on this side of Glendale. The salsas are unreal and the portions are huge."</blockquote>
+            <cite>&mdash; Sample review</cite>
+          </div>
+          <div class="quote">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>"We drive across town for the weekend menudo. Tastes just like my grandma made it. Worth every mile."</blockquote>
+            <cite>&mdash; Sample review</cite>
+          </div>
+          <div class="quote">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>"Fast, friendly, and everything is fresh. The rice and beans alone are better than most whole meals."</blockquote>
+            <cite>&mdash; Sample review</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visit -->
+    <section id="visit" class="section section-dark">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow" style="color:#f3d9a6">Vis&iacute;tanos</span>
+          <h2 style="color:#fff">Visit Us</h2>
+          <div class="rule"></div>
+        </div>
+        <div class="visit">
+          <div class="visit-info">
+            <div class="visit-block">
+              <h3>Hours</h3>
+              <div class="hours-row"><span>Monday &ndash; Thursday</span><span>9:00 AM &ndash; 6:00 PM</span></div>
+              <div class="hours-row"><span>Friday &ndash; Saturday</span><span>9:00 AM &ndash; 1:30 AM</span></div>
+              <div class="hours-row"><span>Sunday</span><span>9:00 AM &ndash; 5:00 PM</span></div>
+              <div class="hours-row"><span>Wednesday</span><span>Closed</span></div>
+            </div>
+            <div class="visit-block">
+              <h3>Find Us</h3>
+              <p>4938 W Glendale Ave<br>Glendale, AZ 85301</p>
+            </div>
+            <div class="visit-block">
+              <h3>Order &amp; Catering</h3>
+              <p><a href="tel:+16028541331">(602) 854-1331</a></p>
+            </div>
+          </div>
+          <iframe class="map" title="Map to Casa Del Taco"
+            src="https://www.google.com/maps?q=4938+W+Glendale+Ave+Glendale+AZ+85301&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Order -->
+    <section id="order" class="section section-deep reserve">
+      <div class="container">
+        <span class="eyebrow" style="color:#f3d9a6">&iexcl;Nos Vemos!</span>
+        <h2 style="color:#fff">Hungry Yet?</h2>
+        <p>Call ahead for pickup, ask about catering for your next party, or just come by &mdash; there's always a fresh batch on the grill.</p>
+        <div class="hero-actions" style="justify-content:center">
+          <a href="tel:+16028541331" class="btn btn-light">Call (602) 854-1331</a>
+          <a href="https://www.google.com/maps?q=4938+W+Glendale+Ave+Glendale+AZ+85301" target="_blank" rel="noopener" class="btn btn-primary">Get Directions</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo">Casa Del Taco</div>
+          <p>Authentic Mexican taquer&iacute;a in Glendale, AZ. Carne asada street tacos, burritos, weekend menudo &amp; pozole, and salsas made fresh every day.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Visit</h4>
+          <p>4938 W Glendale Ave</p>
+          <p>Glendale, AZ 85301</p>
+          <p><a href="tel:+16028541331">(602) 854-1331</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Hours</h4>
+          <p>Mon&ndash;Thu: 9 AM&ndash;6 PM</p>
+          <p>Fri&ndash;Sat: 9 AM&ndash;1:30 AM</p>
+          <p>Sun: 9 AM&ndash;5 PM</p>
+          <p>Wed: Closed</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Casa Del Taco. &nbsp;A demo site built by <a href="https://piedmondo.com">Piedmondo</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const t=document.querySelector('.nav-toggle'),m=document.getElementById('menu');
+    if(t&&m){
+      t.addEventListener('click',()=>{const o=m.classList.toggle('open');t.setAttribute('aria-expanded',String(o));});
+      m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.classList.remove('open');t.setAttribute('aria-expanded','false');}));
+    }
+    document.querySelectorAll('.ph img').forEach(img=>{
+      img.addEventListener('error',()=>{img.style.display='none';img.parentElement.classList.add('img-fallback');});
+    });
+  </script>
+</body>
+</html>

@@ -36,6 +36,8 @@ Good hunting grounds: Yelp/Google Maps searches in mid-size towns (50k–300k po
 - Scraper directories (`*.website`, `res-menu.net`, `netwaiter.com`, `wheree.com`, `menufyy`) are NOT owned sites — and they're a pitch angle: they show the business with wrong/conflicting hours the owner can't fix.
 - Search recipe that works: `<industry> <mid-size city+state> facebook page reviews -site:yelp.com` → then verify each candidate with `"<Business Name>" <city> website` and confirm no owned domain appears.
 
+**Big-metro lesson (2026-07-08, Phoenix run):** In a big metro (Phoenix, ~5M), nearly every business that ranks on page 1 already has a site — 6 of 6 checked in Phoenix proper (barbers, detailers, lawn) had owned domains. Don't hunt the metro core. Two fixes that worked: (1) hunt the **suburbs** (Glendale, Peoria, Mesa, Avondale) where operators are smaller/less spammed; (2) target **independent restaurants/taco shops** — they very often have NO owned site, only scraper pages (`menu-world.com`, `wheree.com`, `zmenu.com`, `restaurantji.com`) + delivery apps (DoorDash/Grubhub) + a FB page. That's both the disqualifier check AND the pitch: "when someone Googles you, they land on a page you don't control." Restaurants also demo beautifully (menu, hours, gallery). Won the Phoenix run: Casa Del Taco, Glendale.
+
 Log every qualified prospect as a row in `pipeline/leads.csv` even if we don't build for them yet — research is reusable.
 
 ## 3. Demo build procedure
