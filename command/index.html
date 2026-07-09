@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Piedmondo — Command Center</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛰️</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  /* Brady's Command Center palette: ink / pine / gold / paper */
+  :root{
+    --ink:#1E2B23; --pine:#2F6B4F; --pine-soft:#E7EFE9;
+    --gold:#C99A3C; --gold-soft:#F6EBD4; --paper:#F5F2EA;
+    --line:#E3DECF; --red:#B3402A; --red-soft:#F7E4DE; --mute:#6E7A72;
+    --mono:'JetBrains Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:Inter,system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .display{font-family:Fraunces,Georgia,serif;}
+  a{color:var(--pine);text-decoration:none;} a:hover{text-decoration:underline;}
+  button{font:inherit;cursor:pointer;}
+  button:focus-visible{outline:2px solid var(--pine);outline-offset:2px;}
+
+  /* ---- top bar ---- */
+  .top{background:var(--ink);color:var(--paper);padding:.9rem 1.4rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
+  .top .brand{line-height:1.05;}
+  .top .brand b{font-family:Fraunces,serif;font-weight:600;font-size:1.15rem;letter-spacing:.3px;display:block;}
+  .top .brand span{font-size:.62rem;text-transform:uppercase;letter-spacing:.22em;color:var(--gold);}
+  .top .spacer{flex:1;}
+  .top .tbtn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:var(--paper);
+    padding:.42rem .8rem;border-radius:8px;font-size:.78rem;font-weight:500;}
+  .top .tbtn:hover{background:rgba(255,255,255,.16);}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:1.6rem 1.4rem 4rem;}
+  .demo-note{background:var(--gold-soft);border:1px solid #e8d5a8;color:#6b4f16;border-radius:10px;
+    padding:.7rem 1rem;font-size:.85rem;margin-bottom:1.2rem;}
+
+  /* ---- KPIs ---- */
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.8rem;margin-bottom:1.4rem;}
+  .kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:.9rem 1rem;}
+  .kpi .l{font-size:.66rem;text-transform:uppercase;letter-spacing:.14em;color:var(--mute);margin-bottom:.3rem;}
+  .kpi .v{font-family:Fraunces,serif;font-weight:600;font-size:1.7rem;line-height:1;}
+  .kpi.alert{border-color:var(--red);} .kpi.alert .v{color:var(--red);}
+
+  /* ---- sections ---- */
+  section{margin-bottom:1.8rem;}
+  .sec-title{display:flex;align-items:baseline;gap:.6rem;margin-bottom:.7rem;}
+  .sec-title h2{font-family:Fraunces,serif;font-weight:600;font-size:1.15rem;}
+  .sec-title .count{font-family:var(--mono);font-size:.75rem;color:var(--mute);}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+
+  /* ---- takedown radar ---- */
+  .radar .row{display:flex;align-items:center;gap:1rem;padding:.8rem 1rem;border-bottom:1px solid var(--line);flex-wrap:wrap;}
+  .radar .row:last-child{border-bottom:0;}
+  .radar b{font-size:.95rem;}
+  .radar .days{font-family:var(--mono);font-size:.75rem;color:var(--red);background:var(--red-soft);
+    padding:.2rem .55rem;border-radius:999px;white-space:nowrap;}
+  .radar .grow{flex:1;}
+  .radar .empty{padding:1rem;color:var(--mute);font-size:.88rem;}
+
+  /* ---- table ---- */
+  .tblwrap{overflow-x:auto;}
+  table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:880px;}
+  thead th{text-align:left;font-size:.64rem;text-transform:uppercase;letter-spacing:.12em;color:var(--mute);
+    background:#FAF8F2;padding:.6rem .8rem;font-weight:600;border-bottom:1px solid var(--line);}
+  tbody td{padding:.62rem .8rem;border-bottom:1px solid var(--line);vertical-align:top;}
+  tbody tr:last-child td{border-bottom:0;}
+  tbody tr:hover{background:#FCFBF7;}
+  td .biz{font-weight:600;} td .sub{font-size:.72rem;color:var(--mute);}
+  .mono{font-family:var(--mono);font-size:.75rem;white-space:nowrap;}
+
+  .chip{display:inline-flex;align-items:center;gap:.35rem;padding:.16rem .6rem;border-radius:999px;
+    font-size:.7rem;font-weight:600;white-space:nowrap;}
+  .chip::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;}
+  .c-researched{background:#EDEAE0;color:#6E6A5C;} .c-queued{background:var(--gold-soft);color:#8A6217;}
+  .c-built{background:#E8ECF2;color:#41546E;} .c-sent{background:var(--gold-soft);color:#8A6217;}
+  .c-replied{background:var(--pine-soft);color:var(--pine);} .c-won{background:var(--pine);color:#fff;}
+  .c-dead{background:var(--red-soft);color:var(--red);}
+
+  .act{display:flex;gap:.35rem;flex-wrap:wrap;}
+  .sbtn{border:1px solid var(--line);background:#fff;border-radius:7px;padding:.3rem .6rem;font-size:.72rem;font-weight:500;color:var(--ink);}
+  .sbtn:hover{border-color:var(--pine);color:var(--pine);}
+  .sbtn.solid{background:var(--pine);border-color:var(--pine);color:#fff;}
+  .sbtn.danger:hover{border-color:var(--red);color:var(--red);}
+
+  /* ---- add/edit form ---- */
+  .form{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.7rem;padding:1rem;}
+  .form label{font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;color:var(--mute);display:block;margin-bottom:.25rem;}
+  .form input,.form select,.form textarea{width:100%;font:inherit;font-size:.85rem;padding:.5rem .6rem;
+    border:1px solid var(--line);border-radius:8px;background:#fff;}
+  .form input:focus,.form select:focus,.form textarea:focus{outline:2px solid var(--pine);outline-offset:0;border-color:var(--pine);}
+  .form .full{grid-column:1/-1;}
+  .form-actions{display:flex;gap:.6rem;align-items:center;padding:0 1rem 1rem;}
+  .pbtn{background:var(--pine);color:#fff;border:0;border-radius:8px;padding:.55rem 1.1rem;font-size:.82rem;font-weight:600;}
+  .pbtn:hover{background:#25543E;}
+  .gbtn{background:#fff;border:1px solid var(--line);border-radius:8px;padding:.55rem 1.1rem;font-size:.82rem;}
+  #formMsg{font-size:.78rem;color:var(--mute);}
+
+  /* ---- gate ---- */
+  #gate{position:fixed;inset:0;background:var(--ink);display:flex;align-items:center;justify-content:center;z-index:100;padding:1.5rem;}
+  .gate-card{width:100%;max-width:360px;text-align:center;color:var(--paper);}
+  .gate-card .mark{width:64px;height:64px;margin:0 auto 1rem;}
+  .gate-card h1{font-family:Fraunces,serif;font-weight:600;font-size:1.4rem;letter-spacing:.4px;}
+  .gate-card .sub{font-size:.68rem;text-transform:uppercase;letter-spacing:.24em;color:var(--gold);margin:.2rem 0 1.6rem;}
+  .gate-card input{width:100%;font:inherit;text-align:center;padding:.75rem .9rem;border-radius:10px;border:1px solid rgba(255,255,255,.2);
+    background:rgba(255,255,255,.07);color:var(--paper);font-size:1rem;letter-spacing:.12em;}
+  .gate-card input:focus{outline:2px solid var(--gold);}
+  .gate-card button{margin-top:.9rem;width:100%;background:var(--gold);color:var(--ink);border:0;border-radius:10px;
+    padding:.75rem;font-weight:600;font-size:.9rem;}
+  .gate-card .err{min-height:1.3em;margin-top:.7rem;font-size:.8rem;color:#E8A093;}
+  .gate-card .foot{margin-top:2rem;font-size:.7rem;color:rgba(245,242,234,.4);}
+  .shake{animation:shake .4s;}
+  @keyframes shake{20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+  @media(prefers-reduced-motion:reduce){.shake{animation:none;}}
+  .hidden{display:none !important;}
+</style>
+</head>
+<body>
+
+<!-- ================= GATE ================= -->
+<div id="gate">
+  <form class="gate-card" id="gateForm">
+    <svg class="mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="41" fill="none" stroke="#F5F2EA" stroke-width="6"></circle>
+      <path d="M22 71 L40 45 L52 59 L65 39 L80 71 Z" fill="#F5F2EA"></path>
+    </svg>
+    <h1>PIEDMONDO</h1>
+    <div class="sub">Command Center</div>
+    <input type="password" id="gateKey" placeholder="team password" autocomplete="current-password" autofocus />
+    <button type="submit">Enter</button>
+    <div class="err" id="gateErr"></div>
+    <div class="foot">Team access only · <a href="https://piedmondo.com" style="color:inherit">piedmondo.com</a></div>
+  </form>
+</div>
+
+<!-- ================= APP ================= -->
+<div id="app" class="hidden">
+  <div class="top">
+    <div class="brand"><b>PIEDMONDO</b><span>Command Center</span></div>
+    <div class="spacer"></div>
+    <button class="tbtn" id="btnRefresh">↻ Refresh</button>
+    <a class="tbtn" href="vision.html">Brady's build →</a>
+    <button class="tbtn" id="btnLock">Lock 🔒</button>
+  </div>
+
+  <div class="wrap">
+    <div class="demo-note hidden" id="demoNote">
+      <b>Not connected yet.</b> This is sample data. Deploy the Apps Script (see COMMAND-SETUP.md in the repo), then have Claude drop the /exec URL into this page — one line.
+    </div>
+
+    <div class="kpis" id="kpis"></div>
+
+    <section>
+      <div class="sec-title"><h2>⚠ Takedown radar</h2><span class="count" id="radarCount"></span></div>
+      <div class="card radar" id="radar"></div>
+    </section>
+
+    <section>
+      <div class="sec-title"><h2>Pipeline</h2><span class="count" id="pipeCount"></span></div>
+      <div class="card tblwrap">
+        <table>
+          <thead><tr>
+            <th>Business</th><th>Where</th><th>Contact</th><th>Status</th>
+            <th>Built</th><th>Sent</th><th>Last touch</th><th></th>
+          </tr></thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-title"><h2 id="formTitle">Add a lead</h2></div>
+      <div class="card">
+        <div class="form" id="leadForm">
+          <div><label>Business *</label><input id="f_business" /></div>
+          <div><label>Industry</label><input id="f_industry" placeholder="restaurant, barbershop…" /></div>
+          <div><label>City, State</label><input id="f_city" /></div>
+          <div><label>Channel</label>
+            <select id="f_channel"><option value="fb">Facebook</option><option value="email">Email</option><option value="phone">Phone</option><option value="other">Other</option></select>
+          </div>
+          <div><label>Contact detail</label><input id="f_contact" placeholder="page URL / email / phone" /></div>
+          <div><label>Demo slug</label><input id="f_slug" placeholder="casa-del-taco" /></div>
+          <div class="full"><label>Pitch angle</label><input id="f_pitch" placeholder="the one specific observation" /></div>
+          <div class="full"><label>Notes</label><textarea id="f_notes" rows="2"></textarea></div>
+        </div>
+        <div class="form-actions">
+          <button class="pbtn" id="btnSave">Save lead</button>
+          <button class="gbtn hidden" id="btnCancel">Cancel edit</button>
+          <span id="formMsg"></span>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script>
+/* =====================================================================
+   CONFIG — Claude fills EXEC_URL in after Alex deploys the Apps Script.
+   Empty EXEC_URL = demo mode (sample data, no gate) so the UI is
+   previewable before the backend exists.
+===================================================================== */
+const EXEC_URL = '';
+
+const STATUSES = ['researched','queued','built','sent','replied','won','dead'];
+const NEXT = {researched:'queued', queued:'built', built:'sent', sent:'replied', replied:'won'};
+const TAKEDOWN_DAYS = 7;
+
+let KEYVAL = sessionStorage.getItem('pd-key') || '';
+let ROWS = [];
+let editingId = null;
+
+const $ = id => document.getElementById(id);
+const today = () => new Date().toISOString().slice(0,10);
+const daysSince = iso => Math.floor((Date.now() - new Date(iso + 'T00:00:00')) / 86400000);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+const SAMPLE = [
+ {id:'1',date_added:'2026-07-07',business:"Droopy's Lawn & Maintenance",industry:'lawn-care',city_state:'Muncie, IN',channel:'email',contact_detail:'Droopyslawn@gmail.com',pitch_angle:'9 yrs in business, 21 reviews, no site',demo_slug:'droopys-lawn',demo_url:'https://piedmondo.com/demos/droopys-lawn/',status:'built',built:'2026-07-07',sent:'',last_touch:'',takedown_done:'',notes:'Email = best channel'},
+ {id:'2',date_added:'2026-07-08',business:'Casa Del Taco',industry:'restaurant',city_state:'Glendale, AZ',channel:'fb',contact_detail:'facebook.com/CasadelTacoaz',pitch_angle:'Google lands on menu scrapers',demo_slug:'casa-del-taco',demo_url:'https://piedmondo.com/demos/casa-del-taco/',status:'sent',built:'2026-07-08',sent:'2026-06-29',last_touch:'2026-06-29',takedown_done:'',notes:'SAMPLE ROW — shows the takedown radar'},
+ {id:'3',date_added:'2026-07-09',business:'Unos Tacos y Birria',industry:'restaurant',city_state:'Phoenix, AZ',channel:'fb',contact_detail:'facebook.com/unostacosaz',pitch_angle:'8,600 fans, no real site',demo_slug:'unos-tacos-y-birria',demo_url:'https://piedmondo.com/demos/unos-tacos-y-birria/',status:'built',built:'2026-07-09',sent:'',last_touch:'',takedown_done:'',notes:''},
+];
+
+/* ---------- backend ---------- */
+async function api(params, post) {
+  if (!EXEC_URL) return null; // demo mode
+  if (post) {
+    const res = await fetch(EXEC_URL, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(post)});
+    return res.json();
+  }
+  const url = EXEC_URL + '?' + new URLSearchParams(params);
+  const res = await fetch(url);
+  return res.json();
+}
+
+async function loadRows(key) {
+  if (!EXEC_URL) { ROWS = JSON.parse(JSON.stringify(SAMPLE)); return true; }
+  const out = await api({key, action:'list'});
+  if (!out || !out.ok) return false;
+  ROWS = out.rows;
+  return true;
+}
+
+async function saveRow(row) {
+  if (!EXEC_URL) { // demo mode: mutate locally
+    const i = ROWS.findIndex(r => r.id === row.id);
+    if (i > -1) ROWS[i] = {...ROWS[i], ...row}; else ROWS.push(row);
+    render(); return;
+  }
+  $('formMsg').textContent = 'Saving…';
+  const out = await api(null, {key: KEYVAL, action:'upsert', row});
+  if (out && out.ok) { ROWS = out.rows; render(); $('formMsg').textContent = ''; }
+  else { $('formMsg').textContent = 'Save failed — check connection.'; }
+}
+
+/* ---------- rendering ---------- */
+function kpis() {
+  const open = ROWS.filter(r => !['won','dead'].includes(r.status));
+  const live = ROWS.filter(r => r.demo_url && !r.takedown_done);
+  const sent = ROWS.filter(r => r.status === 'sent');
+  const due  = dueRows();
+  $('kpis').innerHTML = `
+    <div class="kpi"><div class="l">Open leads</div><div class="v">${open.length}</div></div>
+    <div class="kpi"><div class="l">Demos live</div><div class="v">${live.length}</div></div>
+    <div class="kpi"><div class="l">Sent, awaiting reply</div><div class="v">${sent.length}</div></div>
+    <div class="kpi ${due.length ? 'alert' : ''}"><div class="l">Take down due</div><div class="v">${due.length}</div></div>`;
+}
+
+function dueRows() {
+  return ROWS.filter(r => r.status === 'sent' && r.sent && !r.takedown_done && daysSince(r.sent) >= TAKEDOWN_DAYS);
+}
+
+function radar() {
+  const due = dueRows();
+  $('radarCount').textContent = due.length ? due.length + ' due' : '';
+  if (!due.length) { $('radar').innerHTML = '<div class="empty">Nothing due. Demos come up here ' + TAKEDOWN_DAYS + ' days after you mark them sent.</div>'; return; }
+  $('radar').innerHTML = due.map(r => `
+    <div class="row">
+      <span class="days">${daysSince(r.sent)} days since sent</span>
+      <b>${esc(r.business)}</b>
+      ${r.demo_url ? `<a href="${esc(r.demo_url)}" target="_blank" rel="noopener" class="mono">${esc(r.demo_slug || 'demo')}</a>` : ''}
+      <span class="grow"></span>
+      <button class="sbtn" data-act="replied" data-id="${esc(r.id)}">They replied</button>
+      <button class="sbtn solid" data-act="takedown" data-id="${esc(r.id)}">Mark taken down</button>
+    </div>`).join('');
+}
+
+function table() {
+  const order = s => s === 'dead' ? 99 : s === 'won' ? 98 : STATUSES.indexOf(s);
+  const rows = [...ROWS].sort((a,b) => order(a.status) - order(b.status) || (b.date_added||'').localeCompare(a.date_added||''));
+  $('pipeCount').textContent = rows.length + ' leads';
+  $('tbody').innerHTML = rows.map(r => `
+    <tr>
+      <td><div class="biz">${r.demo_url ? `<a href="${esc(r.demo_url)}" target="_blank" rel="noopener">${esc(r.business)}</a>` : esc(r.business)}</div>
+          <div class="sub">${esc(r.industry || '')}</div></td>
+      <td>${esc(r.city_state || '')}</td>
+      <td><div class="mono">${esc(r.channel || '')}</div><div class="sub">${esc(r.contact_detail || '')}</div></td>
+      <td><span class="chip c-${esc(r.status)}">${esc(r.status)}</span>${r.takedown_done ? '<div class="sub">demo down ' + esc(r.takedown_done) + '</div>' : ''}</td>
+      <td class="mono">${esc(r.built || '—')}</td>
+      <td class="mono">${esc(r.sent || '—')}</td>
+      <td class="mono">${esc(r.last_touch || '—')}</td>
+      <td><div class="act">
+        ${NEXT[r.status] ? `<button class="sbtn solid" data-act="advance" data-id="${esc(r.id)}">→ ${NEXT[r.status]}</button>` : ''}
+        <button class="sbtn" data-act="edit" data-id="${esc(r.id)}">Edit</button>
+        ${r.status !== 'dead' ? `<button class="sbtn danger" data-act="dead" data-id="${esc(r.id)}">✕</button>` : ''}
+      </div></td>
+    </tr>`).join('');
+}
+
+function render() { kpis(); radar(); table(); }
+
+/* ---------- actions ---------- */
+document.addEventListener('click', e => {
+  const btn = e.target.closest('[data-act]');
+  if (!btn) return;
+  const r = ROWS.find(x => x.id === btn.dataset.id);
+  if (!r) return;
+  const act = btn.dataset.act;
+  if (act === 'advance') {
+    const next = NEXT[r.status];
+    const patch = {id: r.id, status: next, last_touch: today()};
+    if (next === 'built' && !r.built) patch.built = today();
+    if (next === 'sent') patch.sent = today();
+    saveRow(patch);
+  } else if (act === 'dead') {
+    if (confirm('Mark "' + r.business + '" dead? (opt-outs and hard nos)')) saveRow({id: r.id, status:'dead', last_touch: today()});
+  } else if (act === 'replied') {
+    saveRow({id: r.id, status:'replied', last_touch: today()});
+  } else if (act === 'takedown') {
+    saveRow({id: r.id, takedown_done: today(), last_touch: today()});
+    alert('Logged. Tell Claude "archive ' + (r.demo_slug || r.business) + '" — the demo folder moves to demos-archive/ (URL dies, code kept).');
+  } else if (act === 'edit') {
+    editingId = r.id;
+    $('formTitle').textContent = 'Edit: ' + r.business;
+    $('btnCancel').classList.remove('hidden');
+    $('f_business').value = r.business || ''; $('f_industry').value = r.industry || '';
+    $('f_city').value = r.city_state || ''; $('f_channel').value = r.channel || 'fb';
+    $('f_contact').value = r.contact_detail || ''; $('f_slug').value = r.demo_slug || '';
+    $('f_pitch').value = r.pitch_angle || ''; $('f_notes').value = r.notes || '';
+    $('leadForm').scrollIntoView({behavior:'smooth', block:'center'});
+  }
+});
+
+$('btnSave').addEventListener('click', () => {
+  const business = $('f_business').value.trim();
+  if (!business) { $('formMsg').textContent = 'Business name required.'; return; }
+  const slug = $('f_slug').value.trim();
+  const row = {
+    id: editingId || String(Date.now()),
+    business, industry: $('f_industry').value.trim(), city_state: $('f_city').value.trim(),
+    channel: $('f_channel').value, contact_detail: $('f_contact').value.trim(),
+    pitch_angle: $('f_pitch').value.trim(), notes: $('f_notes').value.trim(),
+    demo_slug: slug
+  };
+  if (slug) row.demo_url = 'https://piedmondo.com/demos/' + slug + '/';
+  if (!editingId) { row.date_added = today(); row.status = 'researched'; }
+  saveRow(row);
+  resetForm();
+});
+$('btnCancel').addEventListener('click', resetForm);
+function resetForm() {
+  editingId = null;
+  $('formTitle').textContent = 'Add a lead';
+  $('btnCancel').classList.add('hidden');
+  ['f_business','f_industry','f_city','f_contact','f_slug','f_pitch','f_notes'].forEach(id => $(id).value = '');
+  $('f_channel').value = 'fb';
+  $('formMsg').textContent = '';
+}
+
+$('btnRefresh').addEventListener('click', async () => { await loadRows(KEYVAL); render(); });
+$('btnLock').addEventListener('click', () => { sessionStorage.removeItem('pd-key'); location.reload(); });
+
+/* ---------- gate ---------- */
+$('gateForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const key = $('gateKey').value.trim();
+  $('gateErr').textContent = '';
+  const ok = await loadRows(key).catch(() => false);
+  if (ok) {
+    KEYVAL = key; sessionStorage.setItem('pd-key', key);
+    $('gate').classList.add('hidden'); $('app').classList.remove('hidden');
+    render();
+  } else {
+    const card = document.querySelector('.gate-card');
+    card.classList.remove('shake'); void card.offsetWidth; card.classList.add('shake');
+    $('gateErr').textContent = 'Wrong password.';
+  }
+});
+
+/* ---------- boot ---------- */
+(async function () {
+  if (!EXEC_URL) { // demo mode: no gate, sample data, banner
+    await loadRows('');
+    $('gate').classList.add('hidden'); $('app').classList.remove('hidden');
+    $('demoNote').classList.remove('hidden');
+    render();
+    return;
+  }
+  if (KEYVAL) {
+    const ok = await loadRows(KEYVAL).catch(() => false);
+    if (ok) { $('gate').classList.add('hidden'); $('app').classList.remove('hidden'); render(); return; }
+    sessionStorage.removeItem('pd-key');
+  }
+})();
+</script>
+</body>
+</html>

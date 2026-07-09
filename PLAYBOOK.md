@@ -10,11 +10,16 @@ The machine that turns templates into paying clients. Written so any future sess
 
 ## 1. The funnel
 
-Every lead moves through these statuses (the `status` column in `pipeline/leads.csv`):
+**Source of truth (since 2026-07-09): the "Piedmondo Pipeline" Google Sheet**, viewed/edited through the locked dashboard at **piedmondo.com/command/** (setup: `COMMAND-SETUP.md`; backend: `command-center.gs`). Statuses:
 
-`researched → demo_live → sent → replied → call → deposit → delivered → paid` (or `dead` at any point, with the reason in `notes`)
+`researched → queued → built → sent → replied → won` (or `dead` at any point — opt-outs and hard nos)
 
-Weekly readout: count leads at each stage, compute reply rate (replied/sent) and close rate (deposit/sent). Compare against the pilot stop conditions above.
+- Marking **sent** stamps the date; the dashboard's **Takedown radar** flags the demo 7 days later.
+- Marking **taken down** logs the date; Claude then moves `demos/<slug>` → `demos-archive/<slug>` (public URL dies, code stays in the repo forever).
+- Claude reads/writes the sheet via the Apps Script API using credentials in `pipeline/.command-key` (gitignored; line 1 = /exec URL, line 2 = key). If the file is missing, ask Alex for the key.
+- `pipeline/leads.csv` is now a **slim public archive** (no contact details) — kept for history, not the working tracker. Full prospect details (contacts, pitch angles, notes) live only in the private sheet. Once the sheet is seeded, prune the seed block from COMMAND-SETUP.md and any contact-bearing files from pipeline/.
+
+Weekly readout: count leads at each stage, compute reply rate (replied/sent) and close rate (won/sent). Compare against the pilot stop conditions above.
 
 ## 2. Prospect research criteria
 
