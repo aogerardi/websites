@@ -95,14 +95,13 @@ Rules: never send more than 3 touches; take a demo down promptly if asked; if th
 
 Cold email is regulated by the CAN-SPAM Act, which applies even to a single one-off B2B pitch, not just bulk mail. Every outreach email — no exceptions — must include, directly in the email body (not just linked):
 1. **Accurate sender identity** — send from `piedmondosites@gmail.com`, non-deceptive subject line (ours already are — "Built you a website — [Business]").
-2. **A valid physical mailing address** — street address, PO box, or registered commercial mail-receiving address. *(Alex: still need this — a PO box works if you don't want to expose a home address.)*
+2. **A valid physical mailing address** — technically required by CAN-SPAM, but **deliberately omitted for now** (2026-07-09, Alex's call): at current low outreach volume (a handful of personalized emails/week, not bulk), the realistic enforcement risk is low, and getting a PO box costs money for a gap that may not matter yet. **Revisit this before scaling outreach volume up** — once sending more than a handful of emails a week, get a small USPS PO box (~$5–15/mo in most non-major-metro ZIPs) and add it back into the footer below.
 3. **A working opt-out** — a plain-text line: `Don't want emails like this from me? Reply "stop" and I'll never email you again.` A reply-based opt-out is legally sufficient — no unsubscribe service needed.
 
-Standard footer to append to every outreach email (fill in the address once we have it):
+Standard footer to append to every outreach email:
 ```
 — Alex
 Piedmondo — piedmondosites@gmail.com
-[mailing address]
 
 This preview was built as a sample of our work — see how and why at piedmondo.com/terms.html.
 Don't want emails like this from me? Reply "stop" and I'll never email you again.
