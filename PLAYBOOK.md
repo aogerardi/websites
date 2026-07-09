@@ -91,6 +91,27 @@ Personalize the [bracketed] parts — the one specific observation is what separ
 
 Rules: never send more than 3 touches; take a demo down promptly if asked; if they reply with anything but a hard no, move status to `replied` and Alex takes over the conversation.
 
+## 4a. Email compliance (CAN-SPAM — required on EVERY outreach email)
+
+Cold email is regulated by the CAN-SPAM Act, which applies even to a single one-off B2B pitch, not just bulk mail. Every outreach email — no exceptions — must include, directly in the email body (not just linked):
+1. **Accurate sender identity** — send from `piedmondosites@gmail.com`, non-deceptive subject line (ours already are — "Built you a website — [Business]").
+2. **A valid physical mailing address** — street address, PO box, or registered commercial mail-receiving address. *(Alex: still need this — a PO box works if you don't want to expose a home address.)*
+3. **A working opt-out** — a plain-text line: `Don't want emails like this from me? Reply "stop" and I'll never email you again.` A reply-based opt-out is legally sufficient — no unsubscribe service needed.
+
+Standard footer to append to every outreach email (fill in the address once we have it):
+```
+— Alex
+Piedmondo — piedmondosites@gmail.com
+[mailing address]
+
+This preview was built as a sample of our work — see how and why at piedmondo.com/terms.html.
+Don't want emails like this from me? Reply "stop" and I'll never email you again.
+```
+
+**Opt-out handling:** if anyone replies "stop"/"unsubscribe"/asks not to be contacted, immediately set that lead's `status` to `dead` in `leads.csv` with `OPTED OUT — do not re-contact` in Notes, honor it within 10 business days (do it same-day in practice), and never email that address again for any reason.
+
+Terms.html §12–13 cover the demo/outreach practice and email policy in full — that's the public-facing explanation the footer link points to.
+
 ## 5. Pricing & objections (Alex's close sheet)
 
 Anchors: **Base $200** (single page) · **Standard $350–600** (multi-page) · 50% deposit, 50% on delivery · then $10/mo maintenance (hosting + edits) or ~$150 buyout.
