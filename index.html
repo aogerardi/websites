@@ -398,7 +398,7 @@
           </div>
 
           <div class="calc-step">
-            <span class="calc-label" id="calcAddonsLabel">2 &middot; Anything extra?</span>
+            <span class="calc-label" id="calcAddonsLabel" data-i18n-skip>2 &middot; Anything extra?</span>
             <div class="calc-chips" id="calcAddons">
               <button type="button" class="calc-chip" data-v="Photo gallery" data-add="50">Photo gallery <small>+$50</small></button>
               <button type="button" class="calc-chip" data-v="Booking / reservations" data-add="75">Booking <small>+$75</small></button>
@@ -412,8 +412,8 @@
           <div class="calc-result">
             <div class="calc-result-text">
               <span class="calc-result-label">Your flat price</span>
-              <span class="calc-price" id="calcPrice">$200</span>
-              <span class="calc-note" id="calcNote">50% deposit to start &middot; after launch: $10/mo maintenance or ~$150 buyout.</span>
+              <span class="calc-price" id="calcPrice" data-i18n-skip>$200</span>
+              <span class="calc-note" id="calcNote" data-i18n-skip>50% deposit to start &middot; after launch: $10/mo maintenance or ~$150 buyout.</span>
             </div>
             <button type="button" class="btn btn-primary" id="calcCta">Lock it in &mdash; get a free demo</button>
           </div>
@@ -539,7 +539,7 @@
         <span class="proof-dot"></span>
         <span class="proof-item"><strong>zero page builders</strong></span>
         <span class="proof-dot"></span>
-        <span class="proof-item">loaded in <strong id="proof-speed">under a second</strong></span>
+        <span class="proof-item">loaded in <strong id="proof-speed" data-i18n-skip>under a second</strong></span>
         <span class="proof-note">— the same craft goes into yours.</span>
       </div>
     </div>
@@ -574,5 +574,176 @@
   </footer>
 
   <script src="main.js"></script>
+
+  <!-- Bilingual toggle (reusable engine + this site's dictionary) -->
+  <script>
+    window.I18N = {
+      lang: "es",
+      label: "Español", labelBack: "English",
+      flag: "🇲🇽", flagBack: "🇺🇸",
+      dict: {
+      "Services": "Servicios",
+      "Templates": "Plantillas",
+      "Our Work": "Nuestro Trabajo",
+      "Pricing": "Precios",
+      "FAQ": "Preguntas Frecuentes",
+      "Get a Free Demo": "Demo Gratis",
+      "Web Design for Small Business": "Diseño Web para Pequeños Negocios",
+      "Modern websites, honest prices.": "Sitios web modernos, precios honestos.",
+      "We build clean websites for businesses with a quick turnaround. Flat-rate pricing, no agency markup.": "Creamos sitios web limpios para negocios con entrega rápida. Precios fijos, sin recargos de agencia.",
+      "Get a Free Homepage Demo": "Obtén una Demo Gratis",
+      "See Our Templates": "Ver Nuestras Plantillas",
+      "Custom-built for you": "Hecho a tu medida",
+      "From": "Desde",
+      "Starter build price": "Precio inicial",
+      "1–2 weeks": "1–2 semanas",
+      "From kickoff to launch": "Del inicio al lanzamiento",
+      "Hidden fees, ever": "Cargos ocultos, nunca",
+      "Restaurants": "Restaurantes",
+      "Barbershops": "Barberías",
+      "Lawn Care": "Jardinería",
+      "Attorneys": "Abogados",
+      "Nail Studios": "Estudios de Uñas",
+      "Bars & Lounges": "Bares y Lounges",
+      "Auto Detailers": "Detallado de Autos",
+      "Epoxy & Concrete": "Epoxi y Concreto",
+      "Contractors": "Contratistas",
+      "Boutiques": "Boutiques",
+      "What We Do": "Lo Que Hacemos",
+      "Everything a small business needs to look professional online.": "Todo lo que un pequeño negocio necesita para verse profesional en línea.",
+      "Custom Websites": "Sitios Web Personalizados",
+      "A clean, mobile-friendly website tailored for your business, 100% personalized.": "Un sitio web limpio y adaptado a móviles, diseñado para tu negocio, 100% personalizado.",
+      "Redesigns": "Rediseños",
+      "Have an old, slow, or hard-to-update site? We modernize it without starting from scratch.": "¿Tienes un sitio viejo, lento o difícil de actualizar? Lo modernizamos sin empezar de cero.",
+      "Industry Templates": "Plantillas por Industria",
+      "Designs for restaurants, trades, and home services. Fully customizable.": "Diseños para restaurantes, oficios y servicios del hogar. Totalmente personalizables.",
+      "Browse our templates →": "Ver nuestras plantillas →",
+      "Live Examples": "Ejemplos en Vivo",
+      "See what we can build.": "Mira lo que podemos crear.",
+      "Browse real, interactive demo sites by industry. Every one is a starting point:": "Explora sitios de demostración reales e interactivos por industria. Cada uno es un punto de partida:",
+      "fully customizable": "totalmente personalizable",
+      "to your brand, content, and needs. No two finished sites look alike.": "a tu marca, contenido y necesidades. No hay dos sitios terminados iguales.",
+      "Browse all templates →": "Ver todas las plantillas →",
+      "Lawn & Landscape": "Jardinería y Paisajismo",
+      "View →": "Ver →",
+      "Restaurant": "Restaurante",
+      "HVAC & Plumbing": "Aire Acondicionado y Plomería",
+      "Barbershop": "Barbería",
+      "Attorney": "Abogado",
+      "Bar & Lounge": "Bar y Lounge",
+      "More coming soon": "Más próximamente",
+      "Soon": "Pronto",
+      "A few things we've built.": "Algunas cosas que hemos creado.",
+      "A free web app that helps mineral owners model oil & gas royalty income — decline-curve projections, NPV, lease-vs-royalty comparisons, and a full education section with a glossary and tax references.": "Una aplicación web gratuita que ayuda a propietarios de minerales a calcular ingresos por regalías de petróleo y gas — proyecciones de curva de declive, VPN, comparaciones de arrendamiento vs. regalías, y una sección educativa completa con glosario y referencias fiscales.",
+      "Visit site →": "Visitar sitio →",
+      "A mobile detailing business in Naperville, IL — service menu with pricing, package deals, a before/after results slider, a work gallery, and tap-to-text booking. Built mobile-first for customers on the go.": "Un negocio de detallado móvil en Naperville, IL — menú de servicios con precios, paquetes especiales, un comparador de resultados antes/después, galería de trabajos y reservas por mensaje de texto. Diseñado primero para móviles, para clientes en movimiento.",
+      "A floor-coating contractor in Western New York — instant ballpark quote builder, free-estimate booking, flake color picker, and lead capture wired straight into their inbox.": "Un contratista de recubrimientos de pisos en el oeste de Nueva York — cotizador instantáneo, reservas de estimados gratis, selector de colores y captura de clientes potenciales directo a su bandeja de entrada.",
+      "How It Works": "Cómo Funciona",
+      "Three simple steps from first call to launch day.": "Tres pasos simples desde la primera llamada hasta el lanzamiento.",
+      "Reach Out": "Contáctanos",
+      "Tell us about your business and what you need. We'll send a quote,  usually within a day.": "Cuéntanos sobre tu negocio y lo que necesitas. Te enviaremos una cotización, normalmente en un día.",
+      "We Design": "Diseñamos",
+      "We build your site and share a preview. You give feedback, we refine it until it's right.": "Creamos tu sitio y te compartimos una vista previa. Nos das tu opinión y lo ajustamos hasta que quede perfecto.",
+      "You Launch": "Lanzas",
+      "We publish your site and hand over the keys. Need updates later? We're a message away.": "Publicamos tu sitio y te entregamos las llaves. ¿Necesitas cambios después? Estamos a un mensaje de distancia.",
+      "Simple, Flat-Rate Pricing": "Precios Simples y Fijos",
+      "No hourly rates. No surprise invoices. You know the price before we start.": "Sin tarifas por hora. Sin facturas sorpresa. Sabes el precio antes de empezar.",
+      "Base": "Básico",
+      "Single-page site": "Sitio de una página",
+      "Single landing page": "Una página principal",
+      "Mobile-friendly design": "Diseño adaptado a móviles",
+      "Contact / quote form": "Formulario de contacto / cotización",
+      "Most essentials": "Lo esencial",
+      "Live in ~1 week": "Listo en ~1 semana",
+      "Get Started": "Comenzar",
+      "Most Popular": "Más Popular",
+      "Standard": "Estándar",
+      "Multi-page site": "Sitio de varias páginas",
+      "Photo gallery": "Galería de fotos",
+      "Expanded content": "Contenido ampliado",
+      "Almost anything": "Casi cualquier cosa",
+      "Live in 1–2 weeks": "Listo en 1–2 semanas",
+      "Custom": "Personalizado",
+      "Let’s talk": "Hablemos",
+      "Quote provided upfront": "Cotización por adelantado",
+      "Complex projects": "Proyectos complejos",
+      "E-commerce": "Comercio electrónico",
+      "Booking integrations": "Integraciones de reservas",
+      "Custom functionality": "Funcionalidad personalizada",
+      "Timeline varies": "Tiempo variable",
+      "Get a Quote": "Solicitar Cotización",
+      "Payment: 50% upfront · 50% on delivery. All prices include setup and launch.": "Pago: 50% por adelantado · 50% al finalizar. Todos los precios incluyen configuración y lanzamiento.",
+      "Price it yourself": "Cotízalo tú mismo",
+      "Price your project in 30 seconds.": "Cotiza tu proyecto en 30 segundos.",
+      "Pick what you need — the price updates as you go. Flat rate, agreed up front.": "Elige lo que necesitas — el precio se actualiza al momento. Tarifa fija, acordada por adelantado.",
+      "1 · What kind of site?": "1 · ¿Qué tipo de sitio?",
+      "One-page site": "Sitio de una página",
+      "2 · How many pages?": "2 · ¿Cuántas páginas?",
+      "Up to 3": "Hasta 3",
+      "Booking": "Reservas",
+      "Blog": "Blog",
+      "Custom forms": "Formularios personalizados",
+      "Logo & branding": "Logo y marca",
+      "Online store": "Tienda en línea",
+      "custom": "personalizado",
+      "Your flat price": "Tu precio fijo",
+      "Lock it in — get a free demo": "Confirmar — obtén una demo gratis",
+      "After Launch": "Después del Lanzamiento",
+      "We don’t disappear. Two options once your site is live:": "No desaparecemos. Dos opciones una vez que tu sitio esté en línea:",
+      "Maintenance Plan": "Plan de Mantenimiento",
+      "/mo": "/mes",
+      "Includes hosting, complimentary edits within reason, and ongoing support. We keep your site up, fast, and current. Cancel any time.": "Incluye hosting, ediciones de cortesía dentro de lo razonable, y soporte continuo. Mantenemos tu sitio activo, rápido y actualizado. Cancela cuando quieras.",
+      "Buyout Option": "Opción de Compra",
+      "Own the domain outright. No monthly fees — you’re in full control. Edits and support available on request at a flat rate.": "Sé dueño total del dominio. Sin cuotas mensuales — tú tienes el control total. Ediciones y soporte disponibles a solicitud con tarifa fija.",
+      "The questions we hear most.": "Las preguntas que más escuchamos.",
+      "How much does a website cost?": "¿Cuánto cuesta un sitio web?",
+      "Most projects start": "Los proyectos suelen comenzar",
+      "from $200": "desde $200",
+      ", agreed as a flat rate up front. More involved builds (online booking, stores) are quoted individually.": ", acordado como tarifa fija por adelantado. Proyectos más grandes (reservas en línea, tiendas) se cotizan por separado.",
+      "How long does it take?": "¿Cuánto tiempo toma?",
+      "A typical site is ready in": "Un sitio típico está listo en",
+      ", depending on how quickly we get your content (text, photos, logo) and feedback.": ", dependiendo de qué tan rápido recibamos tu contenido (texto, fotos, logo) y comentarios.",
+      "What do you need from me to start?": "¿Qué necesitas de mí para empezar?",
+      "A rough idea of what you want, any existing branding or photos, and your business details. If you don't have content ready, we'll help you put it together.": "Una idea general de lo que quieres, cualquier marca o fotos existentes, y los datos de tu negocio. Si no tienes el contenido listo, te ayudamos a prepararlo.",
+      "Are there ongoing costs?": "¿Hay costos continuos?",
+      "After launch you choose: our": "Después del lanzamiento, tú eliges: nuestro",
+      "Maintenance Plan at $10/mo": "Plan de Mantenimiento a $10/mes",
+      "covers hosting, edits within reason, and ongoing support — or a one-time": "incluye hosting, ediciones razonables y soporte continuo — o una",
+      "~$150 Buyout": "Compra única de ~$150",
+      "so you own everything outright with no monthly fees. Either way, no surprises.": "para que seas dueño de todo sin cuotas mensuales. De cualquier forma, sin sorpresas.",
+      "Can you update my site later?": "¿Pueden actualizar mi sitio después?",
+      "Yes. On the Maintenance Plan, routine edits are included. On the Buyout, updates are available on request at a flat rate.": "Sí. En el Plan de Mantenimiento, las ediciones rutinarias están incluidas. En la Compra, las actualizaciones están disponibles a solicitud con tarifa fija.",
+      "Do you only work with certain industries?": "¿Solo trabajan con ciertas industrias?",
+      "No. We have ready-made templates for trades like lawncare and pools, but we build custom sites for any small business.": "No. Tenemos plantillas listas para oficios como jardinería y albercas, pero creamos sitios personalizados para cualquier pequeño negocio.",
+      "Why “Piedmondo”?": "¿Por qué “Piedmondo”?",
+      "It’s Italian for “foot of the world” (": "Es italiano para “pie del mundo” (",
+      ") — a nod to grounded, down-to-earth work that still reaches anyone, anywhere. Big-business quality at a small-business price.": ") — un guiño a un trabajo honesto y con los pies en la tierra, que aun así llega a cualquier persona, en cualquier lugar. Calidad de gran empresa a precio de pequeño negocio.",
+      "Agency-quality work, without the agency price.": "Calidad de agencia, sin el precio de agencia.",
+      "Most designers charge $2,000+ for a basic small-business site. We keep it simple\n          and flat-rate - starting": "Otros diseñadores cobran $2,000+ por un sitio básico. Nosotros lo mantenemos simple y con tarifa fija — desde",
+      "at $200": "$200",
+      ". Not sure yet? We'll build you\n          a free homepage demo first — see it before you spend a dollar.": ". ¿Aún no estás seguro? Primero te creamos una demo gratis — mírala antes de gastar un dólar.",
+      "Get My Free Demo": "Obtén Mi Demo Gratis",
+      "Tell us about your business and we'll build you a free homepage preview — see your site before you spend a dollar. We reply within a day.": "Cuéntanos sobre tu negocio y te crearemos una vista previa gratis — mira tu sitio antes de gastar un dólar. Respondemos en un día.",
+      "Name": "Nombre",
+      "Email": "Correo electrónico",
+      "Phone": "Teléfono",
+      "Business / Website (if any)": "Negocio / Sitio web (si tienes)",
+      "What do you need?": "¿Qué necesitas?",
+      "Send Request": "Enviar Solicitud",
+      "This site:": "Este sitio:",
+      "zero frameworks": "cero frameworks",
+      "zero page builders": "cero constructores de páginas",
+      "loaded in": "cargó en",
+      "— the same craft goes into yours.": "— el mismo cuidado se aplica al tuyo.",
+      "Modern, affordable websites for small businesses.": "Sitios web modernos y accesibles para pequeños negocios.",
+      "Work": "Trabajo",
+      "Questions? Email us": "¿Preguntas? Escríbenos",
+      "© 2026 Piedmondo. All rights reserved. Design, code & content are proprietary — unauthorized reproduction or resale is prohibited.": "© 2026 Piedmondo. Todos los derechos reservados. El diseño, código y contenido son propiedad exclusiva — se prohíbe la reproducción o reventa no autorizada.",
+      "Terms & Conditions": "Términos y Condiciones"
+}
+    };
+  </script>
+  <script src="lib/i18n.js"></script>
+
 </body>
 </html>
