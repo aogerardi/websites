@@ -1,0 +1,5 @@
+# Local credentials for the Command Center (Apps Script /exec URL + team key).
+# Format: line 1 = EXEC_URL, line 2 = KEY. Never commit.
+pipeline/.command-key
+
+.DS_Store
