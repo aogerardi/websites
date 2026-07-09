@@ -23,7 +23,7 @@ Hunt for businesses that are **alive but invisible**:
 - **Industry:** one we have a template for — restaurant, HVAC/plumbing, barbershop, attorney, nail salon, lawn care/landscaping (templates/standard), bar/lounge (Maximillian), auto detailing (Giland pattern), epoxy/concrete/trades (Xtreme pattern).
 - **Alive:** recent Google/Yelp reviews (within ~3 months) or active FB/IG posting. Dead businesses don't buy websites.
 - **Invisible:** no website at all, a Facebook page as their only web presence, or a site that is broken / not mobile-friendly / a decade old. Check their Google Business Profile "website" field and Yelp listing.
-- **Reachable:** a findable owner contact — email on FB page, DM-able IG/FB, or a contact form. Phone-only is workable but worse (Alex would have to cold-call).
+- **Reachable — EMAIL REQUIRED (2026-07-08):** the prospect must have a **findable email address** (on the FB page's About, a directory listing, or a contact form). Alex does not run a business Facebook, so DM-only prospects can't be worked and should NOT be surfaced. Phone-only is a fallback (call → offer to text the demo), not a primary target. Prioritize businesses whose email is public.
 - **Sweet spot size:** owner-operated, 1–20 employees. Big enough to afford $200–600 without blinking, small enough that the owner decides alone.
 
 Good hunting grounds: Yelp/Google Maps searches in mid-size towns (50k–300k pop — big-metro businesses get agency spam constantly), local "best of" lists where some entries have no site link, FB local business directories, new-business announcements in local news.
