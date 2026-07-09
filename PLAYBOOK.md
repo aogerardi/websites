@@ -103,6 +103,8 @@ Anchors: **Base $200** (single page) · **Standard $350–600** (multi-page) · 
 
 Deposit = a Stripe payment link (Alex has Stripe; wire links when ready so "yes" is one click).
 
+**Bilingual toggle (upsell / differentiator):** a reusable one-click EN↔ES language switch (`lib/i18n.js` engine + a per-site translation dictionary). Drop-in on any build; I generate the Spanish strings. Great for Spanish-first owners and their customers (taquerías, trades) — lead with it in the pitch, price it as a Standard-tier feature. Live example: the Casa Del Taco demo.
+
 ## 6. Tracker column definitions (`pipeline/leads.csv`)
 
 | Column | Meaning |
