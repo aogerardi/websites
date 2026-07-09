@@ -80,6 +80,18 @@
   .c-replied{background:var(--pine-soft);color:var(--pine);} .c-won{background:var(--pine);color:#fff;}
   .c-dead{background:var(--red-soft);color:var(--red);}
 
+  /* status dropdown — set any status directly */
+  .statusSel{appearance:none;-webkit-appearance:none;font:inherit;font-size:.72rem;font-weight:600;
+    padding:.26rem 1.5rem .26rem .65rem;border-radius:999px;border:1px solid var(--line);cursor:pointer;
+    background-color:#fff;color:var(--ink);
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M2 3.5l3 3 3-3' stroke='%236E7A72' stroke-width='1.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat:no-repeat;background-position:right .5rem center;}
+  .statusSel:hover{border-color:var(--pine);}
+  .statusSel.s-researched{background-color:#EDEAE0;color:#6E6A5C;} .statusSel.s-queued{background-color:var(--gold-soft);color:#8A6217;}
+  .statusSel.s-built{background-color:#E8ECF2;color:#41546E;} .statusSel.s-sent{background-color:var(--gold-soft);color:#8A6217;}
+  .statusSel.s-replied{background-color:var(--pine-soft);color:var(--pine);} .statusSel.s-won{background-color:var(--pine);color:#fff;}
+  .statusSel.s-dead{background-color:var(--red-soft);color:var(--red);}
+
   .act{display:flex;gap:.35rem;flex-wrap:wrap;}
   .sbtn{border:1px solid var(--line);background:#fff;border-radius:7px;padding:.3rem .6rem;font-size:.72rem;font-weight:500;color:var(--ink);}
   .sbtn:hover{border-color:var(--pine);color:var(--pine);}
@@ -297,14 +309,14 @@ function table() {
           <div class="sub">${esc(r.industry || '')}</div></td>
       <td>${esc(r.city_state || '')}</td>
       <td><div class="mono">${esc(r.channel || '')}</div><div class="sub">${esc(r.contact_detail || '')}</div></td>
-      <td><span class="chip c-${esc(r.status)}">${esc(r.status)}</span>${r.takedown_done ? '<div class="sub">demo down ' + esc(r.takedown_done) + '</div>' : ''}</td>
+      <td><select class="statusSel s-${esc(r.status)}" data-id="${esc(r.id)}" aria-label="Set status">
+            ${STATUSES.map(s => `<option value="${s}"${s === r.status ? ' selected' : ''}>${s}</option>`).join('')}
+          </select>${r.takedown_done ? '<div class="sub">demo down ' + esc(r.takedown_done) + '</div>' : ''}</td>
       <td class="mono">${esc(r.built || '—')}</td>
       <td class="mono">${esc(r.sent || '—')}</td>
       <td class="mono">${esc(r.last_touch || '—')}</td>
       <td><div class="act">
-        ${NEXT[r.status] ? `<button class="sbtn solid" data-act="advance" data-id="${esc(r.id)}">→ ${NEXT[r.status]}</button>` : ''}
         <button class="sbtn" data-act="edit" data-id="${esc(r.id)}">Edit</button>
-        ${r.status !== 'dead' ? `<button class="sbtn danger" data-act="dead" data-id="${esc(r.id)}">✕</button>` : ''}
       </div></td>
     </tr>`).join('');
 }
@@ -318,15 +330,7 @@ document.addEventListener('click', e => {
   const r = ROWS.find(x => x.id === btn.dataset.id);
   if (!r) return;
   const act = btn.dataset.act;
-  if (act === 'advance') {
-    const next = NEXT[r.status];
-    const patch = {id: r.id, status: next, last_touch: today()};
-    if (next === 'built' && !r.built) patch.built = today();
-    if (next === 'sent') patch.sent = today();
-    saveRow(patch);
-  } else if (act === 'dead') {
-    if (confirm('Mark "' + r.business + '" dead? (opt-outs and hard nos)')) saveRow({id: r.id, status:'dead', last_touch: today()});
-  } else if (act === 'replied') {
+  if (act === 'replied') {
     saveRow({id: r.id, status:'replied', last_touch: today()});
   } else if (act === 'takedown') {
     saveRow({id: r.id, takedown_done: today(), last_touch: today()});
@@ -341,6 +345,19 @@ document.addEventListener('click', e => {
     $('f_pitch').value = r.pitch_angle || ''; $('f_notes').value = r.notes || '';
     $('leadForm').scrollIntoView({behavior:'smooth', block:'center'});
   }
+});
+
+/* set status directly via the row dropdown */
+document.addEventListener('change', e => {
+  const sel = e.target.closest('.statusSel');
+  if (!sel) return;
+  const r = ROWS.find(x => x.id === sel.dataset.id);
+  if (!r || sel.value === r.status) return;
+  const status = sel.value;
+  const patch = {id: r.id, status, last_touch: today()};
+  if (status === 'built' && !r.built) patch.built = today();   // stamp build date on first build
+  if (status === 'sent' && !r.sent) patch.sent = today();      // stamp send date (starts the 7-day takedown clock)
+  saveRow(patch);
 });
 
 $('btnSave').addEventListener('click', () => {
