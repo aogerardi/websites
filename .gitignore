@@ -3,3 +3,6 @@
 pipeline/.command-key
 
 .DS_Store
+
+# Taken-down demos: code kept locally, never re-published
+demos-archive/
