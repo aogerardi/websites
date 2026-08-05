@@ -6,20 +6,23 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Plainview Oil Company, LLC | Oklahoma Mineral Acquisitions &amp; Land Services</title>
 <meta name="description" content="Oklahoma-based mineral and leasehold acquisitions and professional land services. Family-owned since 2013 in Norman, Oklahoma. We buy minerals, royalty, ORRI and working interests, and we do the title work ourselves.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23131a22'/><g stroke='%23c8952f' stroke-width='6' fill='none'><path d='M18 18h64v64H18z'/><path d='M50 18v64M18 50h64'/></g></svg>">
+<link rel="icon" href="bison.png">
+<link rel="apple-touch-icon" href="bison.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#0e141b;          /* deep slate  */
-  --ink-2:#131a22;
-  --panel:#18212b;
-  --line:rgba(214,199,173,.16);
-  --text:#eee7da;         /* warm cream  */
-  --muted:#a3a094;
-  --brass:#c8952f;        /* oil / wheat */
-  --brass-2:#e0ad48;
+  --ink:#15120d;            /* matches the logo black */
+  --ink-soft:#3d3830;
+  --cream:#faf7f0;          /* page */
+  --cream-2:#f3efe5;        /* alt bands */
+  --panel:#ffffff;
+  --line:rgba(21,18,13,.13);
+  --line-2:rgba(21,18,13,.08);
+  --muted:#6d6659;
+  --brass:#8a6520;          /* AA on cream */
+  --brass-lt:#b3862f;
   --maxw:1120px;
   --font-head:'Fraunces',Georgia,serif;
   --font-body:'Inter',system-ui,-apple-system,sans-serif;
@@ -27,100 +30,94 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0;background:var(--ink);color:var(--text);
+  margin:0;background:var(--cream);color:var(--ink);
   font-family:var(--font-body);font-size:16px;line-height:1.65;
   -webkit-font-smoothing:antialiased;
 }
-h1,h2,h3{font-family:var(--font-head);font-weight:600;line-height:1.12;margin:0}
+h1,h2,h3{font-family:var(--font-head);font-weight:600;line-height:1.14;margin:0}
 p{margin:0}
 a{color:inherit}
+img{max-width:100%;display:block}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 .eyebrow{
   font-size:12px;letter-spacing:.18em;text-transform:uppercase;
   color:var(--brass);font-weight:600;margin-bottom:14px
 }
 
-/* the survey-grid motif: sections, townships, ranges — what they actually work in */
+/* survey-grid motif — the sections/townships they actually work in */
 .grid-bg{
-  position:absolute;inset:0;pointer-events:none;opacity:.5;
+  position:absolute;inset:0;pointer-events:none;
   background-image:
-    repeating-linear-gradient(0deg,transparent 0 79px,rgba(214,199,173,.07) 79px 80px),
-    repeating-linear-gradient(90deg,transparent 0 79px,rgba(214,199,173,.07) 79px 80px);
-  mask-image:radial-gradient(120% 90% at 50% 0%,#000 25%,transparent 75%);
-  -webkit-mask-image:radial-gradient(120% 90% at 50% 0%,#000 25%,transparent 75%);
+    repeating-linear-gradient(0deg,transparent 0 79px,rgba(21,18,13,.055) 79px 80px),
+    repeating-linear-gradient(90deg,transparent 0 79px,rgba(21,18,13,.055) 79px 80px);
+  mask-image:radial-gradient(115% 85% at 50% 0%,#000 20%,transparent 72%);
+  -webkit-mask-image:radial-gradient(115% 85% at 50% 0%,#000 20%,transparent 72%);
 }
 
 /* ---------- nav ---------- */
 header{
-  position:sticky;top:0;z-index:50;background:rgba(14,20,27,.86);
+  position:sticky;top:0;z-index:50;background:rgba(250,247,240,.9);
   backdrop-filter:blur(12px);border-bottom:1px solid var(--line)
 }
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
-.mark{
-  width:32px;height:32px;flex:none;border:2px solid var(--brass);
-  position:relative;border-radius:2px
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.brand img{height:34px;width:auto;flex:none}
+.brand b{
+  font-family:var(--font-head);font-size:17px;font-weight:600;
+  letter-spacing:.02em;text-transform:uppercase;display:block;line-height:1.15
 }
-.mark::before,.mark::after{
-  content:"";position:absolute;background:var(--brass);opacity:.85
+.brand .sub{
+  display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted);font-family:var(--font-body);font-weight:500
 }
-.mark::before{left:50%;top:2px;bottom:2px;width:2px;transform:translateX(-50%)}
-.mark::after{top:50%;left:2px;right:2px;height:2px;transform:translateY(-50%)}
-.brand b{font-family:var(--font-head);font-size:17px;font-weight:600;letter-spacing:.01em}
-.brand span{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-family:var(--font-body)}
 .navlinks{display:flex;gap:30px;align-items:center}
 .navlinks a{
-  text-decoration:none;font-size:14.5px;color:var(--text);opacity:.82;
-  transition:opacity .18s,color .18s
+  text-decoration:none;font-size:14.5px;color:var(--ink-soft);
+  transition:color .18s
 }
-.navlinks a:hover{opacity:1;color:var(--brass-2)}
+.navlinks a:hover{color:var(--brass)}
 .btn{
   display:inline-flex;align-items:center;gap:8px;text-decoration:none;
-  background:var(--brass);color:#14100a;font-weight:600;font-size:14.5px;
-  padding:11px 20px;border-radius:3px;border:0;cursor:pointer;
+  background:var(--ink);color:var(--cream);font-weight:600;font-size:14.5px;
+  padding:12px 21px;border-radius:3px;border:0;cursor:pointer;
   font-family:var(--font-body);transition:background .18s,transform .18s
 }
-.btn:hover{background:var(--brass-2);transform:translateY(-1px)}
-.btn.ghost{
-  background:transparent;color:var(--text);border:1px solid var(--line)
-}
-.btn.ghost:hover{border-color:var(--brass);color:var(--brass-2);background:transparent}
+.btn:hover{background:var(--brass);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);}
+.btn.ghost:hover{border-color:var(--ink);background:transparent;color:var(--ink)}
 .navbtn{display:none}
 
 /* ---------- hero ---------- */
-.hero{position:relative;overflow:hidden;padding:104px 0 88px}
-.hero-in{position:relative;max-width:840px}
-.hero h1{
-  font-size:clamp(38px,6vw,62px);letter-spacing:-.02em;margin-bottom:22px
-}
+.hero{position:relative;overflow:hidden;padding:104px 0 92px}
+.hero-in{position:relative;max-width:860px}
+.hero h1{font-size:clamp(38px,6vw,64px);letter-spacing:-.022em;margin-bottom:22px}
 .hero h1 em{font-style:normal;color:var(--brass)}
-.lede{font-size:clamp(17px,2vw,19.5px);color:#cfc8ba;max-width:660px;margin-bottom:34px}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-.rule{height:1px;background:var(--line);margin:0}
+.lede{font-size:clamp(17px,2vw,19.5px);color:var(--ink-soft);max-width:660px;margin-bottom:34px}
+.hero-cta{display:flex;gap:13px;flex-wrap:wrap}
 
 /* ---------- proof band ---------- */
-.proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink-2)}
+.proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--cream-2)}
 .proof-in{display:grid;grid-template-columns:repeat(4,1fr)}
-.stat{padding:34px 26px;border-right:1px solid var(--line)}
+.stat{padding:36px 26px;border-right:1px solid var(--line-2)}
 .stat:last-child{border-right:0}
 .stat b{
-  display:block;font-family:var(--font-head);font-size:clamp(26px,3.4vw,36px);
-  font-weight:600;color:var(--brass);letter-spacing:-.01em;line-height:1
+  display:block;font-family:var(--font-head);font-size:clamp(27px,3.4vw,37px);
+  font-weight:600;letter-spacing:-.015em;line-height:1;color:var(--ink)
 }
 .stat span{display:block;margin-top:9px;font-size:13.5px;color:var(--muted);line-height:1.45}
 
 /* ---------- sections ---------- */
-section{padding:88px 0}
-.sec-head{max-width:680px;margin-bottom:46px}
-.sec-head h2{font-size:clamp(28px,3.8vw,40px);letter-spacing:-.015em;margin-bottom:16px}
+section{padding:92px 0}
+.sec-head{max-width:700px;margin-bottom:48px}
+.sec-head h2{font-size:clamp(28px,3.9vw,42px);letter-spacing:-.018em;margin-bottom:16px}
 .sec-head p{color:var(--muted);font-size:17px}
 
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .card{
-  background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:28px;
-  transition:border-color .2s,transform .2s
+  background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:30px;
+  transition:border-color .2s,transform .2s,box-shadow .2s
 }
-.card:hover{border-color:rgba(200,149,47,.42);transform:translateY(-3px)}
+.card:hover{border-color:rgba(138,101,32,.45);transform:translateY(-3px);box-shadow:0 14px 34px -22px rgba(21,18,13,.5)}
 .card h3{font-size:19px;margin-bottom:12px}
 .card p{color:var(--muted);font-size:14.5px}
 .card .num{
@@ -128,46 +125,45 @@ section{padding:88px 0}
   letter-spacing:.14em;display:block;margin-bottom:14px
 }
 
-.buys{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.buys{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--panel)}
 .buy{
-  padding:20px 24px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);
-  display:flex;align-items:center;gap:14px;font-size:15.5px;background:var(--ink-2)
+  padding:20px 24px;border-bottom:1px solid var(--line-2);border-right:1px solid var(--line-2);
+  display:flex;align-items:center;gap:14px;font-size:15.5px
 }
 .buy:nth-child(2n){border-right:0}
 .buy:nth-last-child(-n+2){border-bottom:0}
 .buy svg{flex:none;color:var(--brass)}
 
 /* ---------- intake tool ---------- */
-.tool{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.tool{background:var(--cream-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
 .tool-card{
   position:relative;background:var(--panel);border:1px solid var(--line);
-  border-radius:8px;padding:38px;max-width:820px;margin:0 auto
+  border-radius:8px;padding:40px;max-width:820px;margin:0 auto;
+  box-shadow:0 24px 60px -40px rgba(21,18,13,.45)
 }
-.steps{display:flex;gap:6px;margin-bottom:30px}
-.stepdot{flex:1;height:3px;background:rgba(214,199,173,.16);border-radius:2px;transition:background .3s}
+.steps{display:flex;gap:6px;margin-bottom:32px}
+.stepdot{flex:1;height:3px;background:rgba(21,18,13,.13);border-radius:2px;transition:background .3s}
 .stepdot.on{background:var(--brass)}
 .step{display:none}
 .step.on{display:block;animation:fade .32s ease}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.step > .q{
-  font-family:var(--font-head);font-size:22px;font-weight:600;margin-bottom:6px;display:block
-}
+.step > .q{font-family:var(--font-head);font-size:23px;font-weight:600;margin-bottom:6px;display:block}
 .step > .hint{color:var(--muted);font-size:14px;margin-bottom:22px;display:block}
 .opts{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}
 .opt{
-  text-align:left;background:var(--ink);border:1px solid var(--line);color:var(--text);
+  text-align:left;background:var(--cream);border:1px solid var(--line);color:var(--ink);
   border-radius:5px;padding:15px 17px;cursor:pointer;font:inherit;font-size:15px;
   transition:border-color .18s,background .18s
 }
-.opt:hover{border-color:rgba(200,149,47,.5)}
-.opt.on{border-color:var(--brass);background:rgba(200,149,47,.1)}
+.opt:hover{border-color:rgba(138,101,32,.5)}
+.opt.on{border-color:var(--brass);background:rgba(179,134,47,.12);box-shadow:inset 0 0 0 1px var(--brass)}
 .opt small{display:block;color:var(--muted);font-size:12.5px;margin-top:3px}
 .fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .field{display:flex;flex-direction:column;gap:6px}
 .field.full{grid-column:1/-1}
 .field label{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .field input,.field select,.field textarea{
-  background:var(--ink);border:1px solid var(--line);color:var(--text);
+  background:var(--cream);border:1px solid var(--line);color:var(--ink);
   border-radius:5px;padding:12px 13px;font:inherit;font-size:15px
 }
 .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--brass);outline-offset:1px;border-color:transparent}
@@ -175,75 +171,86 @@ section{padding:88px 0}
 .legal{font-size:12.5px;color:var(--muted);margin-top:16px;line-height:1.55}
 .toolnav{display:flex;justify-content:space-between;align-items:center;margin-top:26px;gap:12px}
 .back{background:none;border:0;color:var(--muted);cursor:pointer;font:inherit;font-size:14px;padding:6px 0}
-.back:hover{color:var(--text)}
+.back:hover{color:var(--ink)}
 .summary{
-  background:var(--ink);border:1px solid var(--line);border-radius:5px;
+  background:var(--cream);border:1px solid var(--line);border-radius:5px;
   padding:16px 18px;margin-bottom:22px;font-size:14.5px
 }
 .summary div{display:flex;justify-content:space-between;gap:16px;padding:5px 0}
 .summary span:first-child{color:var(--muted)}
-.summary span:last-child{text-align:right}
-.done{display:none;text-align:center;padding:22px 0}
+.summary span:last-child{text-align:right;font-weight:500}
+.done{display:none;text-align:center;padding:24px 0}
 .done.on{display:block}
 .done .tick{
-  width:52px;height:52px;border-radius:50%;border:2px solid var(--brass);
+  width:54px;height:54px;border-radius:50%;border:2px solid var(--brass);
   display:grid;place-items:center;margin:0 auto 20px;color:var(--brass)
 }
 
 /* ---------- team ---------- */
-.team{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.person{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:28px}
-.person .init{
-  width:46px;height:46px;border-radius:50%;background:rgba(200,149,47,.14);
-  border:1px solid rgba(200,149,47,.4);color:var(--brass);
-  display:grid;place-items:center;font-family:var(--font-head);font-size:17px;margin-bottom:18px
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.person{
+  background:var(--panel);border:1px solid var(--line);border-radius:6px;
+  overflow:hidden;display:flex;flex-direction:column
 }
-.person h3{font-size:18px;margin-bottom:3px}
-.person .role{font-size:12.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--brass);margin-bottom:14px}
+.photo{
+  aspect-ratio:4/3;background:var(--cream-2);border-bottom:1px solid var(--line);
+  display:grid;place-items:center;position:relative
+}
+.photo .ph{display:grid;place-items:center;gap:9px;color:#a49b8a;text-align:center;padding:16px}
+.photo .ph svg{opacity:.55}
+.photo .ph span{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}
+.photo img{width:100%;height:100%;object-fit:cover}
+.pbody{padding:26px 28px 28px;flex:1;display:flex;flex-direction:column}
+.person h3{font-size:19px;margin-bottom:3px}
+.person .role{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);margin-bottom:14px}
 .person p{font-size:14.5px;color:var(--muted)}
-.cred{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.cred{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:18px}
 .cred span{
-  font-size:12px;border:1px solid var(--line);border-radius:3px;
-  padding:4px 9px;color:var(--muted)
+  font-size:11.5px;border:1px solid var(--line);border-radius:3px;
+  padding:4px 9px;color:var(--ink-soft);background:var(--cream)
 }
+.bench .photo{background:var(--ink);border-bottom:0}
+.bench .photo .ou{display:grid;place-items:center;gap:10px;text-align:center;padding:22px;color:var(--cream)}
+.bench .photo .ou b{font-family:var(--font-head);font-size:30px;font-weight:600;line-height:1;letter-spacing:-.01em}
+.bench .photo .ou span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,247,240,.72)}
 
 /* ---------- contact ---------- */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-.cinfo div{padding:16px 0;border-bottom:1px solid var(--line)}
+.cinfo div{padding:16px 0;border-bottom:1px solid var(--line-2)}
 .cinfo div:last-child{border-bottom:0}
 .cinfo dt{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
 .cinfo dd{margin:0;font-size:16.5px}
-.cinfo a{text-decoration:none;color:var(--text)}
-.cinfo a:hover{color:var(--brass-2)}
+.cinfo a{text-decoration:none}
+.cinfo a:hover{color:var(--brass)}
 
-footer{border-top:1px solid var(--line);padding:44px 0;background:var(--ink-2)}
-.foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+footer{border-top:1px solid var(--line);padding:52px 0;background:var(--cream-2)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+.foot img{height:78px;width:auto}
 .foot p{font-size:13.5px;color:var(--muted)}
 .foot .by{font-size:12.5px}
 .foot .by a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
-.foot .by a:hover{color:var(--brass-2)}
+.foot .by a:hover{color:var(--brass)}
 
 /* ---------- responsive ---------- */
 @media(max-width:900px){
   .proof-in{grid-template-columns:1fr 1fr}
   .stat:nth-child(2){border-right:0}
-  .stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .stat:nth-child(-n+2){border-bottom:1px solid var(--line-2)}
   .cards,.team{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr;gap:38px}
 }
 @media(max-width:720px){
   .navlinks{display:none}
-  .navbtn{display:inline-flex;padding:9px 14px;font-size:13.5px;white-space:nowrap}
-  .nav{gap:12px}
-  .brand b{font-size:14.5px;line-height:1.2}
-  .brand span span{display:none}          /* drop the Est. line, keep the name */
-  .mark{width:26px;height:26px}
-  .hero{padding:72px 0 64px}
-  section{padding:64px 0}
+  .navbtn{display:inline-flex;padding:10px 15px;font-size:13.5px;white-space:nowrap}
+  .brand img{height:28px}
+  .brand b{font-size:14px}
+  .brand .sub{display:none}
+  .hero{padding:72px 0 66px}
+  section{padding:66px 0}
   .tool-card{padding:24px}
   .opts,.fields,.buys{grid-template-columns:1fr}
   .buy{border-right:0}
-  .buy:nth-last-child(2){border-bottom:1px solid var(--line)}
+  .buy:nth-last-child(2){border-bottom:1px solid var(--line-2)}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -256,10 +263,10 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--ink-2)}
 <header>
   <div class="wrap nav">
     <a class="brand" href="#top">
-      <span class="mark" aria-hidden="true"></span>
+      <img src="bison.png" alt="">
       <span>
         <b>Plainview Oil Company</b>
-        <span>Norman, Oklahoma &middot; Est. 2013</span>
+        <span class="sub">Norman, Oklahoma &middot; Est. 2013</span>
       </span>
     </a>
     <nav class="navlinks">
@@ -358,9 +365,9 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--ink-2)}
 <!-- ---------- intake tool ---------- -->
 <div class="tool" id="offer">
   <div class="grid-bg" aria-hidden="true"></div>
-  <section style="padding:80px 0">
+  <section style="padding:84px 0">
     <div class="wrap">
-      <div class="sec-head" style="text-align:center;margin:0 auto 40px">
+      <div class="sec-head" style="text-align:center;margin:0 auto 42px">
         <p class="eyebrow">Mineral Owner Intake</p>
         <h2>Tell us what you own.</h2>
         <p>Four quick questions. You do not need your deeds in front of you &mdash;
@@ -374,7 +381,6 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--ink-2)}
         </div>
 
         <form id="intake" novalidate>
-          <!-- step 1 -->
           <div class="step on" data-step="1">
             <span class="q">What kind of interest do you own?</span>
             <span class="hint">Pick the closest &mdash; we will confirm it in the title work.</span>
@@ -386,7 +392,6 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--ink-2)}
             </div>
           </div>
 
-          <!-- step 2 -->
           <div class="step" data-step="2">
             <span class="q">Where is it?</span>
             <span class="hint">County is enough to start. Section-Township-Range if you have it.</span>
@@ -398,12 +403,8 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--ink-2)}
               <div class="field">
                 <label for="state">State</label>
                 <select id="state" name="state">
-                  <option>Oklahoma</option>
-                  <option>Texas</option>
-                  <option>Kansas</option>
-                  <option>New Mexico</option>
-                  <option>North Dakota</option>
-                  <option>Other</option>
+                  <option>Oklahoma</option><option>Texas</option><option>Kansas</option>
+                  <option>New Mexico</option><option>North Dakota</option><option>Other</option>
                 </select>
               </div>
               <div class="field full">
@@ -413,7 +414,6 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--ink-2)}
             </div>
           </div>
 
-          <!-- step 3 -->
           <div class="step" data-step="3">
             <span class="q">Is it producing, and what are you hoping to do?</span>
             <span class="hint">Two quick ones.</span>
@@ -431,24 +431,14 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--ink-2)}
             </div>
           </div>
 
-          <!-- step 4 -->
           <div class="step" data-step="4">
             <span class="q">Where should we send it?</span>
             <span class="hint">A real person from Plainview will follow up &mdash; usually the same business day.</span>
             <div class="summary" id="summary"></div>
             <div class="fields">
-              <div class="field">
-                <label for="name">Name</label>
-                <input id="name" name="name" type="text" autocomplete="name">
-              </div>
-              <div class="field">
-                <label for="phone">Phone</label>
-                <input id="phone" name="phone" type="tel" autocomplete="tel">
-              </div>
-              <div class="field full">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" autocomplete="email">
-              </div>
+              <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name"></div>
+              <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
+              <div class="field full"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email"></div>
               <div class="field full">
                 <label for="notes">Anything else <span style="text-transform:none;letter-spacing:0">(optional)</span></label>
                 <textarea id="notes" name="notes" placeholder="Inherited it, in probate, received an offer already&hellip;"></textarea>
@@ -468,13 +458,11 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--ink-2)}
         </form>
 
         <div class="done" id="done">
-          <div class="tick">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <h3 style="font-size:22px;margin-bottom:10px">Thank you &mdash; we have it.</h3>
+          <div class="tick"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <h3 style="font-size:23px;margin-bottom:10px">Thank you &mdash; we have it.</h3>
           <p style="color:var(--muted);max-width:440px;margin:0 auto">
             Someone from Plainview will reach out personally. If it is urgent,
-            call <a href="tel:+14052535789" style="color:var(--brass-2)">(405) 253-5789</a>.
+            call <a href="tel:+14052535789" style="color:var(--brass)">(405) 253-5789</a>.
           </p>
         </div>
       </div>
@@ -492,30 +480,12 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--ink-2)}
          operators, investors, and families who need it done right.</p>
     </div>
     <div class="cards">
-      <div class="card">
-        <h3>Title &amp; ownership</h3>
-        <p>Mineral title review, chain of title verification, net mineral acre (NMA) calculations, and leasehold ownership verification.</p>
-      </div>
-      <div class="card">
-        <h3>Curative &amp; probate</h3>
-        <p>Heirship research, probate coordination, affidavit assistance, curative identification and resolution, and division order review.</p>
-      </div>
-      <div class="card">
-        <h3>Regulatory &amp; development</h3>
-        <p>Spacing and pooling review, multi-unit horizontal analysis, regulatory filing research, lease interpretation, and development risk review.</p>
-      </div>
-      <div class="card">
-        <h3>Valuations</h3>
-        <p>Mineral and royalty evaluation built on production performance, decline curve analysis, development potential, and regulatory positioning.</p>
-      </div>
-      <div class="card">
-        <h3>Estates &amp; families</h3>
-        <p>Ownership clarification, probate coordination support, division order review, and asset liquidation structuring for inherited interests.</p>
-      </div>
-      <div class="card">
-        <h3>Surface coordination</h3>
-        <p>Through affiliated relationships, coordinated strategies for surface property sales, ranch and acreage liquidation, and combined planning.</p>
-      </div>
+      <div class="card"><h3>Title &amp; ownership</h3><p>Mineral title review, chain of title verification, net mineral acre (NMA) calculations, and leasehold ownership verification.</p></div>
+      <div class="card"><h3>Curative &amp; probate</h3><p>Heirship research, probate coordination, affidavit assistance, curative identification and resolution, and division order review.</p></div>
+      <div class="card"><h3>Regulatory &amp; development</h3><p>Spacing and pooling review, multi-unit horizontal analysis, regulatory filing research, lease interpretation, and development risk review.</p></div>
+      <div class="card"><h3>Valuations</h3><p>Mineral and royalty evaluation built on production performance, decline curve analysis, development potential, and regulatory positioning.</p></div>
+      <div class="card"><h3>Estates &amp; families</h3><p>Ownership clarification, probate coordination support, division order review, and asset liquidation structuring for inherited interests.</p></div>
+      <div class="card"><h3>Surface coordination</h3><p>Through affiliated relationships, coordinated strategies for surface property sales, ranch and acreage liquidation, and combined planning.</p></div>
     </div>
   </div>
 </section>
@@ -528,39 +498,72 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--ink-2)}
       <h2>You will know who you are dealing with.</h2>
     </div>
     <div class="team">
+
       <div class="person">
-        <div class="init">JP</div>
-        <h3>Jeff Perry</h3>
-        <p class="role">Founder &amp; Managing Member</p>
-        <p>In the land business since 2011, trained under an oil and gas attorney and a
-           geologic engineer. Owns and manages roughly 20,000 net mineral acres and
-           oversees about 500 working interest wells across Oklahoma.</p>
-        <div class="cred">
-          <span>Vice Chairman, Farmers Royalty Co.</span>
-          <span>Board, Oklahoma NARO</span>
-          <span>AAPL</span><span>OCAPL</span>
+        <div class="photo">
+          <!-- Drop Jeff's headshot in here: <img src="jeff.jpg" alt="Jeff Perry"> -->
+          <div class="ph">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/>
+            </svg>
+            <span>Photo &mdash; Jeff</span>
+          </div>
+        </div>
+        <div class="pbody">
+          <h3>Jeff Perry</h3>
+          <p class="role">Founder &amp; Managing Member</p>
+          <p>In the land business since 2011, trained under an oil and gas attorney and a
+             geologic engineer. Owns and manages roughly 20,000 net mineral acres and
+             oversees about 500 working interest wells across Oklahoma.</p>
+          <div class="cred">
+            <span>Vice Chairman, Farmers Royalty Co.</span>
+            <span>Board, Oklahoma NARO</span>
+            <span>AAPL</span><span>OCAPL</span>
+          </div>
         </div>
       </div>
+
       <div class="person">
-        <div class="init">GF</div>
-        <h3>Guy Faulkenberry</h3>
-        <p class="role">Lead Acquisition Agent</p>
-        <p>With Plainview since 2018 and usually the first person a landowner talks to.
-           Negotiates mineral purchases and evaluates opportunities &mdash; known for a
-           steady demeanor and for making sure owners understand their options.</p>
-        <div class="cred"><span>Acquisitions</span><span>Landowner relations</span></div>
+        <div class="photo">
+          <!-- Drop Guy's headshot in here: <img src="guy.jpg" alt="Guy Faulkenberry"> -->
+          <div class="ph">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/>
+            </svg>
+            <span>Photo &mdash; Guy</span>
+          </div>
+        </div>
+        <div class="pbody">
+          <h3>Guy Faulkenberry</h3>
+          <p class="role">Lead Acquisition Agent</p>
+          <p>With Plainview since 2018 and usually the first person a landowner talks to.
+             Negotiates mineral purchases and evaluates opportunities &mdash; known for a
+             steady demeanor and for making sure owners understand their options.</p>
+          <div class="cred"><span>Acquisitions</span><span>Landowner relations</span></div>
+        </div>
       </div>
-      <div class="person">
-        <div class="init">LS</div>
-        <h3>Leslee Scoles</h3>
-        <p class="role">Land Technician</p>
-        <p>With Plainview since 2022. Prepares cursory ownership reports, assembles
-           lease and acquisition packets, coordinates documentation, and keeps title
-           information handled carefully at every step.</p>
-        <div class="cred"><span>Ownership verification</span><span>Probate coordination</span></div>
+
+      <div class="person bench">
+        <div class="photo">
+          <div class="ou">
+            <b>OU</b>
+            <span>Energy Management</span>
+          </div>
+        </div>
+        <div class="pbody">
+          <h3>Our Developing Landmen</h3>
+          <p class="role">Title &amp; Land Support</p>
+          <p>We build our bench from the University of Oklahoma&rsquo;s Energy Management
+             program &mdash; developing landmen who handle courthouse research, ownership
+             verification, and cursory preparation while they train under our leadership.
+             It is how we keep the work precise and how the next generation learns to do
+             it the right way.</p>
+          <div class="cred"><span>Courthouse research</span><span>Ownership verification</span><span>Cursory preparation</span></div>
+        </div>
       </div>
+
     </div>
-    <p style="color:var(--muted);font-size:14.5px;margin-top:26px;max-width:720px">
+    <p style="color:var(--muted);font-size:14.5px;margin-top:26px;max-width:760px">
       Plainview also works with a trusted network of experienced field landmen and contract
       professionals across Oklahoma, supporting courthouse research, title verification, and
       curative coordination &mdash; all under leadership oversight.
@@ -569,12 +572,12 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--ink-2)}
 </section>
 
 <!-- ---------- contact ---------- -->
-<section id="contact" style="background:var(--ink-2);border-top:1px solid var(--line)">
+<section id="contact" style="background:var(--cream-2);border-top:1px solid var(--line)">
   <div class="wrap contact-grid">
     <div>
       <p class="eyebrow">Contact</p>
-      <h2 style="font-size:clamp(26px,3.4vw,36px);margin-bottom:16px">Call us. We answer.</h2>
-      <p style="color:var(--muted);margin-bottom:26px">
+      <h2 style="font-size:clamp(26px,3.5vw,38px);margin-bottom:16px">Call us. We answer.</h2>
+      <p style="color:var(--muted);margin-bottom:28px">
         Whether you are ready to sell, weighing an offer someone else made, or just
         trying to understand what you inherited &mdash; we are glad to talk it through.
       </p>
@@ -591,8 +594,11 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--ink-2)}
 
 <footer>
   <div class="wrap foot">
-    <p>&copy; 2026 Plainview Oil Company, LLC &mdash; All rights reserved.</p>
-    <p class="by">Site by <a href="https://piedmondo.com" target="_blank" rel="noopener">Piedmondo</a></p>
+    <img src="logo.png" alt="Plainview Oil Company">
+    <div style="text-align:right">
+      <p>&copy; 2026 Plainview Oil Company, LLC &mdash; All rights reserved.</p>
+      <p class="by">Site by <a href="https://piedmondo.com" target="_blank" rel="noopener">Piedmondo</a></p>
+    </div>
   </div>
 </footer>
 
@@ -609,26 +615,22 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--ink-2)}
   var at = 0;
   var picks = {};
 
-  /* single-select chip groups */
   form.addEventListener('click', function(e){
     var b = e.target.closest('.opt');
     if(!b) return;
     var group = b.closest('[data-group]');
-    var key = group.getAttribute('data-group');
     group.querySelectorAll('.opt').forEach(function(o){ o.classList.remove('on'); });
     b.classList.add('on');
-    picks[key] = b.getAttribute('data-v');
+    picks[group.getAttribute('data-group')] = b.getAttribute('data-v');
   });
 
-  function render(){
-    steps.forEach(function(s,i){ s.classList.toggle('on', i === at); });
-    dots.forEach(function(d,i){ d.classList.toggle('on', i <= at); });
-    back.hidden = at === 0;
-    next.textContent = at === steps.length - 1 ? 'Send it →' : 'Continue →';
-    if(at === steps.length - 1) buildSummary();
-  }
-
   function val(id){ var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+
+  function esc(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
 
   function buildSummary(){
     var where = [val('county'), val('state')].filter(Boolean).join(' County, ');
@@ -644,10 +646,12 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--ink-2)}
     }).join('');
   }
 
-  function esc(s){
-    return String(s).replace(/[&<>"']/g, function(c){
-      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
-    });
+  function render(){
+    steps.forEach(function(s,i){ s.classList.toggle('on', i === at); });
+    dots.forEach(function(d,i){ d.classList.toggle('on', i <= at); });
+    back.hidden = at === 0;
+    next.textContent = at === steps.length - 1 ? 'Send it →' : 'Continue →';
+    if(at === steps.length - 1) buildSummary();
   }
 
   next.addEventListener('click', function(){
@@ -656,7 +660,6 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--ink-2)}
       document.getElementById('offer').scrollIntoView({block:'start'});
       return;
     }
-    /* final step: this demo does not transmit anything */
     form.style.display = 'none';
     document.querySelector('.steps').style.display = 'none';
     done.classList.add('on');
