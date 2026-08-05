@@ -117,16 +117,29 @@ header{
 .lede{font-size:clamp(17px,2vw,19.5px);color:var(--ink-soft);max-width:660px;margin-bottom:34px}
 .hero-cta{display:flex;gap:13px;flex-wrap:wrap}
 
-/* ---------- proof band ---------- */
-.proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--cream-2)}
-.proof-in{display:grid;grid-template-columns:repeat(4,1fr)}
-.stat{padding:36px 26px;border-right:1px solid var(--line-2)}
-.stat:last-child{border-right:0}
-.stat b{
-  display:block;font-family:var(--font-head);font-size:clamp(27px,3.4vw,37px);
-  font-weight:600;letter-spacing:-.015em;line-height:1;color:var(--ink)
+/* ---------- the record ----------
+   Was a 4-up stat strip. Replaced with an asymmetric statement + ledger: the
+   right column reads like a title abstract, which is the work they actually do,
+   and it gives the facts a hierarchy instead of four equal boxes. */
+.record{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--cream-2)}
+.record-in{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center;padding:64px 24px}
+.record-say h2{font-size:clamp(26px,3.4vw,38px);letter-spacing:-.018em;margin-bottom:16px}
+.record-say p{color:var(--muted);font-size:16.5px;max-width:46ch}
+.ledger{margin:0;display:grid}
+.ledger > div{
+  display:flex;align-items:baseline;justify-content:space-between;gap:20px;
+  padding:16px 0;border-bottom:1px solid var(--line)
 }
-.stat span{display:block;margin-top:9px;font-size:13.5px;color:var(--muted);line-height:1.45}
+.ledger > div:first-child{border-top:1px solid var(--line)}
+.ledger dt{
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  margin:0;white-space:nowrap
+}
+.ledger dd{
+  margin:0;font-family:var(--font-head);font-size:clamp(22px,2.6vw,29px);
+  font-weight:600;letter-spacing:-.015em;line-height:1;color:var(--ink);text-align:right
+}
+.ledger dd em{font-style:normal;color:var(--brass)}
 
 /* ---------- sections ---------- */
 section{padding:92px 0}
@@ -255,9 +268,7 @@ footer{border-top:1px solid var(--line);padding:52px 0;background:var(--cream-2)
 
 /* ---------- responsive ---------- */
 @media(max-width:900px){
-  .proof-in{grid-template-columns:1fr 1fr}
-  .stat:nth-child(2){border-right:0}
-  .stat:nth-child(-n+2){border-bottom:1px solid var(--line-2)}
+  .record-in{grid-template-columns:1fr;gap:34px;padding:48px 24px}
   .cards,.team{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr;gap:38px}
 }
@@ -320,13 +331,22 @@ footer{border-top:1px solid var(--line);padding:52px 0;background:var(--cream-2)
   </div>
 </div>
 
-<!-- ---------- proof ---------- -->
-<div class="proof">
-  <div class="wrap proof-in">
-    <div class="stat"><b>2013</b><span>Family-owned and operated from Norman, Oklahoma</span></div>
-    <div class="stat"><b>~40,000</b><span>Net mineral acres owned and managed</span></div>
-    <div class="stat"><b>~500</b><span>Working interest wells overseen across Oklahoma</span></div>
-    <div class="stat"><b>Direct</b><span>Principals who buy for our own account</span></div>
+<!-- ---------- the record ---------- -->
+<div class="record">
+  <div class="wrap record-in">
+    <div class="record-say">
+      <p class="eyebrow">The Record</p>
+      <h2>We buy for our own account.</h2>
+      <p>No syndicate, no fund, and no broker taking a cut in the middle. When we
+         make an offer it is our own capital behind it &mdash; and when we run the
+         title, it is our own people doing the work.</p>
+    </div>
+    <dl class="ledger">
+      <div><dt>Family-owned since</dt><dd>2013</dd></div>
+      <div><dt>Net mineral acres</dt><dd><em>~40,000</em></dd></div>
+      <div><dt>Working interest wells</dt><dd>~500</dd></div>
+      <div><dt>Operating from</dt><dd>Norman, OK</dd></div>
+    </dl>
   </div>
 </div>
 
