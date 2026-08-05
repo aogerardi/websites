@@ -104,16 +104,35 @@ header{
 .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
 .btn.ghost:hover{border-color:var(--green);color:var(--green);background:#fff}
 
-/* ---------- stat band ---------- */
-.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
-.stats-in{display:grid;grid-template-columns:repeat(4,1fr)}
-.stat{padding:32px 24px;border-right:1px solid var(--line-2)}
-.stat:last-child{border-right:0}
-.stat b{
-  display:block;font-family:var(--font-head);font-size:clamp(26px,3.3vw,36px);
-  font-weight:600;line-height:1;letter-spacing:-.015em;color:var(--green)
+/* ---------- era band ----------
+   Was a 4-up stat strip identical to the one on the other site. FRC's whole
+   story is duration, so the facts are hung on a timeline instead: the numbers
+   land as the end of a 97-year run rather than as four interchangeable boxes. */
+.era{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:56px 0 50px}
+.era .eyebrow{margin-bottom:26px}
+.track{
+  list-style:none;margin:0;padding:0;display:grid;
+  grid-template-columns:repeat(5,1fr);gap:0;position:relative
 }
-.stat span{display:block;margin-top:8px;font-size:13.5px;color:var(--muted);line-height:1.45}
+/* the connecting rule */
+.track::before{
+  content:"";position:absolute;left:0;right:0;top:7px;height:2px;
+  background:linear-gradient(90deg,var(--line) 0%,var(--green) 78%,var(--green) 100%)
+}
+.track li{position:relative;padding:26px 18px 0 0}
+.track li::before{
+  content:"";position:absolute;left:0;top:0;width:16px;height:16px;border-radius:50%;
+  background:#fff;border:2px solid var(--line-2);box-shadow:0 0 0 3px var(--bg-2)
+}
+.track li.now::before{border-color:var(--green);background:var(--green)}
+.track b{
+  display:block;font-family:var(--font-head);font-size:clamp(19px,2.2vw,25px);
+  font-weight:600;letter-spacing:-.01em;line-height:1;margin-bottom:8px;color:var(--ink)
+}
+.track li.now b{color:var(--green)}
+.track span{display:block;font-size:13.5px;color:var(--muted);line-height:1.5;max-width:24ch}
+.track li.now span{color:var(--ink-2)}
+.track em{font-style:normal;font-weight:600;color:var(--ink)}
 
 /* ---------- sections ---------- */
 section{padding:76px 0}
@@ -278,9 +297,9 @@ footer{border-top:1px solid var(--line);background:var(--bg-2);padding:48px 0 36
   .people{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:900px){
-  .stats-in{grid-template-columns:1fr 1fr}
-  .stat:nth-child(2){border-right:0}
-  .stat:nth-child(-n+2){border-bottom:1px solid var(--line-2)}
+  .track{grid-template-columns:1fr 1fr}
+  .track::before{display:none}
+  .track li{padding:26px 18px 18px 0}
   .cards{grid-template-columns:1fr}
   .prose-grid{grid-template-columns:1fr;gap:26px}
   .foot-grid{grid-template-columns:1fr 1fr}
@@ -304,6 +323,13 @@ footer{border-top:1px solid var(--line);background:var(--bg-2);padding:48px 0 36
     border:0;border-left:2px solid var(--line);border-radius:0;margin:0 0 6px 12px;padding:0 0 0 6px
   }
   .chart-grid.c2,.chart-grid.c3,.chart-grid.c4{grid-template-columns:1fr}
+  /* vertical timeline: rule runs down the left, dots sit on it */
+  .track{grid-template-columns:1fr;gap:0;padding-left:26px}
+  .track::before{display:block;left:7px;right:auto;top:8px;bottom:8px;width:2px;height:auto;
+    background:linear-gradient(180deg,var(--line) 0%,var(--green) 78%)}
+  .track li{padding:0 0 22px 0}
+  .track li::before{left:-26px;top:3px}
+  .track li:last-child{padding-bottom:0}
   .people{grid-template-columns:1fr}
   .fields2{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr}
