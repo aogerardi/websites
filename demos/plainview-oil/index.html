@@ -1,10 +1,15 @@
 <!DOCTYPE html>
+<!--
+  Plainview Oil Company, LLC
+  Designed and built by Piedmondo — https://piedmondo.com
+-->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Plainview Oil Company, LLC | Oklahoma Mineral Acquisitions &amp; Land Services</title>
+<meta name="author" content="Piedmondo — piedmondo.com">
 <meta name="description" content="Oklahoma-based mineral and leasehold acquisitions and professional land services. Family-owned since 2013 in Norman, Oklahoma. We buy minerals, royalty, ORRI and working interests, and we do the title work ourselves.">
 <link rel="icon" href="bison.png">
 <link rel="apple-touch-icon" href="bison.png">
@@ -28,6 +33,38 @@
 <meta name="twitter:image" content="https://piedmondo.com/demos/plainview-oil/og.png">
 <!-- legacy fallback: older Microsoft/Skype unfurlers look for image_src -->
 <link rel="image_src" href="https://piedmondo.com/demos/plainview-oil/og.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Plainview Oil Company, LLC",
+  "description": "Oklahoma-based mineral acquisition and professional land services firm.",
+  "url": "https://plainviewoilcompany.com",
+  "telephone": "+1-405-253-5789",
+  "email": "info@plainviewoilcompany.com",
+  "foundingDate": "2013",
+  "address": {
+    "@type": "PostalAddress",
+    "postOfficeBoxNumber": "1124",
+    "addressLocality": "Norman",
+    "addressRegion": "OK",
+    "postalCode": "73070",
+    "addressCountry": "US"
+  },
+  "areaServed": { "@type": "State", "name": "Oklahoma" },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "09:00",
+    "closes": "17:00"
+  },
+  "creator": {
+    "@type": "Organization",
+    "name": "Piedmondo",
+    "url": "https://piedmondo.com"
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -204,6 +241,10 @@ section{padding:92px 0}
 .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--brass);outline-offset:1px;border-color:transparent}
 .field textarea{resize:vertical;min-height:78px}
 .legal{font-size:12.5px;color:var(--muted);margin-top:16px;line-height:1.55}
+.formerr{
+  display:none;margin-top:16px;padding:11px 14px;border-radius:5px;font-size:14px;
+  background:#fdf1f0;border:1px solid #e6b5b0;color:#8a2b22
+}
 .toolnav{display:flex;justify-content:space-between;align-items:center;margin-top:26px;gap:12px}
 .back{background:none;border:0;color:var(--muted);cursor:pointer;font:inherit;font-size:14px;padding:6px 0}
 .back:hover{color:var(--ink)}
@@ -243,6 +284,12 @@ section{padding:92px 0}
 }
 .member .bio p{color:var(--ink-soft);font-size:15.5px;line-height:1.7}
 .member .bio p + p{margin-top:15px}
+.outlink{
+  display:inline-flex;align-items:center;gap:6px;text-decoration:none;
+  font-size:14px;font-weight:600;color:var(--brass);
+  border-bottom:1px solid rgba(138,101,32,.35);padding-bottom:1px
+}
+.outlink:hover{color:var(--ink);border-bottom-color:var(--ink)}
 .cred{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
 .cred span{
   font-size:11.5px;border:1px solid var(--line);border-radius:3px;
@@ -491,6 +538,8 @@ footer{border-top:1px solid var(--line);padding:52px 0;background:var(--cream-2)
             </p>
           </div>
 
+          <p id="formerr" class="formerr" role="alert"></p>
+
           <div class="toolnav">
             <button type="button" class="back" id="back" hidden>&larr; Back</button>
             <span></span>
@@ -502,7 +551,7 @@ footer{border-top:1px solid var(--line);padding:52px 0;background:var(--cream-2)
           <div class="tick"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></div>
           <h3 style="font-size:23px;margin-bottom:10px">Thank you &mdash; we have it.</h3>
           <p style="color:var(--muted);max-width:440px;margin:0 auto">
-            Someone from Plainview will reach out personally. If it is urgent,
+            Someone from Plainview will reach out personally. If you&rsquo;d prefer,
             call <a href="tel:+14052535789" style="color:var(--brass)">(405) 253-5789</a>.
           </p>
         </div>
@@ -624,6 +673,10 @@ footer{border-top:1px solid var(--line);padding:52px 0;background:var(--cream-2)
              verification, and cursory preparation while they train under our leadership.
              It is how we keep the work precise, and how the next generation learns to do
              it the right way.</p>
+          <p><a class="outlink" href="https://www.ou.edu/price/management-international-business/energy-management" target="_blank" rel="noopener">
+             OU Price College of Business &mdash; Energy Management program
+             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a></p>
         </div>
       </div>
 
@@ -718,16 +771,78 @@ footer{border-top:1px solid var(--line);padding:52px 0;background:var(--cream-2)
     if(at === steps.length - 1) buildSummary();
   }
 
+  /* ---- Formspree ----------------------------------------------------------
+     Paste the form's endpoint below (formspree.io -> New Form -> copy the URL).
+     While it still reads PASTE_ID the form runs in demo mode: it shows the
+     thank-you panel but sends nothing, so the page is safe to show around. */
+  var FORMSPREE = 'https://formspree.io/f/xaewnoke';
+  var LIVE = FORMSPREE.indexOf('PASTE_ID') === -1;   /* live: Jeff's Formspree */
+
+  function payload(){
+    var where = [val('county'), val('state')].filter(Boolean).join(' County, ');
+    return {
+      _subject: 'Mineral owner intake — ' + (val('name') || 'no name given'),
+      name:        val('name'),
+      email:       val('email'),
+      phone:       val('phone'),
+      interest:    picks.interest  || '',
+      location:    where,
+      str:         val('str'),
+      producing:   picks.producing || '',
+      goal:        picks.goal      || '',
+      notes:       val('notes'),
+      submitted:   new Date().toISOString()
+    };
+  }
+
+  function showDone(){
+    form.style.display = 'none';
+    document.querySelector('.steps').style.display = 'none';
+    done.classList.add('on');
+    done.scrollIntoView({block:'center'});
+  }
+
+  function showError(msg){
+    var e = document.getElementById('formerr');
+    e.textContent = msg;
+    e.style.display = 'block';
+  }
+
   next.addEventListener('click', function(){
     if(at < steps.length - 1){
       at++; render();
       document.getElementById('offer').scrollIntoView({block:'start'});
       return;
     }
-    form.style.display = 'none';
-    document.querySelector('.steps').style.display = 'none';
-    done.classList.add('on');
-    done.scrollIntoView({block:'center'});
+
+    /* need at least one way to reach them */
+    if(!val('email') && !val('phone')){
+      showError('Please add an email address or a phone number so we can reach you.');
+      return;
+    }
+    document.getElementById('formerr').style.display = 'none';
+
+    if(!LIVE){ showDone(); return; }
+
+    next.disabled = true;
+    next.textContent = 'Sending…';
+    fetch(FORMSPREE, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify(payload())
+    })
+    .then(function(r){
+      if(r.ok) { showDone(); return; }
+      return r.json().then(function(d){
+        throw new Error((d.errors && d.errors[0] && d.errors[0].message) || 'Submission failed');
+      });
+    })
+    .catch(function(err){
+      next.disabled = false;
+      next.textContent = 'Send it →';
+      showError('Sorry — that did not go through. Please call (405) 253-5789 or email info@plainviewoilcompany.com.');
+      if(window.console) console.error('[intake]', err);
+    });
   });
 
   back.addEventListener('click', function(){
