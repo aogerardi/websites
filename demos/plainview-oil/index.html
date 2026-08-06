@@ -114,7 +114,8 @@ header{
 .hero-in{position:relative;max-width:860px}
 .hero h1{font-size:clamp(38px,6vw,64px);letter-spacing:-.022em;margin-bottom:22px}
 .hero h1 em{font-style:normal;color:var(--brass)}
-.lede{font-size:clamp(17px,2vw,19.5px);color:var(--ink-soft);max-width:660px;margin-bottom:34px}
+.lede{font-size:clamp(16.5px,1.9vw,18.5px);color:var(--ink-soft);max-width:660px;margin-bottom:34px}
+.lede p + p{margin-top:14px}
 .hero-cta{display:flex;gap:13px;flex-wrap:wrap}
 
 /* ---------- the record ----------
@@ -124,7 +125,10 @@ header{
 .record{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--cream-2)}
 .record-in{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center;padding:64px 24px}
 .record-say h2{font-size:clamp(26px,3.4vw,38px);letter-spacing:-.018em;margin-bottom:16px}
-.record-say p{color:var(--muted);font-size:16.5px;max-width:46ch}
+.mission{
+  font-family:var(--font-head);font-size:clamp(21px,2.6vw,29px);font-weight:500;
+  line-height:1.36;letter-spacing:-.012em;color:var(--ink);max-width:26ch
+}
 .ledger{margin:0;display:grid}
 .ledger > div{
   display:flex;align-items:baseline;justify-content:space-between;gap:20px;
@@ -155,10 +159,6 @@ section{padding:92px 0}
 .card:hover{border-color:rgba(138,101,32,.45);transform:translateY(-3px);box-shadow:0 14px 34px -22px rgba(21,18,13,.5)}
 .card h3{font-size:19px;margin-bottom:12px}
 .card p{color:var(--muted);font-size:14.5px}
-.card .num{
-  font-family:var(--font-head);font-size:13px;color:var(--brass);
-  letter-spacing:.14em;display:block;margin-bottom:14px
-}
 
 .buys{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--panel)}
 .buy{
@@ -223,19 +223,8 @@ section{padding:92px 0}
 
 /* ---------- team ---------- */
 .team{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.person{
-  background:var(--panel);border:1px solid var(--line);border-radius:6px;
-  overflow:hidden;display:flex;flex-direction:column
-}
-.photo{
-  aspect-ratio:4/3;background:var(--cream-2);border-bottom:1px solid var(--line);
-  display:grid;place-items:center;position:relative
-}
-.photo .ph{display:grid;place-items:center;gap:9px;color:#a49b8a;text-align:center;padding:16px}
-.photo .ph svg{opacity:.55}
-.photo .ph span{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}
-.photo img{width:100%;height:100%;object-fit:cover}
-.pbody{padding:26px 28px 28px;flex:1;display:flex;flex-direction:column}
+.person{background:var(--panel);border:1px solid var(--line);border-radius:6px}
+.pbody{padding:28px;display:flex;flex-direction:column;min-height:100%}
 .person h3{font-size:19px;margin-bottom:3px}
 .person .role{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);margin-bottom:14px}
 .person p{font-size:14.5px;color:var(--muted)}
@@ -244,11 +233,7 @@ section{padding:92px 0}
   font-size:11.5px;border:1px solid var(--line);border-radius:3px;
   padding:4px 9px;color:var(--ink-soft);background:var(--cream-2)
 }
-.bench .photo{background:var(--ink);border-bottom:0}
-.bench .photo .ou{display:grid;place-items:center;gap:10px;text-align:center;padding:22px;color:var(--cream)}
-.bench .photo .ou b{font-family:var(--font-head);font-size:30px;font-weight:600;line-height:1;letter-spacing:-.01em}
-.bench .photo .ou span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,247,240,.72)}
-
+.bench 
 /* ---------- contact ---------- */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
 .cinfo div{padding:16px 0;border-bottom:1px solid var(--line-2)}
@@ -317,13 +302,17 @@ footer{border-top:1px solid var(--line);padding:52px 0;background:var(--cream-2)
 <div id="top" class="hero">
   <div class="grid-bg" aria-hidden="true"></div>
   <div class="wrap hero-in">
-    <p class="eyebrow">Oklahoma Mineral Acquisitions &amp; Land Services</p>
+    <p class="eyebrow">Who We Are</p>
     <h1>Built on integrity.<br>Driven by <em>hard work.</em></h1>
-    <p class="lede">
-      We buy minerals, royalty, and working interests across Oklahoma &mdash; and we
-      run the title, curative, and regulatory work ourselves. Direct principals,
-      family-owned since 2013, no brokers in the middle.
-    </p>
+    <div class="lede">
+      <p>Plainview Oil Company, LLC is an Oklahoma-based mineral acquisition and land
+         services firm grounded in integrity, work ethic, and precision.</p>
+      <p>We are direct principals who believe in earning trust through action, not
+         promises. Every transaction, every title review, and every land matter is
+         approached with determination and attention to detail.</p>
+      <p>We understand that mineral ownership is often generational. We treat every
+         family, estate, and client with care and respect.</p>
+    </div>
     <div class="hero-cta">
       <a class="btn" href="#offer">Tell us what you own &rarr;</a>
       <a class="btn ghost" href="tel:+14052535789">(405) 253-5789</a>
@@ -335,15 +324,14 @@ footer{border-top:1px solid var(--line);padding:52px 0;background:var(--cream-2)
 <div class="record">
   <div class="wrap record-in">
     <div class="record-say">
-      <p class="eyebrow">The Record</p>
-      <h2>We buy for our own account.</h2>
-      <p>No syndicate, no fund, and no broker taking a cut in the middle. When we
-         make an offer it is our own capital behind it &mdash; and when we run the
-         title, it is our own people doing the work.</p>
+      <p class="eyebrow">Mission Statement</p>
+      <p class="mission">At Plainview Oil Company, our mission is to pursue disciplined
+         mineral and leasehold acquisitions. We are dedicated to upholding the highest
+         standards of accuracy and integrity in everything we do.</p>
     </div>
     <dl class="ledger">
       <div><dt>Family-owned since</dt><dd>2013</dd></div>
-      <div><dt>Net mineral acres</dt><dd><em>~40,000</em></dd></div>
+      <div><dt>Net mineral acres</dt><dd><em>~25,000</em></dd></div>
       <div><dt>Working interest wells</dt><dd>~500</dd></div>
       <div><dt>Operating from</dt><dd>Norman, OK</dd></div>
     </dl>
@@ -354,30 +342,26 @@ footer{border-top:1px solid var(--line);padding:52px 0;background:var(--cream-2)
 <section id="about">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Who We Are</p>
-      <h2>We earn trust through action, not promises.</h2>
-      <p>
-        Plainview Oil Company, LLC is an Oklahoma-based mineral acquisition and land
-        services firm grounded in integrity, work ethic, and precision. We understand
-        that mineral ownership is often generational &mdash; and we treat every family,
-        estate, and client with care and respect.
-      </p>
+      <p class="eyebrow">Our Services</p>
+      <h2>What we do.</h2>
     </div>
     <div class="cards">
       <div class="card">
-        <span class="num">01</span>
-        <h3>We evaluate thoroughly</h3>
-        <p>Every transaction gets a real title review, production evaluation, and regulatory analysis before a number is ever put on the table.</p>
+        <h3>Mineral &amp; Leasehold Acquisitions</h3>
+        <p>We acquire mineral interests, royalty interests, overriding royalty interests,
+           and oil &amp; gas leasehold working interests, both producing and undeveloped
+           throughout Oklahoma.</p>
       </div>
       <div class="card">
-        <span class="num">02</span>
-        <h3>We communicate clearly</h3>
-        <p>You will understand what you own and what you are being offered. We take the time to make sure of it &mdash; no pressure, no rush.</p>
+        <h3>Professional Landwork Solutions</h3>
+        <p>We provide detailed land services including title review, ownership verification,
+           probate coordination, curative support, and regulatory analysis for attorneys,
+           operators, trustees, and private clients.</p>
       </div>
       <div class="card">
-        <span class="num">03</span>
-        <h3>We close responsibly</h3>
-        <p>We do not cut corners, we do not rush important decisions, and we do not treat mineral owners like file numbers.</p>
+        <h3>Due Diligence &amp; Valuation</h3>
+        <p>We conduct disciplined asset evaluation, revenue analysis, and ownership review
+           to ensure clarity, accuracy, and informed decision-making.</p>
       </div>
     </div>
   </div>
@@ -542,20 +526,11 @@ footer{border-top:1px solid var(--line);padding:52px 0;background:var(--cream-2)
     <div class="team">
 
       <div class="person">
-        <div class="photo">
-          <!-- Drop Jeff's headshot in here: <img src="jeff.jpg" alt="Jeff Perry"> -->
-          <div class="ph">
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/>
-            </svg>
-            <span>Photo &mdash; Jeff</span>
-          </div>
-        </div>
         <div class="pbody">
           <h3>Jeff Perry</h3>
           <p class="role">Founder &amp; Managing Member</p>
           <p>In the land business since 2011, trained under an oil and gas attorney and a
-             geologic engineer. Owns and manages roughly 40,000 net mineral acres and
+             geologic engineer. Owns and manages roughly 25,000 net mineral acres and
              oversees about 500 working interest wells across Oklahoma.</p>
           <div class="cred">
             <span>Vice Chairman, Farmers Royalty Co.</span>
@@ -566,15 +541,6 @@ footer{border-top:1px solid var(--line);padding:52px 0;background:var(--cream-2)
       </div>
 
       <div class="person">
-        <div class="photo">
-          <!-- Drop Guy's headshot in here: <img src="guy.jpg" alt="Guy Faulkenberry"> -->
-          <div class="ph">
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/>
-            </svg>
-            <span>Photo &mdash; Guy</span>
-          </div>
-        </div>
         <div class="pbody">
           <h3>Guy Faulkenberry</h3>
           <p class="role">Lead Acquisition Agent</p>
@@ -586,12 +552,6 @@ footer{border-top:1px solid var(--line);padding:52px 0;background:var(--cream-2)
       </div>
 
       <div class="person bench">
-        <div class="photo">
-          <div class="ou">
-            <b>OU</b>
-            <span>Energy Management</span>
-          </div>
-        </div>
         <div class="pbody">
           <h3>Our Developing Landmen</h3>
           <p class="role">Title &amp; Land Support</p>
@@ -618,7 +578,6 @@ footer{border-top:1px solid var(--line);padding:52px 0;background:var(--cream-2)
   <div class="wrap contact-grid">
     <div>
       <p class="eyebrow">Contact</p>
-      <h2 style="font-size:clamp(26px,3.5vw,38px);margin-bottom:16px">Call us. We answer.</h2>
       <p style="color:var(--muted);margin-bottom:28px">
         Whether you are ready to sell, weighing an offer someone else made, or just
         trying to understand what you inherited &mdash; we are glad to talk it through.
