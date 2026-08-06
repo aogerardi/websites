@@ -30,7 +30,7 @@
 <link rel="image_src" href="https://piedmondo.com/demos/plainview-oil/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#15120d;            /* matches the logo black */
@@ -44,7 +44,7 @@
   --brass:#8a6520;          /* AA on cream */
   --brass-lt:#b3862f;
   --maxw:1120px;
-  --font-head:'Fraunces',Georgia,serif;
+  --font-head:'Source Serif 4',Georgia,'Times New Roman',serif;
   --font-body:'Inter',system-ui,-apple-system,sans-serif;
 }
 *{box-sizing:border-box}
@@ -221,19 +221,34 @@ section{padding:92px 0}
   display:grid;place-items:center;margin:0 auto 20px;color:var(--brass)
 }
 
-/* ---------- team ---------- */
-.team{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.person{background:var(--panel);border:1px solid var(--line);border-radius:6px}
-.pbody{padding:28px;display:flex;flex-direction:column;min-height:100%}
-.person h3{font-size:19px;margin-bottom:3px}
-.person .role{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);margin-bottom:14px}
-.person p{font-size:14.5px;color:var(--muted)}
-.cred{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:18px}
+/* ---------- team ----------
+   Full bios are three paragraphs each, which a 3-up card grid cannot hold.
+   Stacked rows: identity rail on the left, bio on the right. */
+.roster{display:grid;gap:0;border-top:1px solid var(--line)}
+.member{
+  display:grid;grid-template-columns:.42fr 1fr;gap:52px;
+  padding:44px 0;border-bottom:1px solid var(--line)
+}
+.member .who .li{
+  display:inline-flex;align-items:center;gap:7px;text-decoration:none;
+  font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--ink-soft);
+  border:1px solid var(--line);border-radius:4px;padding:6px 11px;margin-bottom:14px;
+  transition:border-color .16s,color .16s,background .16s
+}
+.member .who .li:hover{border-color:#0a66c2;color:#0a66c2;background:rgba(10,102,194,.05)}
+.member .who h3{font-size:clamp(21px,2.4vw,27px);letter-spacing:-.015em;margin-bottom:6px}
+.member .who .role{
+  font-size:12px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--brass);font-weight:600
+}
+.member .bio p{color:var(--ink-soft);font-size:15.5px;line-height:1.7}
+.member .bio p + p{margin-top:15px}
+.cred{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
 .cred span{
   font-size:11.5px;border:1px solid var(--line);border-radius:3px;
   padding:4px 9px;color:var(--ink-soft);background:var(--cream-2)
 }
-.bench 
+
 /* ---------- contact ---------- */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
 .cinfo div{padding:16px 0;border-bottom:1px solid var(--line-2)}
@@ -523,44 +538,92 @@ footer{border-top:1px solid var(--line);padding:52px 0;background:var(--cream-2)
       <p class="eyebrow">Meet The Team</p>
       <h2>You will know who you are dealing with.</h2>
     </div>
-    <div class="team">
+    <div class="roster">
 
-      <div class="person">
-        <div class="pbody">
+      <div class="member">
+        <div class="who">
+          <a class="li" href="https://www.linkedin.com/in/jeff-perry-03249282/" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            LinkedIn
+          </a>
           <h3>Jeff Perry</h3>
           <p class="role">Founder &amp; Managing Member</p>
-          <p>In the land business since 2011, trained under an oil and gas attorney and a
-             geologic engineer. Owns and manages roughly 25,000 net mineral acres and
-             oversees about 500 working interest wells across Oklahoma.</p>
           <div class="cred">
             <span>Vice Chairman, Farmers Royalty Co.</span>
             <span>Board, Oklahoma NARO</span>
             <span>AAPL</span><span>OCAPL</span>
+            <span>BBA, Univ. of Central Oklahoma</span>
           </div>
         </div>
-      </div>
-
-      <div class="person">
-        <div class="pbody">
-          <h3>Guy Faulkenberry</h3>
-          <p class="role">Lead Acquisition Agent</p>
-          <p>With Plainview since 2018 and usually the first person a landowner talks to.
-             Negotiates mineral purchases and evaluates opportunities &mdash; known for a
-             steady demeanor and for making sure owners understand their options.</p>
-          <div class="cred"><span>Acquisitions</span><span>Landowner relations</span></div>
+        <div class="bio">
+          <p>Jeff Perry is the Founder and Managing Member of Plainview Oil Company, LLC,
+             an Oklahoma-based mineral acquisition and professional land services firm built
+             on integrity, grit, and disciplined execution. Since beginning his land career in
+             2011 under the mentorship of an oil and gas attorney and geologic engineer, Jeff
+             has developed a structured, detail-driven approach to mineral ownership, title
+             evaluation, and regulatory matters. He currently owns and manages approximately
+             25,000 net mineral acres and oversees roughly 500 working interest wells across
+             Oklahoma.</p>
+          <p>Jeff serves as Vice Chairman of the Board of Directors of Farmers Royalty Company
+             and sits on the Board of Oklahoma NARO. He is an active member of the American
+             Association of Professional Landmen (AAPL) and the Oklahoma City Association of
+             Professional Landmen (OCAPL). A graduate of the University of Central Oklahoma
+             with a BBA in Business Management and a minor in Real Estate Finance, Jeff
+             combines business discipline with field-level land experience.</p>
+          <p>Deeply rooted in Oklahoma, Jeff is active in ranching, community involvement, and
+             faithfully attends and serves at his local church. His leadership philosophy is
+             simple: work hard, tell the truth, honor your word, and treat people with respect.</p>
         </div>
       </div>
 
-      <div class="person bench">
-        <div class="pbody">
+      <div class="member">
+        <div class="who">
+          <a class="li" href="https://www.linkedin.com/in/guy-c-faulkenberry-02921440/" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            LinkedIn
+          </a>
+          <h3>Guy Faulkenberry</h3>
+          <p class="role">Acquisitions</p>
+          <div class="cred">
+            <span>Lead Acquisition Agent</span>
+            <span>With Plainview since 2018</span>
+            <span>Landowner relations</span>
+          </div>
+        </div>
+        <div class="bio">
+          <p>Guy Faulkenberry has worked alongside Jeff Perry since 2018 and serves as Lead
+             Acquisition Agent for Plainview Oil Company. He directs the firm&rsquo;s mineral and
+             leasehold acquisition efforts and is often the primary point of contact for
+             landowners considering the sale or lease of their oil and gas interests.</p>
+          <p>Guy is responsible for negotiating mineral purchases, evaluating opportunities,
+             and maintaining direct communication with landowners across Oklahoma. Known for
+             his steady demeanor and persistence, he approaches every negotiation with
+             discipline and respect. He understands that mineral ownership is often personal
+             and generational, and he takes the time to ensure landowners clearly understand
+             their options.</p>
+          <p>Working closely with leadership, Guy helps structure acquisitions responsibly and
+             align each opportunity with Plainview&rsquo;s long-term strategy. His consistency,
+             work ethic, and relationship-driven approach reflect the integrity and
+             determination that define the firm.</p>
+        </div>
+      </div>
+
+      <div class="member">
+        <div class="who">
           <h3>Our Developing Landmen</h3>
           <p class="role">Title &amp; Land Support</p>
+          <div class="cred">
+            <span>Courthouse research</span>
+            <span>Ownership verification</span>
+            <span>Cursory preparation</span>
+          </div>
+        </div>
+        <div class="bio">
           <p>We build our bench from the University of Oklahoma&rsquo;s Energy Management
              program &mdash; developing landmen who handle courthouse research, ownership
              verification, and cursory preparation while they train under our leadership.
-             It is how we keep the work precise and how the next generation learns to do
+             It is how we keep the work precise, and how the next generation learns to do
              it the right way.</p>
-          <div class="cred"><span>Courthouse research</span><span>Ownership verification</span><span>Cursory preparation</span></div>
         </div>
       </div>
 
