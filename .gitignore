@@ -6,3 +6,14 @@ pipeline/.command-key
 
 # Taken-down demos: code kept locally, never re-published
 demos-archive/
+
+# Internal — never publish (GitHub Pages serves every file in this repo)
+PLAYBOOK.md
+ROADMAP.md
+SUMMARY.md
+COMMAND-SETUP.md
+pipeline/
+substack/
+.claude/
+*.docx
+*.xlsx
