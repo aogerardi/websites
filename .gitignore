@@ -17,3 +17,5 @@ substack/
 .claude/
 *.docx
 *.xlsx
+lead_list_prompt_template.md
+*_prompt_template.md
