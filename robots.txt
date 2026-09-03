@@ -1,11 +1,11 @@
 User-agent: *
 Allow: /
 
-# Demos stay out of search and off the public site. The one exception below is
-# a live pitch we need link-preview cards for (Teams/Slack/iMessage unfurlers
-# have to be able to FETCH the page to read its og: tags — a Disallow here is
-# what silently kills the preview). The page still carries meta noindex, so it
-# can be fetched for a preview but will not be listed in search results.
+# Demos stay out of search and off the public site. The exception below is now
+# a redirect: Plainview went live on its own domain, and the old demo URL is
+# kept so links already shared in email/Teams/iMessage still resolve. Unfurlers
+# must be able to FETCH it to follow the redirect and read the og: tags — a
+# Disallow here is what silently kills that.
 Allow: /demos/plainview-oil/
 Disallow: /demos/
 Disallow: /command/
